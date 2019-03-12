@@ -1,0 +1,438 @@
+﻿<!doctype html>
+<html lang="en-uk">
+<head>
+    <title>5LIE0 Assignment 2 Trace View</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/prettify.css" />
+    <!--        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="http://taitems.github.com/UX-Lab/core/css/prettify.css" />-->
+</head>
+<body>
+    <div class="contain">
+
+        <h1>5LIE0, Assignment 2
+        <br>
+        <small>Trace View</small>
+        </h1>
+
+        <h2>Trace</h2>
+        <div class="traceinput">
+        <div id="messages"> </div>
+    <!--        <p>
+                Select the xml trace files: <br>
+                <input type="file" id="files" name="files[]" multiple />
+            </p>
+            The following trace files have been selected:
+            <output id="list"></output>
+        -->
+        </div>
+        <div class="gantt"></div>
+        <h2>Memory occupation</h2>
+        <div>
+            <p><input id="toggle-stacked-memory" type="checkbox" checked="checked"/><label for="toggle-stacked-memory"><i>Show as stacked graph</i></label></p>
+            <p id="choices"></p>
+            <div id="memory"></div>
+        </div>
+        <h2>Power consumption</h2>
+        <div id="power"></div>
+           
+        <p>N.B.; the time axis of the memory plot and power plot are not coupled to the gantt chart.</p>
+    </div>
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-popover.js"></script>-->
+<script type="text/javascript" src="js/jquery-2.2.0.js"></script>
+<script type="text/javascript" src="js/jquery.fn.gantt.js"></script>
+<script type="text/javascript" src="js/traces.js"></script>
+<script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
+<script type="text/javascript" src="js/bootstrap-popover.js"></script>
+<script type="text/javascript" src="js/jquery.flot.js"></script>
+<script type="text/javascript" src="js/jquery.flot.selection.js"></script>
+<script type="text/javascript" src="js/jquery.flot.stack.js"></script>
+<script type="text/javascript" src="js/jquery.flot.axislabels.js"></script>
+<script>
+    var colors = ["ganttColor1", "ganttColor2", "ganttColor3", "ganttColor4", "ganttColor5", "ganttColor6"];
+    
+    var traces = {};
+    
+    var choiceContainer = $("#choices");
+    
+    function drawGanttChart() {
+        "use strict";
+        var numColor = colors.length;
+        $(".gantt").gantt({
+            source: src,
+            navigate: "scroll",
+            scale: 100,
+            maxScale: 100000,
+            minScale: 1,
+            itemsPerPage: 20,
+        });
+
+        setTimeout(installPopover, 1000);
+    }
+    var memoryPlotOptions = {
+        xaxis: {
+            min: 0, max: 0
+        },
+        yaxis: {
+            //labelWidth: 240
+        },
+        series: {
+            stack: true
+        },
+		axisLabels: {
+            show: true
+        },
+        xaxes: [{
+            axisLabel: 'Time (us)',
+        }],
+        yaxes: [{
+            position: 'left',
+            axisLabel: 'Memory usage (B)',
+        }]
+    };
+    
+    $("#toggle-stacked-memory").click(function() {
+        plotAccordingToChoices();
+    });
+    
+    function plotAccordingToChoices() {
+        var data = [];
+        memoryPlotOptions.series.stack = $('#toggle-stacked-memory').is(':checked');
+
+        choiceContainer.find("input:checked").each(function () {
+            var key = $(this).attr("name");
+            if (key && mem[key] && mem[key].data.length > 0) {
+                data.push(mem[key]);
+            }
+        });
+
+        if (data.length > 0) {
+            $.plot("#memory", data, memoryPlotOptions);
+        }
+    }
+    
+    function drawMemoryChart() {
+        // insert checkboxes 
+        var maxTime = 0;
+        $.each(mem, function(key, val) {
+            choiceContainer.append("<input type='checkbox' name='" + key +
+                "' checked='checked' id='id" + key + "'></input>" +
+                "<label for='id" + key + "'>"
+                + val.label + "</label>");
+            $.each(val.data, function(index, datapoint) {
+                maxTime = Math.max(maxTime, datapoint[0]);
+            });
+        });
+        memoryPlotOptions.xaxis.max = maxTime;
+        
+        choiceContainer.find("input").click(plotAccordingToChoices);
+
+        plotAccordingToChoices();
+    }
+
+    function drawPowerChart() {
+
+        var maxTime = 0;
+        $.each(power, function(i, d){
+            $.each(d.data, function(index, datapoint) {
+                maxTime = Math.max(maxTime, datapoint[0]);
+            });
+        });
+        
+        var powerPlotOptions = {
+            xaxis: {
+                min: 0, max: maxTime
+            },
+            yaxis: {
+                //labelWidth: 240
+            },
+			axisLabels: {
+				show: true
+			},
+			xaxes: [{
+				axisLabel: 'Time (us)',
+			}],
+			yaxes: [{
+				position: 'left',
+				axisLabel: 'Power usage (W)',
+			}]
+        };
+        $.plot("#power", power, powerPlotOptions);
+    }
+
+    function installPopover() {
+        //$(".gantt").popover({
+        //    selector: ".bar",
+        $(".bar").popover({
+            title: function () {
+                return $(this).data('dataObj').popTitle;
+            },
+            content: function () {
+                return $(this).data('dataObj').popContent;
+            },
+            trigger: "hover"
+        });
+    }
+
+    var src;
+    var mem = {};
+    var power = [];
+    var LoadFailure = false;
+    var FilesToLoad = 0;
+    
+    function getTraceXML(filename) {
+        return $.ajax({
+            type: "GET",
+            url: filename,
+            dataType: "xml"
+        });
+    }
+
+    $(document).ready(function () {
+
+        function AddTrace(traceName) {
+            switch (traceName) {
+                case "ProcessorTraceNode1.xml": addProcTrace(traces[traceName], 0);
+                    break;
+                case "ProcessorTraceNode2.xml": addProcTrace(traces[traceName], 1);
+                    break;
+                case "ProcessorTraceNode3.xml": addProcTrace(traces[traceName], 2);
+                    break;
+                case "ProcessorTraceNode4.xml": addProcTrace(traces[traceName], 3);
+				    break;
+                case "ProcessorTraceNode5.xml": addProcTrace(traces[traceName], 4);
+					break;
+                case "ProcessorTraceNode6.xml": addProcTrace(traces[traceName], 5);
+                    break;
+                case "CommunicationTraceNoC.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+                case "CommunicationTraceNode1.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+                case "CommunicationTraceNode2.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+                case "CommunicationTraceNode3.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+                case "CommunicationTraceNode4.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+				case "CommunicationTraceNode5.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+                case "CommunicationTraceNode6.xml": addCommTrace(traces[traceName], "Comm.");
+                    break;
+                case "MemoryTraceDataNode1.xml": addMemTrace(mem, traces[traceName], "Data Memory Node 1", 0);
+                    break;
+                case "MemoryTraceDataNode2.xml": addMemTrace(mem, traces[traceName], "Data Memory Node 2", 1);
+                    break;
+                case "MemoryTraceDataNode3.xml": addMemTrace(mem, traces[traceName], "Data Memory Node 3", 2);
+                    break;
+                case "MemoryTraceDataNode4.xml": addMemTrace(mem, traces[traceName], "Data Memory Node 4", 3);
+                    break;
+                case "MemoryTraceDataNode5.xml": addMemTrace(mem, traces[traceName], "Data Memory Node 5", 4);
+                    break;
+                case "MemoryTraceDataNode6.xml": addMemTrace(mem, traces[traceName], "Data Memory Node 6", 5);
+                    break;
+                case "MemoryTraceBufferNode1.xml": addMemTrace(mem, traces[traceName], "Buffer Memory Node 1", 6);
+                    break;
+                case "MemoryTraceBufferNode2.xml": addMemTrace(mem, traces[traceName], "Buffer Memory Node 2", 7);
+                    break;
+                case "MemoryTraceBufferNode3.xml": addMemTrace(mem, traces[traceName], "Buffer Memory Node 3", 8);
+                    break;
+                case "MemoryTraceBufferNode4.xml": addMemTrace(mem, traces[traceName], "Buffer Memory Node 4", 9);
+                    break;
+				case "MemoryTraceBufferNode5.xml": addMemTrace(mem, traces[traceName], "Buffer Memory Node 5", 10);
+                    break;
+                case "MemoryTraceBufferNode6.xml": addMemTrace(mem, traces[traceName], "Buffer Memory Node 6", 11);
+                    break;
+                case "MemoryTraceNoC.xml": addMemTrace(mem, traces[traceName], "Buffer Memory NoC", 12);
+                    break;
+                case "BatteryTrace.xml": addPowerTrace(power, traces[traceName]);
+                    break;
+            };
+        }
+        
+        function ResetGraphs() {
+            src = [
+                    {
+                        name: "Processor 1",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 2",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 3",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 4",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 5",
+                        desc: "Computation",
+                        values: []
+                    }, {
+                        name: "Processor 6",
+                        desc: "Computation",
+                        values: []
+                    }
+            ];
+            mem = {};
+            power = [];
+            LoadFailure = false;
+            traces = {};
+            
+            choiceContainer.html(""); // remove the old option entries
+        }
+        
+        function UpdateCharts() {
+            drawGanttChart();
+            drawMemoryChart();
+            drawPowerChart();
+        }
+
+        function LoadTraceFile(f) {
+            var fr = new FileReader();
+            fr.onload = function (e) {
+                xmlDoc = $.parseXML(fr.result);
+                $xml = $(xmlDoc);
+                traces[f.name] = $xml;
+                AddTrace(f.name);
+                FilesToLoad--;
+                if (FilesToLoad == 0) UpdateCharts(); // TODO: this might be called too often
+            };
+            fr.readAsText(f);
+        }
+
+        // http://stackoverflow.com/questions/1043957/clearing-input-type-file-using-jquery
+        function resetFormElement(e) {
+          e.wrap('<form>').closest('form').get(0).reset();
+          e.unwrap();
+        }
+        
+        function handleTraceFileSelect(evt) {
+            $("#messages").empty();
+            var files = evt.target.files; // FileList object
+            ResetGraphs();
+            // files is a FileList of File objects. List some properties.
+            var output = [];
+            
+            for (var i = 0, f; f = files[i]; i++) {
+                // crude selection of only the trace files
+                if (f.type == 'text/xml' && f.name.indexOf("Trace") != -1) {
+                    FilesToLoad++;
+                    LoadTraceFile(f);
+                    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                        f.size, ' bytes, last modified: ',
+                        f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                        '</li>');
+                }
+            }
+            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+            resetFormElement($('#files'));
+        }
+
+        function ShowTraceSelection() {
+            $("#messages").empty();
+            $("#messages").append("<p style='color:red'>Failed to load one or more processor trace files automatically. Not all expected files are in the expected location (perhaps because one of the nodes is not used in the mapping), or your browser does not allow access to local files.</p></div>");
+            $(".traceinput").append("<p><strong>Please select all the xml trace files manually.</p><p>Hint, press CTRL + A in the dialog to select all files in the simulator directory:</strong></p><p><input type='file' id='files' name='files[]' multiple /></p><p>The following trace files have been selected:</p><div id='list'></div>");
+            document.getElementById('files').addEventListener('change', handleTraceFileSelect, false);
+
+        }
+        
+        // Initialize the graph data
+        ResetGraphs();
+
+        $.when(getTraceXML("data/ProcessorTraceNode1.xml"),
+                getTraceXML("data/ProcessorTraceNode2.xml"),
+                getTraceXML("data/ProcessorTraceNode3.xml"),
+                getTraceXML("data/ProcessorTraceNode4.xml"),
+				getTraceXML("data/ProcessorTraceNode5.xml"),
+				getTraceXML("data/ProcessorTraceNode6.xml"),
+                getTraceXML("data/CommunicationTraceNoC.xml"),
+                getTraceXML("data/CommunicationTraceNode1.xml"),
+                getTraceXML("data/CommunicationTraceNode2.xml"),
+                getTraceXML("data/CommunicationTraceNode3.xml"),
+				getTraceXML("data/CommunicationTraceNode4.xml"),
+				getTraceXML("data/CommunicationTraceNode5.xml"),
+                getTraceXML("data/CommunicationTraceNode6.xml"))
+          .then(function (xml1, xml2, xml3, xml4, xml5, xml6, xml7, xml8, xml9, xml10, xml11, xml12, xml13) {
+              addProcTrace(xml1, 0);
+              addProcTrace(xml2, 1);
+              addProcTrace(xml3, 2);
+              addProcTrace(xml4, 3);
+			  addProcTrace(xml5, 4);
+			  addProcTrace(xml6, 5);
+              addCommTrace(xml7, "Comm.");
+              addCommTrace(xml8, "Comm.");
+              addCommTrace(xml9, "Comm.");
+              addCommTrace(xml10, "Comm.");
+              addCommTrace(xml11, "Comm.");
+			  addCommTrace(xml12, "Comm.");
+			  addCommTrace(xml13, "Comm.");
+              drawGanttChart();
+          })
+          .fail(function (response, error) {
+              ShowTraceSelection();
+              LoadFailure = true;
+          });
+          
+          $.when(
+                getTraceXML("data/MemoryTraceDataNode1.xml"),
+                getTraceXML("data/MemoryTraceDataNode2.xml"),
+                getTraceXML("data/MemoryTraceDataNode3.xml"),
+                getTraceXML("data/MemoryTraceDataNode4.xml"),
+				getTraceXML("data/MemoryTraceDataNode5.xml"),
+				getTraceXML("data/MemoryTraceDataNode6.xml"),
+                getTraceXML("data/MemoryTraceBufferNode1.xml"),
+                getTraceXML("data/MemoryTraceBufferNode2.xml"),
+                getTraceXML("data/MemoryTraceBufferNode3.xml"),
+                getTraceXML("data/MemoryTraceBufferNode4.xml"),
+				getTraceXML("data/MemoryTraceBufferNode5.xml"),
+				getTraceXML("data/MemoryTraceBufferNode6.xml"),
+                getTraceXML("data/MemoryTraceNoC.xml"))
+             .then(function (xml1, xml2, xml3, xml4, xml5, xml6, xml7, xml8, xml9, xml10, xml11, xml12, xml13) {
+                addMemTrace(mem, xml1, "Data Memory Node 1", 1);
+                addMemTrace(mem, xml2, "Data Memory Node 2", 2);
+                addMemTrace(mem, xml3, "Data Memory Node 3", 3);
+                addMemTrace(mem, xml4, "Data Memory Node 4", 4);
+				addMemTrace(mem, xml5, "Data Memory Node 5", 5);
+				addMemTrace(mem, xml6, "Data Memory Node 6", 6);
+                addMemTrace(mem, xml7, "Buffer Memory Node 1", 7);          
+                addMemTrace(mem, xml8, "Buffer Memory Node 2", 8);          
+                addMemTrace(mem, xml9, "Buffer Memory Node 3", 9);          
+                addMemTrace(mem, xml10, "Buffer Memory Node 4", 10);
+				addMemTrace(mem, xml11, "Buffer Memory Node 5", 11);
+				addMemTrace(mem, xml12, "Buffer Memory Node 6", 12);
+                addMemTrace(mem, xml13, "Buffer Memory NoC", 13);          
+
+                drawMemoryChart();
+             }).fail(function (response, error) {
+              if (LoadFailure == false) {
+                  ShowTraceSelection();
+                  loadFailure = true;
+              }
+          }); 
+          $.when(
+                getTraceXML("data/BatteryTrace.xml"))
+             .then(function (xml) {
+                addPowerTrace(power, xml);         
+
+                drawPowerChart();
+            }).fail(function (response, error) {
+              if (LoadFailure == false) {
+                  ShowTraceSelection();
+                  loadFailure = true;
+              }
+          });
+    });
+
+</script>
+</body>
+
+</html>
