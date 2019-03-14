@@ -8,13 +8,13 @@ from geneticdrift import create_offspring
 
 class Evolver():
     def __init__(self):
-        obj_fun1 = lambda a : a
-        obj_fun2 = lambda a : 1/(0.2*a+1)*10 + np.sin(10*a)
+        obj_fun1 = lambda a,b,c,d : a + b*b + c *d
+        obj_fun2 = lambda a,b,c,d : 1/(0.2*a+1)*10 + np.sin(10*a) + np.sin(b)
         self.obj_funs= [obj_fun1,obj_fun2]
         self.pop_size = 30
         self.parents_per_child=2
         self.mutation_chance = 0.2
-        self.possible_genes_combined = [np.linspace(0,20,2000)] 
+        self.possible_genes_combined = [np.linspace(0,20,200),np.linspace(0,20,200),np.linspace(0,20,200),np.linspace(0,20,200)] 
         self.tournament_rounds = 2
         self.known_dna = set()
         self.front_population = []
@@ -78,10 +78,6 @@ p5 = win.addPlot(title="Generation")
 plt = p5.plot(evolver.objective_scores[:,0], evolver.objective_scores[:,1], pen=None, symbol='t', symbolPen=None, symbolSize=10, symbolBrush=(255, 0, 0, 200))
 plt_front = p5.plot(evolver.front_scores[:,0], evolver.front_scores[:,1], pen=None, symbol='t', symbolPen=None, symbolSize=10, symbolBrush=(0, 255, 0, 200))
 
-x = np.linspace(0,20,200)
-y =evolver.obj_funs[1](x)
-
-plt2 = p5.plot(x,y)
 
 
 def update():

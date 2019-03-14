@@ -34,11 +34,34 @@ def simulate_processor(model_parameters,myid=0):
          6,model_parameters, output_directory) == False:
              raise Exception("Model did not terminate to completion, check the output of Rotalumis!")
 
-taskmaps = [random.choice(MapTaskTos) for _ in range(11)]
-node_processor_types = [random.choice(NodeProcessorTypes) for _ in range(6)]
-vsfs = [random.choice(VSFs) for _ in range(6)]
-os_policies= [random.choice(OSPolicys) for _ in range(6)]
 
-model_params = create_model_params(taskmaps,node_processor_types,vsfs,os_policies)
-#print(model_params)
-simulate_processor(model_params)
+
+def perform_simulation(taskmaps,node_processor_types,vsfs,os_policies):
+    model_params = create_model_params(taskmaps,node_processor_types,vsfs,os_policies)
+    #print(model_params)
+    simulate_processor(model_params)
+
+    f = open("poosl_model0/simulator/Application.log", "r")
+    output = f.read()
+    words = output.split()
+    throughput = float(words[11])
+    latency = float(words[28])
+    f= open("poosl_model0/simulator/Battery.log", "r")
+    output = f.read()
+    words = output.split()
+    avg_power = words[8]
+
+    f= open("poosl_model0/simulator/BatteryTrace.xml", "r")
+    output = f.read()
+    words = output.split()
+    total_time = float(words[-3].split("'")[1])
+    power_consumption = total_time * avg_power
+
+    no_processors = len(set(taskmaps))
+    return throughput,latency,power_consumption,no_processors
+
+if __name__ == "__main__":
+    taskmaps = [random.choice(MapTaskTos) for _ in range(11)]
+    node_processor_types = [random.choice(NodeProcessorTypes) for _ in range(6)]
+    vsfs = [random.choice(VSFs) for _ in range(6)]
+    os_policies= [random.choice(OSPolicys) for _ in range(6)]

@@ -15,7 +15,7 @@ def pareto_rank(objectives):
     ranks = np.zeros(objectives.shape[0],dtype=int)
     done = False
     fronts = []
-    print()
+    
     while not done:
         myids = np.argwhere(ranks == 0).T[0]
         if len(myids) > 0:
@@ -51,9 +51,12 @@ def crowding_distance(fronts,ranks):
     return distance
 
 def pareto_tournament(paretorank,no_matches,rounds,crowd_distance = []):
+    
+    # Add all pareto dominators
     n = len(paretorank)
-    matingpool = []#np.zeros(no_matches,dtype = int)
-    for i in range(no_matches):
+    matingpool =[]
+
+    for i in range(n):
         a = np.random.randint(n)
         for j in range(rounds):
             b = np.random.randint(n)
@@ -66,11 +69,13 @@ def pareto_tournament(paretorank,no_matches,rounds,crowd_distance = []):
         matingpool.append(a)    
     return matingpool
 
-def calculate_score_and_pareto_rank(population,objfuns):
+def calculate_score(population,objfuns):
     objective_scores = [[obj_fun(*tuple(creature)) for creature in population] for obj_fun in objfuns]
     objective_scores = np.array(objective_scores).T
+    return objective_scores
+def calculate_paretoranks(objective_scores):
     fronts,ranks = pareto_rank(objective_scores)
-    return fronts,ranks,objective_scores
+    return fronts,ranks
 
 
 
