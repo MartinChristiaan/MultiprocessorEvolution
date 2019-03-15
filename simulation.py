@@ -46,7 +46,7 @@ def perform_simulation(dna,mydir):
     f = open(mydir+"/Application.log", "r")
     output = f.read()
     words = output.split()
-    if words[0] == "Fail":
+    if words[0] == "Failed":
         print("Failed!")
         return 0,0,0,0
     else:
@@ -72,11 +72,11 @@ def perform_simulation(dna,mydir):
 
 
 if __name__ == "__main__":
-    taskmaps = [MapTaskTos[i] for i in [0,1,2,3,4,5,1,2,0,3,3]]
-    node_processor_types = [NodeProcessorTypes[i] for i in [0,1,1,2,0,2]]
+    taskmaps = [MapTaskTos[i] for i in[0,1,2,3,4,5,1,2,0,3,3]]# [0,0,0,0,0,0,0,0,0,0,0]]# 
+    node_processor_types = [NodeProcessorTypes[i] for i in [0,1,1,2,0,2]] #[0,0,0,0,0,0]] #
     vsfs = [VSFs[i] for i in [1,0,0,0,1,0]]
-    os_policies= [OSPolicys[i] for i in [1,1,1,1,0,1]]
+    os_policies= [OSPolicys[i] for i in [0,0,0,0,0,0]]
     dna = taskmaps + node_processor_types + vsfs + os_policies
     mydir = setup_simulation(0)
-    perform_simulation(dna,mydir)
+    print(perform_simulation(dna,mydir))
 

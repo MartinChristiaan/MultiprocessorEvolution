@@ -64,12 +64,12 @@ instances
 		VSF6 := 1.0/1.0,
 		
 		// The operating system scheduling policies. Must be either "PB" of "FCFS"
-		OSPolicy1 := "PB",
-		OSPolicy2 := "PB",
-		OSPolicy3 := "PB",
-		OSPolicy4 := "PB",
+		OSPolicy1 := "FCFS",
+		OSPolicy2 := "FCFS",
+		OSPolicy3 := "FCFS",
+		OSPolicy4 := "FCFS",
 		OSPolicy5 := "FCFS",
-		OSPolicy6 := "PB",
+		OSPolicy6 := "FCFS",
 
 		// Do not change the following parameters
 		NoC_BandwidthPerConnection := 10000000.0, 

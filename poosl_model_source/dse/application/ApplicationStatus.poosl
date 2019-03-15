@@ -43,11 +43,15 @@ methods
 	 * update statistics with respect to a completed firing of Task 8 that has just occurred
 	 */
 	fired(CurrentTime: Real) : ApplicationStatus
-		| ReleaseTime, FiringLatency: Real |
+		| ReleaseTime, FiringLatency: Real,LogFile: FileOut |
 		Throughput rewardBM(1.0, CurrentTime);
 		ReleaseTime := NumberOfFirings asReal * Period;
 		FiringLatency := CurrentTime - ReleaseTime;
-		if FiringLatency > LatencyBound then self error("Latency is diverging. Throughput constraint is not met.") fi;
+		if FiringLatency > LatencyBound then 
+			LogFile := new(FileOut) destination("Application.log") open;
+			LogFile write("Failed");
+			self error("Latency is diverging. Throughput constraint is not met.") 
+		fi;
 		Latency rewardBM(FiringLatency);
 		NumberOfFirings := NumberOfFirings + 1;
 		TimeOfLastFiring := CurrentTime;
