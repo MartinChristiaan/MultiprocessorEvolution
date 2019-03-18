@@ -1,53 +1,54 @@
 
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import random
-import numpy as np
-from paretosurvival import pareto_rank,pareto_tournament,crowding_distance,calculate_score, calculate_paretoranks
-from geneticdrift import create_offspring
+from selection import pareto_rank,tournament,crowding_distance
+from geneticdrift import create_offspring,create_inital_population
 from simulation import perform_simulation
-
-
+from task_scheduler import schedule_tasks
+import pandas as pd
+import autosim_multiproc
+import poosl_model_generator
 def quotate(mystr):
     return '"' + mystr + '"'
+columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeProcessorType4","NodeProcessorType5","NodeProcessorType6","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
+#MapTaskTos = [ quotate("Node" + str(i)) for i in range(1,7)]
 
-MapTaskTos = [ quotate("Node" + str(i)) for i in range(1,7)]
-NodeProcessorTypes = [quotate(s) for s in [ "ARMv8", "Adreno" , "MIPS"]]
-VSFs =  ["1.0/1.0","2.0/3.0","1.0/4.0"]
-OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
-
-pop_size = 5
+pop_size = 4
 parents_per_child=2
-mutation_chance = 0.2
-tmaps = [[MapTaskTos[0]],[MapTaskTos[1]],[MapTaskTos[2]],[MapTaskTos[3]],[MapTaskTos[4]],[MapTaskTos[5]],[MapTaskTos[1]],[MapTaskTos[2]],[MapTaskTos[0]],[MapTaskTos[3]],[MapTaskTos[3]]]
-possible_genes_combined = tmaps+ [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
+mutation_chance = 0.1
+no_parallel_simulations = 1
+
+NodeProcessorTypes = [quotate(s) for s in [ "Adreno" , "MIPS"]]  #"ARMv8",
+VSFs =  [str(1.0),str(2.0/3.0)]
+OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
+gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 2
-known_dna = set()
-front_population = []
-failed= False
+population,known_dna = create_inital_population(gene_pool,pop_size)
+population_df = pd.DataFrame()
 
-# Initialize First Population
+if __name__ == "__main__":
+    for processor in population:
+        row = pd.DataFrame([processor],columns = columns)
+        population_df = population_df.append(row)
 
-population = []
-objective_scores = []
+    for i in range(no_parallel_simulations):
+        poosl_model_generator.setup_simulation(i)
 
-while len(population) < pop_size:
-    pot_dna = [random.choice(possible_gene) for possible_gene in possible_genes_combined]
-    pot_dna_hash = tuple(pot_dna)
-    if pot_dna_hash not in known_dna:
-        known_dna.add(pot_dna_hash)
-        print(pot_dna)
-        throughput,latency,power_consumption,no_processors =  perform_simulation((pot_dna))
-        if throughput > 500:
-            population.append(pot_dna)
-            objective_scores.append([latency,power_consumption,no_processors])
-            
+    results = autosim_multiproc.autosim_multiproc(perform_simulation,population_df,no_parallel_simulations)
+    print(results)
 
-fronts,ranks = calculate_paretoranks(np.array(objective_scores))
-first_front = np.argwhere(ranks == 1)[:,0]
-population = np.array(population)
-front_population = population[first_front]
-front_scores = objective_scores[first_front,:]
+
+
+
+
+#fronts,ranks = calculate_paretoranks(np.array(objective_scores))
+
+
+# first_front = np.argwhere(ranks == 1)[:,0]
+# population = np.array(population)
+# front_population = population[first_front]
+# front_scores = objective_scores[first_front,:]
 
 
 

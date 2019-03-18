@@ -1,6 +1,6 @@
 import numpy as np
-
-
+from geneticdrift import create_offspring,create_inital_population
+from selection import tournament
 
 class ARMv8():
     def __init__(self,V):
@@ -27,8 +27,45 @@ class MIPS():
         self.time_per_task_s2 = np.array(cycles_per_task_s2)/(k_f * V)
 
 
-# Load some node array
-nodes = [ARMv8(1),ARMv8(1),ARMv8(1),ARMv8(1),ARMv8(1),ARMv8(1)]
+
+
+
+def calculate_schedule_time(schedule,nodes):
+    node_occupation_t1 = np.zeros(6)
+    node_occupation_t2 = np.zeros(6)
+
+
+    for i_task, node_assigned in enumerate(schedule):
+        task_dependencies = dependencies[i_task]
+        
+        com_times_t1= com_times[i_task]
+        com_times_t2 = com_times2[i_task]
+
+        time_task_available_t1 = node_occupation_t1[node_assigned]
+        time_task_available_t2 = node_occupation_t2[node_assigned]
+        #time_task_available_t2 = max(t_completions_t2[i_task],time_task_available_t2)
+                
+
+        for i_dep,dependency in enumerate(task_dependencies):
+            if not schedule[dependency] == node_assigned: # Has the dependency not been executed by me
+                time_task_available_t1 = max(node_occupation_t1[schedule[dependency]] + com_times_t1[i_dep],time_task_available_t1)
+                time_task_available_t2 = max(node_occupation_t2[schedule[dependency]] + com_times_t2[i_dep],time_task_available_t2)
+
+        completion_time_t1 = time_task_available_t1 + nodes[node_assigned].time_per_task_s1[i_task]
+        completion_time_t2 = time_task_available_t2 + nodes[node_assigned].time_per_task_s2[i_task]
+
+        node_occupation_t1[node_assigned] = completion_time_t1
+        node_occupation_t2[node_assigned] = completion_time_t2
+
+    return (max(node_occupation_t1) + max(node_occupation_t2))/2
+
+import time
+
+
+
+pop_size = 80
+no_gen = 50
+mutation_chance = 0.15
 
 
 dependencies = [[],[0], [0], [0],  [1],  [1],  [2], [2 , 3 ],[4,5,6],[6,7],[8,9]]
@@ -36,65 +73,48 @@ dependencies = [[],[0], [0], [0],  [1],  [1],  [2], [2 , 3 ],[4,5,6],[6,7],[8,9]
 com_times = [[],[205],[205],[0],[205],[103],[205],   [103,0],[205,205,820],[103,103],[409,205]]
 com_times2 = [[],[205],[205],[409],[205],[103],[205],[205,409],[205,205,820],[103,103],[409,205]]
 
-# expand
-divergence = 2 
+com_times = [[t*10**-9 for t in times] for times in com_times]
+com_times2 = [[t*10**-9 for t in times] for times in com_times2]
+gene_pool = [list(range(6)) for _ in range(11)]
 
-def schedule_task(schedule,t_completions_t1,t_completions_t2):
-    task_id = len(schedule)
-    task_dependencies = dependencies[task_id]
-    com_times_t1= com_times[task_id]
-    com_times_t2 = com_times2[task_id]
-    potential_times_t1 = np.zeros(6) 
-    potential_times_t2 = np.zeros(6) 
 
-    for i_node,node in enumerate(nodes):
-        time_task_available_t1 = 0
-        time_task_available_t2 = 0
-        for i_task,node_assigned in enumerate(schedule):
-            if node_assigned == i_node:
-                time_task_available_t1 = t_completions_t1[i_task]
-                time_task_available_t2 = t_completions_t2[i_task]
 
-        for i_dep,dependency in enumerate(task_dependencies):
-            if not schedule[dependency] == i_node: # Has the dependency not been executed by me
-                time_task_available_t1 = max(t_completions_t1[dependency] + com_times_t1[i_dep],time_task_available_t1)
-                time_task_available_t2 = max(t_completions_t2[dependency] + com_times_t2[i_dep],time_task_available_t2)
-
-        my_potential_completion_time_t1 = time_task_available_t1 + node.time_per_task_s1[task_id]
-        my_potential_completion_time_t2 = time_task_available_t2 + node.time_per_task_s2[task_id]
-        potential_times_t1[i_node] = my_potential_completion_time_t1
-        potential_times_t2[i_node] = my_potential_completion_time_t2
+def schedule_tasks(nodes_cmd,voltages_cmd):
+    nodes = []
+    for i,node in enumerate(nodes_cmd):
+        v = float(voltages_cmd[i])
         
-    if task_id == len(dependencies)-1:
-        best_node = (potential_times_t1 + potential_times_t2).argmin()
-        schedule.append(best_node)
-        final_time = t_completions_t1+potential_times_t1[best_node] + potential_times_t2[best_node]
-        return schedule,final_time
-    else:
-        nodes_sorted = np.argsort(potential_times_t1 + potential_times_t2)
-        potential_schedules = []
-        final_times = np.zeros(divergence)
-        for i in range(divergence):
+        if node == '"ARMv8"':
+            nodes+= [ARMv8(v)]
+        if node ==  '"Adreno"':
+            nodes+= [Adreno(v)]
+        if node == '"MIPS"':
+            nodes+= [MIPS(v)]
 
-            task_completion_time_t1 = potential_times_t1[nodes_sorted][i]
-            task_completion_time_t2 = potential_times_t2[nodes_sorted][i]
 
-            new_t_completions_t1 = t_completions_t1 + [task_completion_time_t1]
-            new_t_completions_t2 = t_completions_t2 + [task_completion_time_t2]
+    # Load some node array
 
-            new_schedule = schedule + [nodes_sorted[i]]
-            print(new_schedule)
+    population,known_dna = create_inital_population(gene_pool,pop_size)
+    population = np.array(population)
+    best_times = []
+    avg_times = []
+    for gen in range(no_gen):
+        avg_duration = [calculate_schedule_time(schedule,nodes) for schedule in population]
+        parents_ids = tournament(avg_duration,pop_size,2)
+        parents = population[parents_ids]
+        parents = np.unique(parents,axis=0)
+        offspring,known_dna,_ = create_offspring(parents,2,pop_size,mutation_chance,gene_pool,known_dna)
+        population = np.concatenate((parents,offspring))
+        best_times += [min(avg_duration)]
+        avg_times +=[np.mean(avg_duration)]
+    unique_pop = np.unique(population,axis=0)
 
-            potential_schedule,final_time = schedule_task(new_schedule,new_t_completions_t1,new_t_completions_t2)
-            print(final_time)
-            potential_schedules.append(potential_schedule)
-            final_times[i] = final_time
-        best_time_id = final_times.argmin()
-        return potential_schedules[best_time_id],final_times[best_time_id]
+    schedule = population[np.argmin(avg_duration)]
+    schedule_cmd = []
+    for node_asigened in schedule:
+        schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
+    return schedule_cmd
 
-schedule,time = schedule_task([],[],[])
-print(schedule)
-print(time)
 
 
 

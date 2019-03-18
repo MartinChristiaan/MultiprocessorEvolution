@@ -3,7 +3,7 @@ import os
 import random
 from poosl_model_generator import setup_simulation
 import shutil
-
+from task_scheduler import schedule_tasks
 
 def create_model_params(taskmaps,node_processor_types,voltage_scaling,os_policies):
     model_parameters = {"Application" : "Applicate"}
@@ -28,20 +28,22 @@ def simulate_processor(model_parameters,mydir):
              raise Exception("Model did not terminate to completion, check the output of Rotalumis!")
 
 
-def perform_simulation(dna,mydir):
-    taskmaps = dna[:11]
-    node_processor_types = dna[11:17]
-    vsfs = dna[17:23]
-    os_policies = dna[23:]
+def perform_simulation(dna,i=0):
+    task_map_names = ['MapTask1To','MapTask2To','MapTask3To',"MapTask4To","MapTask5To","MapTask6To","MapTask7To","	MapTask8To","MapTask9To","MapTask10To","MapTask11To"]
+    node_processor_types = dna[:6]
+    vsfs = dna[6:12]
+    os_policies = dna[12:]
+    taskmaps = schedule_tasks(node_processor_types,vsfs)
+    mydir = "poosl_model"+str(i)
     model_params = create_model_params(taskmaps,node_processor_types,vsfs,os_policies)
     #print(model_params)
     simulate_processor(model_params,mydir)
     f = open(mydir+"/Application.log", "r")
     output = f.read()
     words = output.split()
-    names = ["Latency","PowerConsumption","Number of Processors"]
+    names = ["Latency","PowerConsumption","Number of Processors"] + task_map_names
     if words[0] == "Failed":
-        return names,[9999,9999,9999]
+        return names,[9999,9999,9999] + taskmaps
     throughput = float(words[11])
     latency = float(words[28])
     f= open(mydir+"/Battery.log", "r")
@@ -54,9 +56,10 @@ def perform_simulation(dna,mydir):
     words = output.split()
     total_time = float(words[-3].split("'")[1])
     power_consumption = total_time * avg_power
-
     no_processors = len(set(taskmaps))
-    return names,[latency,power_consumption,no_processors]
+    values = [latency,power_consumption,no_processors]
+    values.extend(taskmaps)
+    return names,values
 
 from multiprocessing import Process,Queue
    

@@ -19,6 +19,7 @@ def merge_results(nproc):
         result = pd.read_csv("result" + str(id) + ".csv")
         final_result = final_result.append(result,ignore_index=False)
     final_result.to_csv("Final_result.csv")
+    return final_result
 
 
 def perform_sim(q,simfun,dim_names,id):
@@ -27,7 +28,7 @@ def perform_sim(q,simfun,dim_names,id):
     while q.qsize()>0:
         row = list(q.get())
         row.append(id)
-        names,vals = simfun(*tuple(row))
+        names,vals = simfun(list(row),id)
         colnames = names
         colnames.extend(dim_names)
         newrow = vals
@@ -39,7 +40,7 @@ def perform_sim(q,simfun,dim_names,id):
     return
     
 
-def autosim_multiproc(simfun,config_df,resultpath="result.csv"):
+def autosim_multiproc(simfun,config_df,no_parallel_simulations,resultpath="result.csv"):
 
     result_df = pd.DataFrame()
     names = []
@@ -51,9 +52,7 @@ def autosim_multiproc(simfun,config_df,resultpath="result.csv"):
         q.put(row)
 
     processes = []
-    for i in range(1,6):
-       import shutil
-       shutil.copytree("poosl_model0", "poosl_model" +str(i)) 
+    for i in range(1,no_parallel_simulations):
        p = Process(target=perform_sim, args=(q,simfun,config_df.columns,i))
        p.start()
        processes.append(p)
@@ -71,7 +70,7 @@ def autosim_multiproc(simfun,config_df,resultpath="result.csv"):
         
         print(str_1)
         print(mystr)
-        names,vals = simfun(*tuple(row))
+        names,vals = simfun(list(row),0)
         colnames = names
         colnames.extend(config_df.columns)
         
@@ -83,8 +82,8 @@ def autosim_multiproc(simfun,config_df,resultpath="result.csv"):
         dt = time.time()-tstart
     for i,p in enumerate(processes):
        p.join()
-       shutil.rmtree("poosl_model" +str(i+1))
-    merge_results(6)       
+    return merge_results(no_parallel_simulations)
+           
 
 
 
