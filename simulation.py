@@ -26,7 +26,12 @@ def simulate_processor(model_parameters,mydir):
          open(model_path + "\\dse_template.poosl").read(), # system instance template
          6,model_parameters, output_directory) == False:
              raise Exception("Model did not terminate to completion, check the output of Rotalumis!")
-
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
 
 def perform_simulation(dna,i=0):
     task_map_names = ['MapTask1To','MapTask2To','MapTask3To',"MapTask4To","MapTask5To","MapTask6To","MapTask7To","	MapTask8To","MapTask9To","MapTask10To","MapTask11To"]
@@ -35,80 +40,46 @@ def perform_simulation(dna,i=0):
     os_policies = dna[12:]
     taskmaps = schedule_tasks(node_processor_types,vsfs)
     mydir = "poosl_model"+str(i)
-    model_params = create_model_params(taskmaps,node_processor_types,vsfs,os_policies)
-    #print(model_params)
-    simulate_processor(model_params,mydir)
-    f = open(mydir+"/Application.log", "r")
-    output = f.read()
-    words = output.split()
+
+    latency = 99999
+    power_consumption = 99999
+    no_processors = 99999
     names = ["Latency","PowerConsumption","Number of Processors"] + task_map_names
-    if words[0] == "Failed":
-        return names,[9999,9999,9999] + taskmaps
-    throughput = float(words[11])
-    latency = float(words[28])
-    f= open(mydir+"/Battery.log", "r")
-    output = f.read()
-    words = output.split()
-    avg_power = float(words[8])
+    best_taskmap = taskmaps[0]
+    succes = 0
+    for taskmap in taskmaps:
+        model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies)
+        simulate_processor(model_params,mydir)
+        f = open(mydir+"/Application.log", "r")
+        output = f.read()
+        words = output.split()
+        if not words[0] == "Failed":
+            succes+=1
+            new_latency = float(words[28])
+            if new_latency < latency:
+                latency = new_latency
+                f= open(mydir+"/Battery.log", "r")
+                output = f.read()
+                words = output.split()
+                cnt=0
+                avg_power = 0
+                for word in words:
+                    if is_number(word):
+                        cnt+=1
+                        if cnt == 2:
+                            avg_power = float(word)
 
-    f= open(mydir+"/BatteryTrace.xml", "r")
-    output = f.read()
-    words = output.split()
-    total_time = float(words[-3].split("'")[1])
-    power_consumption = total_time * avg_power
-    no_processors = len(set(taskmaps))
+                
+                f= open(mydir+"/BatteryTrace.xml", "r")
+                output = f.read()
+                words = output.split()
+                total_time = float(words[-3].split("'")[1])
+                power_consumption = total_time * avg_power
+                no_processors = len(set(taskmap))
+                best_taskmap = taskmap
+        if succes == 3:
+            break
     values = [latency,power_consumption,no_processors]
-    values.extend(taskmaps)
+    values.extend(best_taskmap)
     return names,values
-
-from multiprocessing import Process,Queue
    
-def perform_sim(q,rq,mydir):
-    while q.qsize()>0:
-        dna = list(q.get())
-        result = perform_simulation(dna,mydir)
-        rq.put(result)
- 
-
-
-
-if __name__ == "__main__":
-    def quotate(mystr):
-        return '"' + mystr + '"'
-    
-    MapTaskTos = [ quotate("Node" + str(i)) for i in range(1,7)]
-    NodeProcessorTypes = [quotate(s) for s in [ "ARMv8", "Adreno" , "MIPS"]]
-    VSFs =  ["1.0/1.0","2.0/3.0"]
-    OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
-    taskmaps = [MapTaskTos[i] for i in[0,1,2,3,4,5,1,2,0,3,3]]# [0,0,0,0,0,0,0,0,0,0,0]]# 
-    node_processor_types = [NodeProcessorTypes[i] for i in [0,1,1,2,0,2]] #[0,0,0,0,0,0]] #
-    vsfs = [VSFs[i] for i in [1,0,0,0,1,0]]
-    os_policies= [OSPolicys[i] for i in [0,0,0,0,0,0]]
-    dna = taskmaps + node_processor_types + vsfs + os_policies
-   
-    q = Queue()
-    for i in range(5):
-        q.put(dna)
-    rq = Queue()
-    processes = []
-    for i in range(1,3):
-       p = Process(target=perform_sim, args=(q,rq,setup_simulation(i)))
-       p.start()
-       processes.append(p)
-   
-    mydir = setup_simulation(0)
-    while q.qsize()>0:
-        dna = list(q.get())
-        result = perform_simulation(dna,mydir)
-        rq.put(result)
-        print("Remaining : " + str(q.qsize()))
-   
-    for i,p in enumerate(processes):
-       p.join()
-       shutil.rmtree("poosl_model" +str(i+1))
-    shutil.rmtree("poosl_model0")
-    results = []
-    while rq.qsize()>0:
-        results.append(rq.get())
-    print(results)
-    

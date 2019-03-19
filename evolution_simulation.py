@@ -14,56 +14,76 @@ def quotate(mystr):
 columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeProcessorType4","NodeProcessorType5","NodeProcessorType6","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 #MapTaskTos = [ quotate("Node" + str(i)) for i in range(1,7)]
 
-pop_size = 1000
+pop_size = 6
 parents_per_child=2
 mutation_chance = 0.1
-no_parallel_simulations = 6
+no_parallel_simulations = 4
  
 NodeProcessorTypes = [quotate(s) for s in [ "Adreno" , "MIPS"]]  #"ARMv8",
 VSFs =  [str(1.0),str(2.0/3.0)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
 gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 2
-population,known_dna = create_inital_population(gene_pool,pop_size)
-population_df = pd.DataFrame()
 
+try:
+    population_df = pd.read_csv('population.csv')   
+except:
+    population_df = pd.DataFrame()
+
+known_dna = set()
+for i,row in population_df.iterrows():
+    row_genes = population_df[population_df.columns[14:]]
+    known_dna.add(list(row_genes))
+
+population_genes_df = pd.DataFrame()
+population,known_dna = create_inital_population(gene_pool,pop_size,known_dna)
+print(known_dna)
 if __name__ == "__main__":
     for processor in population:
         row = pd.DataFrame([processor],columns = columns)
-        population_df = population_df.append(row)
-
+        population_genes_df = population_genes_df.append(row)
     for i in range(no_parallel_simulations):
         poosl_model_generator.setup_simulation(i)
+    results = autosim_multiproc.autosim_multiproc(perform_simulation,population_genes_df,no_parallel_simulations)
+    population_df = population_df.append(results)
+    population_df.to_csv('population.csv', index=False)
 
-    results = autosim_multiproc.autosim_multiproc(perform_simulation,population_df,no_parallel_simulations)
-    print(results)
-
-
-
-
-
-#fronts,ranks = calculate_paretoranks(np.array(objective_scores))
-
-
-# first_front = np.argwhere(ranks == 1)[:,0]
-# population = np.array(population)
-# front_population = population[first_front]
-# front_scores = objective_scores[first_front,:]
-
-
+latency = list(population_df['Latency'])
+PowerConsumption = list(population_df['PowerConsumption'])
+no_processors = list(population_df['Number of Processors'])
+objective_scores = np.array([latency,PowerConsumption,no_processors]).T
+fronts,ranks = pareto_rank(np.array(objective_scores))
+first_front = np.argwhere(ranks == 1)[:,0]
+front_population = population_df.iloc[first_front]
+mating_pool = tournament(ranks, pop_size, tournament_rounds)
+mating_pool = np.unique(mating_pool)
+parents =list(population_df.iloc[mating_pool].values)
+offspring=create_offspring(parents,parents_per_child,pop_size,mutation_chance,gene_pool,known_dna)
 
 
 
 
 
+#             results = simulate_population(self.population)
+#             self.objective_scores = filter_tolowthroughput(results)
+#             combined_scores =np.concatenate((self.front_scores,self.objective_scores))
+#             combined_population = np.concatenate((self.front_population,self.population))
+#             fronts,ranks = calculate_paretoranks(combined_scores)
+#             crowd_distances =crowding_distance(fronts,ranks) # Crowding distance should memorized front 
+#             first_front = np.argwhere(ranks == 1)[:,0]
+#             self.front_population = combined_population[first_front]
+#             self.front_scores = combined_scores[first_front,:]
+            
+#             mating_pool = pareto_tournament(ranks, self.pop_size, self.tournament_rounds,crowd_distances)
+#             parents = combined_population[mating_pool]
+#             offspring,self.failed = create_offspring(parents,self.parents_per_child,self.pop_size,self.mutation_chance,self.possible_genes_combined,self.known_dna)
+#             offspring = np.array(offspring)
+#             self.population = offspring
 
 
-# def simulate_population(population):
-#     # Possibly use multiple processes
-#     return [perform_simulation(*tuple(dna)) for dna in population] 
 
-# def filter_tolowthroughput(results):
-#     return [result[:2] for result in results if result[0] > 500]
+
+
 
 
 # class Evolver():

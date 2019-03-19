@@ -5,12 +5,7 @@ import time
 import sys
 
 from multiprocessing import Process,Queue
-
-
-# if __name__ == '__main__':
-#     p = Process(target=f, args=('bob',))
-#     p.start()
-#     p.join()
+import os
 
 def merge_results(nproc):      
     import pandas as pd       
@@ -18,7 +13,8 @@ def merge_results(nproc):
     for id in range(nproc):   
         result = pd.read_csv("result" + str(id) + ".csv")
         final_result = final_result.append(result,ignore_index=False)
-    final_result.to_csv("Final_result.csv")
+        os.remove("result" + str(id) + ".csv")
+    #final_result.to_csv("Final_result.csv")
     return final_result
 
 
@@ -40,7 +36,7 @@ def perform_sim(q,simfun,dim_names,id):
     return
     
 
-def autosim_multiproc(simfun,config_df,no_parallel_simulations,resultpath="result.csv"):
+def autosim_multiproc(simfun,config_df,no_parallel_simulations):
 
     result_df = pd.DataFrame()
     names = []

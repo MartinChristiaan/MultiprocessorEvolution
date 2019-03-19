@@ -2,13 +2,11 @@ import math
 import random
 import matplotlib.pyplot as plt
 import numpy as np
-from geneticdrift import *
 from selection import *
 
 
-def create_inital_population(gene_pool,pop_size):
+def create_inital_population(gene_pool,pop_size,known_dna=set()):
     population = []
-    known_dna = set()
     while len(population) < pop_size:
         pot_dna = [random.choice(possible_gene) for possible_gene in gene_pool]
         pot_dna_hash = tuple(pot_dna)
@@ -29,7 +27,6 @@ def create_offspring(parents,parents_per_child,no_offspring,mutation_chance,poss
         i_attempt+=1
         if i_attempt>3*no_offspring:
             mutation_chance+=0.3            
-            
         
         if i_attempt > no_offspring*5:
             failed = True

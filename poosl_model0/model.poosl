@@ -11,17 +11,17 @@ instances
 		// mapping of the tasks to processor nodes
 		// should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 		
-		MapTask1To := "Node6", 
-		MapTask2To := "Node5", 
-		MapTask3To := "Node1", 
-		MapTask4To := "Node4", 
+		MapTask1To := "Node3", 
+		MapTask2To := "Node2", 
+		MapTask3To := "Node5", 
+		MapTask4To := "Node1", 
 		MapTask5To := "Node6", 
-		MapTask6To := "Node2", 
-		MapTask7To := "Node3", 
-		MapTask8To := "Node4", 
-		MapTask9To := "Node5", 
+		MapTask6To := "Node3", 
+		MapTask7To := "Node2", 
+		MapTask8To := "Node1", 
+		MapTask9To := "Node2", 
 		MapTask10To := "Node4", 
-		MapTask11To := "Node5", 
+		MapTask11To := "Node4", 
 
 		// priorities should be positive Integer numbers
 		PriorityTask1 := 1, 
@@ -47,28 +47,28 @@ instances
 		// You are allowed to change these parameters
 		
 		// Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-		Node1ProcessorType := "Adreno", 
-		Node2ProcessorType := "Adreno", 
-		Node3ProcessorType := "Adreno", 
-		Node4ProcessorType := "Adreno",
+		Node1ProcessorType := "MIPS", 
+		Node2ProcessorType := "MIPS", 
+		Node3ProcessorType := "MIPS", 
+		Node4ProcessorType := "MIPS",
 		Node5ProcessorType := "Adreno",
-		Node6ProcessorType := "Adreno",
+		Node6ProcessorType := "MIPS",
 
 		// The voltage scaling factors for each of the node
 		// The result should be a Real valued number, do not write something like '2/3' !
-		VSF1 := 1.0,
-		VSF2 := 0.6666666666666666,
-		VSF3 := 0.6666666666666666,
-		VSF4 := 1.0,
-		VSF5 := 1.0,
+		VSF1 := 0.6666666666666666,
+		VSF2 := 1.0,
+		VSF3 := 1.0,
+		VSF4 := 0.6666666666666666,
+		VSF5 := 0.6666666666666666,
 		VSF6 := 1.0,
 		
 		// The operating system scheduling policies. Must be either "PB" of "FCFS"
 		OSPolicy1 := "PB",
 		OSPolicy2 := "FCFS",
 		OSPolicy3 := "FCFS",
-		OSPolicy4 := "FCFS",
-		OSPolicy5 := "FCFS",
+		OSPolicy4 := "PB",
+		OSPolicy5 := "PB",
 		OSPolicy6 := "FCFS",
 
 		// Do not change the following parameters

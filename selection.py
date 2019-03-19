@@ -11,7 +11,7 @@ def get_pareto_front(objectives):
 
 def pareto_rank(objectives):
     rank = 1
-    pop_ids = np.arange(objectives.shape[0],dtype=int)
+    #pop_ids = np.arange(objectives.shape[0],dtype=int)
     ranks = np.zeros(objectives.shape[0],dtype=int)
     done = False
     fronts = []

@@ -52,13 +52,11 @@ def calculate_schedule_time(schedule,nodes):
 
         node_occupation_t1[node_assigned] = completion_time_t1
         node_occupation_t2[node_assigned] = completion_time_t2
-        print("Task " + str(i_task+1) + " done at : " + str(max(node_occupation_t1)))
-        print("Task was available at " + str(time_task_available_t1))
     return (max(node_occupation_t1) + max(node_occupation_t2))/2
 import time
 
 pop_size = 80
-no_gen = 50
+no_gen = 70
 mutation_chance = 0.15
 
 dependencies = [[],[0], [0], [0],  [1],  [1],  [2], [2 , 3 ],[4,5,6],[6,7],[8,9]]
@@ -69,6 +67,8 @@ com_times2 = [[],[205],[205],[409],[205],[103],[205],[205,409],[205,205,820],[10
 com_times = [[t*10**-9 for t in times] for times in com_times]
 com_times2 = [[t*10**-9 for t in times] for times in com_times2]
 gene_pool = [list(range(6)) for _ in range(11)]
+
+
 
 def schedule_tasks(nodes_cmd,voltages_cmd):
     nodes = []
@@ -82,42 +82,53 @@ def schedule_tasks(nodes_cmd,voltages_cmd):
         if node == '"MIPS"':
             nodes+= [MIPS(v)]
     # Load some node array
+    schedule_cmds = []
+    for nodepref in [4,5,6]:
+        population,known_dna = create_inital_population(gene_pool,pop_size)
+        population = np.array(population)
+        best_times = []
+        avg_times = []
+        for _ in range(no_gen):
+            avg_duration = [calculate_schedule_time(schedule,nodes) for schedule in population]
+            for i,schedule in enumerate(population):
+                if len(np.unique(schedule)) == nodepref:
+                    avg_duration[i]-=1e-6
+            parents_ids = tournament(avg_duration,pop_size,2)
+            parents = population[parents_ids]
+            parents = np.unique(parents,axis=0)
 
-    population,known_dna = create_inital_population(gene_pool,pop_size)
-    population = np.array(population)
-    best_times = []
-    avg_times = []
-    for _ in range(no_gen):
+            offspring,known_dna,_ = create_offspring(parents,2,pop_size*2-len(parents),mutation_chance,gene_pool,known_dna)
+            population = np.concatenate((parents,offspring))
+            best_times += [min(avg_duration)]
+            avg_times +=[np.mean(avg_duration)]
+
         avg_duration = [calculate_schedule_time(schedule,nodes) for schedule in population]
-        parents_ids = tournament(avg_duration,pop_size,2)
-        parents = population[parents_ids]
-        parents = np.unique(parents,axis=0)
-
-        offspring,known_dna,_ = create_offspring(parents,2,pop_size*2-len(parents),mutation_chance,gene_pool,known_dna)
-        population = np.concatenate((parents,offspring))
-        best_times += [min(avg_duration)]
-        avg_times +=[np.mean(avg_duration)]
-
-    avg_duration = [calculate_schedule_time(schedule,nodes) for schedule in population]
-    schedule = population[np.argmin(avg_duration)]
-    schedule_cmd = []
-    for node_asigened in schedule:
-        schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
-    return schedule_cmd
+        for i,schedule in enumerate(population):
+                if len(np.unique(schedule)) == nodepref:
+                    avg_duration[i]-=1e-6
+        sort_ids = np.argsort(avg_duration)
+        population_sorted = population[sort_ids]
+        schedules = population_sorted[:5]
+        for schedule in schedules:
+            schedule_cmd = []
+            for node_asigened in schedule:
+                schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
+            schedule_cmds += [schedule_cmd]
+    return schedule_cmds
 
 
-nodes_cmd = ['"ARMv8"','"Adreno"','"Adreno"','"MIPS"','"ARMv8"','"MIPS"']
-voltages_cmd = [str(2/3),str(1.0),str(1.0),str(1.0),str(2/3),str(1.0)]
-nodes = []
-for i,node in enumerate(nodes_cmd):
-    v = float(voltages_cmd[i])
+# nodes_cmd = ['"ARMv8"','"Adreno"','"Adreno"','"MIPS"','"ARMv8"','"MIPS"']
+# voltages_cmd = [str(2/3),str(1.0),str(1.0),str(1.0),str(2/3),str(1.0)]
+# nodes = []
+# for i,node in enumerate(nodes_cmd):
+#     v = float(voltages_cmd[i])
     
-    if node == '"ARMv8"':
-        nodes+= [ARMv8(v)]
-    if node ==  '"Adreno"':
-        nodes+= [Adreno(v)]
-    if node == '"MIPS"':
-        nodes+= [MIPS(v)]
+#     if node == '"ARMv8"':
+#         nodes+= [ARMv8(v)]
+#     if node ==  '"Adreno"':
+#         nodes+= [Adreno(v)]
+#     if node == '"MIPS"':
+#         nodes+= [MIPS(v)]
 # Load some node array
 # print('no nodes')
 # print(len(nodes))
@@ -141,13 +152,6 @@ for i,node in enumerate(nodes_cmd):
 # schedule_cmd = []
 # for node_asigened in schedule:
 #     schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
-
-schedule = [0,1,2,3,4,5,1,2,0,3,3]
-duration = calculate_schedule_time(schedule,nodes) 
-print(duration)
-print(schedule)
-
-#select
 
 
 
