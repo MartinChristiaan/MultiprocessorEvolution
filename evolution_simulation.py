@@ -14,11 +14,11 @@ def quotate(mystr):
 columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeProcessorType4","NodeProcessorType5","NodeProcessorType6","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 #MapTaskTos = [ quotate("Node" + str(i)) for i in range(1,7)]
 
-pop_size = 4
+pop_size = 1000
 parents_per_child=2
 mutation_chance = 0.1
-no_parallel_simulations = 1
-
+no_parallel_simulations = 6
+ 
 NodeProcessorTypes = [quotate(s) for s in [ "Adreno" , "MIPS"]]  #"ARMv8",
 VSFs =  [str(1.0),str(2.0/3.0)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
