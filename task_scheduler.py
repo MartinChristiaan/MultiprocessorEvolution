@@ -1,5 +1,5 @@
 import numpy as np
-from geneticdrift import create_offspring,create_inital_population
+from geneticdrift import create_offspring,create_initial_population
 from selection import tournament
 
 class ARMv8():
@@ -84,7 +84,7 @@ def schedule_tasks(nodes_cmd,voltages_cmd):
     # Load some node array
     schedule_cmds = []
     for nodepref in [4,5,6]:
-        population,known_dna = create_inital_population(gene_pool,pop_size)
+        population,known_dna = create_initial_population(gene_pool,pop_size)
         population = np.array(population)
         best_times = []
         avg_times = []

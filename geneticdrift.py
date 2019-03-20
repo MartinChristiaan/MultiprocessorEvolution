@@ -5,7 +5,7 @@ import numpy as np
 from selection import *
 
 
-def create_inital_population(gene_pool,pop_size,known_dna=set()):
+def create_initial_population(gene_pool,pop_size,known_dna=set()):
     population = []
     while len(population) < pop_size:
         pot_dna = [random.choice(possible_gene) for possible_gene in gene_pool]
@@ -22,7 +22,7 @@ def create_offspring(parents,parents_per_child,no_offspring,mutation_chance,poss
     children = []
     i_attempt = 0
     failed = False
-    my_mut_change =mutation_chance
+
     while len(children) < (no_offspring): 
         i_attempt+=1
         if i_attempt>3*no_offspring:

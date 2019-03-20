@@ -3,7 +3,7 @@ import numpy as np
 #import matplotlib.pyplot as plt
 import random
 from selection import pareto_rank,tournament,crowding_distance
-from geneticdrift import create_offspring,create_inital_population
+from geneticdrift import create_offspring,create_initial_population
 from simulation import perform_simulation
 from task_scheduler import schedule_tasks
 import pandas as pd
@@ -12,175 +12,70 @@ import poosl_model_generator
 def quotate(mystr):
     return '"' + mystr + '"'
 columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeProcessorType4","NodeProcessorType5","NodeProcessorType6","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
-#MapTaskTos = [ quotate("Node" + str(i)) for i in range(1,7)]
 
-pop_size = 6
+pop_size = 10
 parents_per_child=2
 mutation_chance = 0.1
-no_parallel_simulations = 4
- 
-NodeProcessorTypes = [quotate(s) for s in [ "Adreno" , "MIPS"]]  #"ARMv8",
-VSFs =  [str(1.0),str(2.0/3.0)]
+no_parallel_simulations = 6
+NodeProcessorTypes = [quotate(s) for s in [ "Adreno" , "MIPS"]]#,"ARMv8"]]  
+VSFs =  [str(1.0)]#,str(2.0/3.0),str(1.0/2.0)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
 gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 2
-
-try:
-    population_df = pd.read_csv('population.csv')   
-except:
-    population_df = pd.DataFrame()
-
+max_gen = 10
+gen_no = 0
+while True:
+    try:
+        generation_df = pd.read_csv('generation' + str(gen_no) + '.csv')
+        gen_no+=1    
+    except:
+        if gen_no ==0:
+             generation_df = pd.DataFrame()
+        break
 known_dna = set()
-for i,row in population_df.iterrows():
-    row_genes = population_df[population_df.columns[14:]]
-    known_dna.add(list(row_genes))
 
-population_genes_df = pd.DataFrame()
-population,known_dna = create_inital_population(gene_pool,pop_size,known_dna)
-print(known_dna)
+def create_generation_offspring(generation_df,known_dna):
+    latency = list(generation_df['Latency'])
+    PowerConsumption = list(generation_df['PowerConsumption'])
+    no_processors = list(generation_df['Number of Processors'])
+    objective_scores = np.array([latency,PowerConsumption,no_processors]).T
+    fronts,ranks = pareto_rank(np.array(objective_scores))
+    crowd_distances =crowding_distance(fronts,ranks)
+    mating_pool = tournament(ranks, pop_size, tournament_rounds,crowd_distances)
+    mating_pool = np.unique(mating_pool)
+    parents =list(generation_df[generation_df.columns[14:]].iloc[mating_pool].values)
+    offspring,known_dna,_ = create_offspring(parents,parents_per_child,pop_size,mutation_chance,gene_pool,known_dna)
+    return offspring,known_dna
+if gen_no!=0:
+    for i,row in generation_df.iterrows():
+        row_genes = generation_df[generation_df.columns[14:]]
+        known_dna.add(tuple(list(row_genes)))
+
 if __name__ == "__main__":
-    for processor in population:
-        row = pd.DataFrame([processor],columns = columns)
-        population_genes_df = population_genes_df.append(row)
-    for i in range(no_parallel_simulations):
-        poosl_model_generator.setup_simulation(i)
-    results = autosim_multiproc.autosim_multiproc(perform_simulation,population_genes_df,no_parallel_simulations)
-    population_df = population_df.append(results)
-    population_df.to_csv('population.csv', index=False)
+    if gen_no == 0:
+        generation_genes_df = pd.DataFrame()
+        generation,known_dna = create_initial_population(gene_pool,pop_size,known_dna)
+        for processor in generation:
+            row = pd.DataFrame([processor],columns = columns)
+            generation_genes_df = generation_genes_df.append(row)
+        for i in range(no_parallel_simulations):
+            poosl_model_generator.setup_simulation(i)
+        results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
+        generation_df = generation_df.append(results)
+        generation_df.to_csv("generation0.csv",index=False)
+        gen_no+=1
+    while gen_no < max_gen:
+        offspring,known_dna = create_generation_offspring(generation_df,known_dna)
+        generation_genes_df = pd.DataFrame()
+        for processor in offspring:
+            row = pd.DataFrame([processor],columns = columns)
+            generation_genes_df = generation_genes_df.append(row)
+        results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
+        generation_df = generation_df.append(results)
+        generation_df.to_csv("generation"+str(gen_no) +".csv",index=False)
+        gen_no+=1
 
-latency = list(population_df['Latency'])
-PowerConsumption = list(population_df['PowerConsumption'])
-no_processors = list(population_df['Number of Processors'])
-objective_scores = np.array([latency,PowerConsumption,no_processors]).T
-fronts,ranks = pareto_rank(np.array(objective_scores))
-first_front = np.argwhere(ranks == 1)[:,0]
-front_population = population_df.iloc[first_front]
-mating_pool = tournament(ranks, pop_size, tournament_rounds)
-mating_pool = np.unique(mating_pool)
-parents =list(population_df.iloc[mating_pool].values)
-offspring=create_offspring(parents,parents_per_child,pop_size,mutation_chance,gene_pool,known_dna)
-
-
-
-
-
-#             results = simulate_population(self.population)
-#             self.objective_scores = filter_tolowthroughput(results)
-#             combined_scores =np.concatenate((self.front_scores,self.objective_scores))
-#             combined_population = np.concatenate((self.front_population,self.population))
-#             fronts,ranks = calculate_paretoranks(combined_scores)
-#             crowd_distances =crowding_distance(fronts,ranks) # Crowding distance should memorized front 
-#             first_front = np.argwhere(ranks == 1)[:,0]
-#             self.front_population = combined_population[first_front]
-#             self.front_scores = combined_scores[first_front,:]
-            
-#             mating_pool = pareto_tournament(ranks, self.pop_size, self.tournament_rounds,crowd_distances)
-#             parents = combined_population[mating_pool]
-#             offspring,self.failed = create_offspring(parents,self.parents_per_child,self.pop_size,self.mutation_chance,self.possible_genes_combined,self.known_dna)
-#             offspring = np.array(offspring)
-#             self.population = offspring
+    
 
 
 
-
-
-
-
-# class Evolver():
-#     def __init__(self):
-#         self.pop_size = 5
-#         self.parents_per_child=2
-#         self.mutation_chance = 0.2
-
-#         self.possible_genes_combined = [MapTaskTos]*11+ [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
-#         self.tournament_rounds = 2
-#         self.known_dna = set()
-#         self.front_population = []
-#         self.failed= False
-
-#     # Initialize First Population
-
-#         self.population = []
-#         self.objective_scores = []
-
-#         while len(self.population) < self.pop_size:
-#             pot_dna = [random.choice(possible_gene) for possible_gene in self.possible_genes_combined]
-#             pot_dna_hash = tuple(pot_dna)
-#             if pot_dna_hash not in self.known_dna:
-#                 self.known_dna.add(pot_dna_hash)
-#                 print(pot_dna)
-#                 throughput,latency,power_consumption,no_processors =  perform_simulation((pot_dna))
-#                 if throughput > 500:
-#                     self.population.append(pot_dna)
-#                     self.objective_scores.append([latency,power_consumption,no_processors])
-                    
-
-#         fronts,ranks = calculate_paretoranks(np.array(self.objective_scores))
-#         first_front = np.argwhere(ranks == 1)[:,0]
-#         self.population = np.array(self.population)
-#         self.front_population = self.population[first_front]
-#         self.front_scores = self.objective_scores[first_front,:]
-
-#         mating_pool = pareto_tournament(ranks, self.pop_size, self.tournament_rounds)
-#         parents = self.population[mating_pool]
-#         offspring,self.failed = create_offspring(parents,self.parents_per_child,self.pop_size,self.mutation_chance,self.possible_genes_combined,self.known_dna)
-#         offspring = np.array(offspring)
-#         self.population = offspring
-     
-#     def evolve(self):
-#         if not self.failed:
-#             results = simulate_population(self.population)
-#             self.objective_scores = filter_tolowthroughput(results)
-#             combined_scores =np.concatenate((self.front_scores,self.objective_scores))
-#             combined_population = np.concatenate((self.front_population,self.population))
-#             fronts,ranks = calculate_paretoranks(combined_scores)
-#             crowd_distances =crowding_distance(fronts,ranks) # Crowding distance should memorized front 
-#             first_front = np.argwhere(ranks == 1)[:,0]
-#             self.front_population = combined_population[first_front]
-#             self.front_scores = combined_scores[first_front,:]
-            
-#             mating_pool = pareto_tournament(ranks, self.pop_size, self.tournament_rounds,crowd_distances)
-#             parents = combined_population[mating_pool]
-#             offspring,self.failed = create_offspring(parents,self.parents_per_child,self.pop_size,self.mutation_chance,self.possible_genes_combined,self.known_dna)
-#             offspring = np.array(offspring)
-#             self.population = offspring
-#         else:
-#             print("Evolution completed") 
-
-
-# evolver = Evolver()
-
-# # Update function
-# # Start App
-
-# from pyqtgraph.Qt import QtGui, QtCore
-# import pyqtgraph as pg
-# app = QtGui.QApplication([])
-
-# win = pg.GraphicsWindow(title="Evolution Plotter")
-# win.resize(1000,600)
-# p5 = win.addPlot(title="Generation")
-
-# plt = p5.plot(evolver.objective_scores[:,0], evolver.objective_scores[:,1], pen=None, symbol='t', symbolPen=None, symbolSize=10, symbolBrush=(255, 0, 0, 200))
-# plt_front = p5.plot(evolver.front_scores[:,0], evolver.front_scores[:,1], pen=None, symbol='t', symbolPen=None, symbolSize=10, symbolBrush=(0, 255, 0, 200))
-
-# x = np.linspace(0,20,200)
-# y =evolver.obj_funs[1](x)
-
-# plt2 = p5.plot(x,y)
-
-
-# def update():
-#     evolver.evolve()
-#     plt.setData(evolver.objective_scores[:,0], evolver.objective_scores[:,1])
-#     plt_front.setData(evolver.front_scores[:,0], evolver.front_scores[:,1])
-
-# timer = QtCore.QTimer()
-# timer.timeout.connect(update)
-# #timer.start(100)
-
-# if __name__ == '__main__':
-#     import sys
-#     QtGui.QApplication.instance().exec_()
-
-# # Population

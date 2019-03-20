@@ -13,8 +13,8 @@ def merge_results(nproc):
     for id in range(nproc):   
         result = pd.read_csv("result" + str(id) + ".csv")
         final_result = final_result.append(result,ignore_index=False)
-        os.remove("result" + str(id) + ".csv")
-    #final_result.to_csv("Final_result.csv")
+        #os.remove("result" + str(id) + ".csv")
+    final_result.to_csv("Final_result.csv")
     return final_result
 
 
