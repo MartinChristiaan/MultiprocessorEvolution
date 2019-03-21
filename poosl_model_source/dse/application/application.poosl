@@ -91,8 +91,8 @@ channels
 		, G9.Communication, G10.Communication} 
 	{F1.Out,Task2.In_F1_T1}
 	{F2.Out,Task3.In_F2_T1}
-	{F3.Out,Task4.In_F3_T1}
-	{F4.Out,Task5.In_F4_T2}
+	{F3.Out, Task4.In_F3_T1 }
+	{F4.Out, Task5.In_F4_T2 }
 	{F5.Out,Task6.In_F5_T2}
 	{F6.Out,Task7.In_F6_T3}
 	{F7.Out,Task8.In1_F7_T3}
@@ -105,6 +105,7 @@ channels
 	{F14.Out,Task11.In1_F14_T9}
 	{F15.Out,Task11.In2_F15_T10}
 	{F16.Out,Task1.In_F16_T11}
+
 	{G1.Out,Task2.Control}
 	{G2.Out,Task3.Control}
 	{G3.Out,Task4.Control}
@@ -115,6 +116,7 @@ channels
 	{G8.Out,Task9.Control}
 	{G9.Out,Task10.Control}
 	{G10.Out,Task11.Control}
+	
 	{F1.In,Task1.D_F1_T2}
 	{F2.In,Task1.D_F2_T3}
 	{F3.In,Task1.D_F3_T4}
