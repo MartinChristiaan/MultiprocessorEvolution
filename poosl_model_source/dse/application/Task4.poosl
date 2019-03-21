@@ -17,7 +17,7 @@ init
 	Initialise()()
 
 methods
-	CheckTokenAvailabilityForReads(Scenario: String)()
+	CheckTokenAvailabilityForReads(Scenario:String)()
 		if Scenario = "S2" then
 			In_F3_T1!InspectTokenAvailability(1);
 			In_F3_T1?TokensAvailable

@@ -23,7 +23,7 @@ init
 
 methods
 
-	CheckTokenAvailabilityForReads(Scenario: String)()
+	CheckTokenAvailabilityForReads(Scenario:String)()
 		In_F1_T1!InspectTokenAvailability(1);
 		In_F1_T1?TokensAvailable
 

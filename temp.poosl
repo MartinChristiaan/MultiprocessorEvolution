@@ -1,6 +1,6 @@
 import "Task.poosl"
 
-process class Task3 extends Task
+process class Task34 extends Task
 
 ports 
 	In_F2_T1, 
@@ -22,7 +22,12 @@ methods
 
 	CheckTokenAvailabilityForReads(Scenario:String)()
 		In_F2_T1!InspectTokenAvailability(1);
-		In_F2_T1?TokensAvailable
+		In_F2_T1?TokensAvailable;
+
+		if Scenario = "S2" then
+			In_F3_T1!InspectTokenAvailability(1);
+			In_F3_T1?TokensAvailable
+		fi
 
 	NotifyBuffersAboutMapping()()
 		par
