@@ -178,15 +178,85 @@ def generate_combi_task(combi_low,combi_high,dest):
     lines[2] = lines[2].replace("Task{0}".format(combi_low),"Task{0}{1}".format(combi_low,combi_high))
     f2 = open('poosl_model_source/dse/application/task{0}.poosl'.format(combi_high))
     lines2 = f2.readlines()
-    # lines = copypaste_til_emptyline(lines,lines2,"ports")
-    # lines = copypaste_til_emptyline(lines,lines2,"Control!MappedTo(String),")
+    lines = copypaste_til_emptyline(lines,lines2,"ports",",")
+    lines = copypaste_til_emptyline(lines,lines2,"Control!MappedTo(String),",",")
     lines = copypaste_til_emptyline(lines,lines2,"CheckTokenAvailabilityForReads(Scenario:String)()",";")
+    lines = copypaste_til_emptyline(lines,lines2,"PerformWrites(Scenario:String)()",";")
+    lines = copypaste_til_emptyline(lines,lines2,"ReleaseSpaceForReads(Scenario:String)()",";")
+    lines = copypaste_til_emptyline(lines,lines2,"ReserveSpaceForWrites(Scenario:String,Iteration:Integer)()",";")
+
+
+    def wordisinline(line,word):
+        inline= False
+        for _word in line.split():
+            if _word == word:
+                inline = True
+        return inline
+
+    adding = False
+    interlines =[]
+    for line in lines2:
+        if not adding and wordisinline(line,"par"):
+            adding = True
+        elif adding and wordisinline(line,"rap"):
+            adding = False
+            break
+        elif adding:
+            interlines.append(line)
+
+    for i,line in enumerate(lines):
+        if wordisinline(line,"rap"):
+            lines = lines[:i] + ["        and\n"] + interlines + lines[i:]
 
     f = open(dest,'w')
     f.writelines(lines)
 
+
+def generate_processor_source(combi_low,combi_high,dest):
+    f = open("poosl_model_source/simulator/Adreno.txt")
+    combi_low_str = str(combi_low)
+    combi_high_str = str(combi_high)
+    lines = f.readlines()
+    c1s1 = 0
+    c1s2 = 0
+    c2s1 = 0
+    c2s2 = 0
+    s1 = 0
+    s2 = 0
+    
+    for line in lines:
+        words = line.split()
+        if len(words) > 0:
+            if words[0] == "Task" + combi_low_str:
+                c1s1 = int(words[1])
+                c1s2 = int(words[2])
+            if words[0] == "Task" + combi_high_str:
+                c2s1 = int(words[1])
+                c2s2 = int(words[2])
+    if c1s1 > c2s1:
+        s1 = int(c1s1 + c2s1*0.4)
+        s2 = int(c1s2 + c2s2*0.4)
+    else:
+        s1 = int(c1s1*0.4 + c2s1)
+        s2 = int(c1s2*0.4 + c2s2)
+
+    for i,line in enumerate(lines):
+        words = line.split()
+        if len(words) > 0:
+            if words[0] == "Task" + combi_low_str:
+                words[0] = "Task" + combi_low_str + combi_high_str
+                words[1] = str(s1)
+                words[2] = str(s2)
+                lines[i] = "  ".join(words) + "\n"
+            if words[0] == "Task" + combi_high_str:
+                del lines[i]
+
+    f = open(dest,'w')
+    f.writelines(lines)
+
+
 #generate_template(2,3,"temp.poosl")
-generate_combi_task(3,4,"temp.poosl")
+generate_processor_source(3,4,"temp.poosl")
 
     
 

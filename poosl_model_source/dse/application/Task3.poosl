@@ -35,20 +35,22 @@ methods
 			Control!MappedTo(MapTo)
 		rap
 
-	PerformWrites(Scenario: String)()
+	PerformWrites(Scenario:String)()
 		Out1_F6_T7!WriteTokens;
 		Out2_F7_T8!WriteTokens
 
-	ReleaseSpaceForReads(Scenario: String)()
+	ReleaseSpaceForReads(Scenario:String)()
 		In_F2_T1!ReleaseRoom
 
-	ReserveSpaceForWrites(Scenario: String, Iteration: Integer)()
+	ReserveSpaceForWrites(Scenario:String,Iteration:Integer)()
 	if Scenario = "S1" then
-		Out2_F7_T8!ReserveRoom(1, Iteration);
+		Out2_F7_T8!ReserveRoom(1,Iteration);
 		Out2_F7_T8?ReservationSuccessful
 	else
-		Out2_F7_T8!ReserveRoom(2, Iteration);
+		Out2_F7_T8!ReserveRoom(2,Iteration);
 		Out2_F7_T8?ReservationSuccessful
 	fi;
-		Out1_F6_T7!ReserveRoom(1, Iteration);
+		Out1_F6_T7!ReserveRoom(1,Iteration);
 		Out1_F6_T7?ReservationSuccessful
+
+		

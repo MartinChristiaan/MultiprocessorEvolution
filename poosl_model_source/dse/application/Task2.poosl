@@ -38,14 +38,14 @@ methods
 			Control!MappedTo(MapTo)
 		rap
 
-	PerformWrites(Scenario: String)()
+	PerformWrites(Scenario:String)()
 		Out2_F5_T6!WriteTokens;
 		Out1_F4_T5!WriteTokens
 
-	ReleaseSpaceForReads(Scenario: String)()
+	ReleaseSpaceForReads(Scenario:String)()
 		In_F1_T1!ReleaseRoom
 
-	ReserveSpaceForWrites(Scenario: String, Iteration: Integer)()
+	ReserveSpaceForWrites(Scenario:String,Iteration:Integer)()
 			Out1_F4_T5!ReserveRoom(1, Iteration);
 			Out1_F4_T5?ReservationSuccessful;
 			Out2_F5_T6!ReserveRoom(1, Iteration);
