@@ -48,12 +48,12 @@ def combine_tasks(combi_task,nodes_time_per_task):
 
 def get_possible_task_combinations():
     combi_tasks = []
-    for low in range(1,4):
-        for high in range(low,8):
+    for low in range(1,4): # task 2 till 5
+        for high in range(low,4):
             combi_tasks.append((low,high))
 
     for low in range(4,8):
-        for high in range(low,10):
+        for high in range(low,8):
             combi_tasks.append((low,high))
     return combi_tasks
 
@@ -175,23 +175,23 @@ def schedule_tasks(nodes_cmd,voltages_cmd):
         population_sorted = population_sorted[:11]
         for genes in population_sorted:
             schedule_cmd = []
-            for node_asigened in genes[:-2]:
+            for node_asigened in genes[:-1]:
                 schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
-            schedule_cmd+= ["CombiTask"+ str(genes[11])]
-            schedule_cmds += [schedule_cmd]
-    return schedule_cmds
+            combi_cmds+= [(1,3)]
+            schedule_cmds += [(schedule_cmd)]
+    return schedule_cmds,combi_cmds
 
 
 
 
-nodes_cmd = ['"ARMv8"','"Adreno"','"Adreno"','"MIPS"','"ARMv8"','"MIPS"']
-voltages_cmd = [str(2/3),str(1.0),str(1.0),str(1.0),str(2/3),str(1.0)]
+# nodes_cmd = ['"ARMv8"','"Adreno"','"Adreno"','"MIPS"','"ARMv8"','"MIPS"']
+# voltages_cmd = [str(2/3),str(1.0),str(1.0),str(1.0),str(2/3),str(1.0)]
 
 
 
-schedule_cmds = schedule_tasks(nodes_cmd,voltages_cmd)
-# 
-print(schedule_cmds)
+# schedule_cmds = schedule_tasks(nodes_cmd,voltages_cmd)
+# # 
+# print(schedule_cmds)
 
 
 

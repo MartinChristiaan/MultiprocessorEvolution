@@ -1,1741 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace type='communication' name='NoC'>
-  <start channel='F2' iteration='nil' time='0.000268051284051282'>
-  </start>  <start channel='F1' iteration='nil' time='0.000268051284051282'>
-  </start>  <start channel='G4' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G1' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G9' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G5' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G6' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G8' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G10' iteration='0' time='0.000268051284051282'>
-  </start>  <start channel='G2' iteration='0' time='0.000268051284051282'>
-  </start>  <end channel='G9' time='0.000268151284051282'>
-  </end>  <end channel='G8' time='0.000268151284051282'>
-  </end>  <end channel='G1' time='0.000268151284051282'>
-  </end>  <end channel='G5' time='0.000268151284051282'>
-  </end>  <end channel='G10' time='0.000268151284051282'>
-  </end>  <end channel='G6' time='0.000268151284051282'>
-  </end>  <end channel='G2' time='0.000268151284051282'>
-  </end>  <end channel='G4' time='0.000268151284051282'>
-  </end>  <end channel='F1' time='0.000472851284051282'>
-  </end>  <end channel='F2' time='0.000472851284051282'>
-  </end>  <start channel='F4' iteration='nil' time='0.00079054359174359'>
-  </start>  <start channel='F5' iteration='nil' time='0.00079054359174359'>
-  </start>  <end channel='F5' time='0.00089294359174359'>
-  </end>  <end channel='F4' time='0.00099534359174359'>
-  </end>  <start channel='F7' iteration='nil' time='0.00117400513020513'>
-  </start>  <end channel='F7' time='0.00137880513020513'>
-  </end>  <start channel='F11' iteration='nil' time='0.00180614256610256'>
-  </start>  <start channel='F12' iteration='nil' time='0.00180614256610256'>
-  </start>  <end channel='F12' time='0.00190854256610256'>
-  </end>  <start channel='F10' iteration='nil' time='0.00199396923276923'>
-  </start>  <end channel='F10' time='0.00219876923276923'>
-  </end>  <end channel='F11' time='0.00221574256610256'>
-  </end>  <start channel='F13' iteration='nil' time='0.00235111384815385'>
-  </start>  <end channel='F13' time='0.00245351384815385'>
-  </end>  <start channel='F2' iteration='nil' time='0.00261916513020513'>
-  </start>  <start channel='F1' iteration='nil' time='0.00261916513020513'>
-  </start>  <start channel='G1' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G2' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G4' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G5' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G6' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G9' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G8' iteration='1' time='0.00261916513020513'>
-  </start>  <start channel='G10' iteration='1' time='0.00261916513020513'>
-  </start>  <end channel='G5' time='0.00261926513020513'>
-  </end>  <end channel='G10' time='0.00261926513020513'>
-  </end>  <end channel='G2' time='0.00261926513020513'>
-  </end>  <end channel='G6' time='0.00261926513020513'>
-  </end>  <end channel='G4' time='0.00261926513020513'>
-  </end>  <end channel='G1' time='0.00261926513020513'>
-  </end>  <end channel='G9' time='0.00261926513020513'>
-  </end>  <end channel='G8' time='0.00261926513020513'>
-  </end>  <start channel='F15' iteration='nil' time='0.00282356513020513'>
-  </start>  <end channel='F2' time='0.00282396513020513'>
-  </end>  <end channel='F1' time='0.00282396513020513'>
-  </end>  <end channel='F15' time='0.00302836513020513'>
-  </end>  <start channel='F16' iteration='nil' time='0.00311718564302564'>
-  </start>  <end channel='F16' time='0.00311728564302564'>
-  </end>  <start channel='F5' iteration='nil' time='0.00314165743789744'>
-  </start>  <start channel='F4' iteration='nil' time='0.00314165743789744'>
-  </start>  <end channel='F5' time='0.00324405743789744'>
-  </end>  <end channel='F4' time='0.00334645743789744'>
-  </end>  <start channel='F7' iteration='nil' time='0.00352511897635897'>
-  </start>  <end channel='F7' time='0.00372991897635897'>
-  </end>  <start channel='F11' iteration='nil' time='0.00415725641225641'>
-  </start>  <start channel='F12' iteration='nil' time='0.00415725641225641'>
-  </start>  <end channel='F12' time='0.00425965641225641'>
-  </end>  <start channel='F10' iteration='nil' time='0.00434508307892308'>
-  </start>  <end channel='F10' time='0.00454988307892308'>
-  </end>  <end channel='F11' time='0.00456685641225641'>
-  </end>  <start channel='F13' iteration='nil' time='0.00470222769430769'>
-  </start>  <end channel='F13' time='0.00480462769430769'>
-  </end>  <start channel='F1' iteration='nil' time='0.00497027897635897'>
-  </start>  <start channel='G4' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='G5' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='G1' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='G6' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='G8' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='G9' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='G2' iteration='2' time='0.00497027897635897'>
-  </start>  <start channel='F2' iteration='nil' time='0.00497027897635897'>
-  </start>  <start channel='G10' iteration='2' time='0.00497027897635897'>
-  </start>  <end channel='G9' time='0.00497037897635897'>
-  </end>  <end channel='G4' time='0.00497037897635897'>
-  </end>  <end channel='G5' time='0.00497037897635897'>
-  </end>  <end channel='G1' time='0.00497037897635897'>
-  </end>  <end channel='G10' time='0.00497037897635897'>
-  </end>  <end channel='G6' time='0.00497037897635897'>
-  </end>  <end channel='G2' time='0.00497037897635897'>
-  </end>  <end channel='G8' time='0.00497037897635897'>
-  </end>  <start channel='F15' iteration='nil' time='0.00517467897635897'>
-  </start>  <end channel='F1' time='0.00517507897635897'>
-  </end>  <end channel='F2' time='0.00517507897635897'>
-  </end>  <end channel='F15' time='0.00537947897635897'>
-  </end>  <start channel='F16' iteration='nil' time='0.00546829948917949'>
-  </start>  <end channel='F16' time='0.00546839948917949'>
-  </end>  <start channel='F5' iteration='nil' time='0.00550938666866667'>
-  </start>  <start channel='F4' iteration='nil' time='0.00550938666866667'>
-  </start>  <end channel='F5' time='0.00561178666866667'>
-  </end>  <end channel='F4' time='0.00571418666866667'>
-  </end>  <start channel='F7' iteration='nil' time='0.00574802769430769'>
-  </start>  <end channel='F7' time='0.00585042769430769'>
-  </end>  <start channel='F11' iteration='nil' time='0.00660870359174359'>
-  </start>  <start channel='F12' iteration='nil' time='0.00660870359174359'>
-  </start>  <end channel='F12' time='0.00671110359174359'>
-  </end>  <start channel='F10' iteration='nil' time='0.00679842769430769'>
-  </start>  <start channel='F13' iteration='nil' time='0.00681227384815384'>
-  </start>  <end channel='F13' time='0.00691467384815384'>
-  </end>  <end channel='F10' time='0.00700322769430769'>
-  </end>  <start channel='F1' iteration='nil' time='0.00708032513020513'>
-  </start>  <start channel='G1' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='F2' iteration='nil' time='0.00708032513020513'>
-  </start>  <start channel='G2' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='G5' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='G4' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='G6' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='G8' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='G10' iteration='3' time='0.00708032513020513'>
-  </start>  <start channel='G9' iteration='3' time='0.00708032513020513'>
-  </start>  <end channel='G9' time='0.00708042513020513'>
-  </end>  <end channel='G6' time='0.00708042513020513'>
-  </end>  <end channel='G8' time='0.00708042513020513'>
-  </end>  <end channel='G1' time='0.00708042513020513'>
-  </end>  <end channel='G4' time='0.00708042513020513'>
-  </end>  <end channel='G2' time='0.00708042513020513'>
-  </end>  <end channel='G10' time='0.00708042513020513'>
-  </end>  <end channel='G5' time='0.00708042513020513'>
-  </end>  <start channel='F15' iteration='nil' time='0.00727921230969231'>
-  </start>  <end channel='F1' time='0.00728512513020513'>
-  </end>  <end channel='F2' time='0.00728512513020513'>
-  </end>  <end channel='F11' time='0.00742790359174359'>
-  </end>  <end channel='F15' time='0.0074840123096923'>
-  </end>  <start channel='F5' iteration='nil' time='0.00761943282251282'>
-  </start>  <start channel='F4' iteration='nil' time='0.00761943282251282'>
-  </start>  <end channel='F5' time='0.00772183282251282'>
-  </end>  <end channel='F4' time='0.00782423282251282'>
-  </end>  <start channel='F7' iteration='nil' time='0.00785807384815384'>
-  </start>  <end channel='F7' time='0.00796047384815384'>
-  </end>  <start channel='F11' iteration='nil' time='0.00871874974558974'>
-  </start>  <start channel='F12' iteration='nil' time='0.00871874974558974'>
-  </start>  <end channel='F12' time='0.00882114974558974'>
-  </end>  <start channel='F10' iteration='nil' time='0.00890847384815384'>
-  </start>  <start channel='F13' iteration='nil' time='0.008922320002'>
-  </start>  <end channel='F13' time='0.009024720002'>
-  </end>  <end channel='F10' time='0.00911327384815384'>
-  </end>  <start channel='F2' iteration='nil' time='0.00919037128405128'>
-  </start>  <start channel='G2' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='F1' iteration='nil' time='0.00919037128405128'>
-  </start>  <start channel='G1' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='G4' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='G6' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='G8' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='G9' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='G10' iteration='4' time='0.00919037128405128'>
-  </start>  <start channel='G5' iteration='4' time='0.00919037128405128'>
-  </start>  <end channel='G4' time='0.00919047128405128'>
-  </end>  <end channel='G8' time='0.00919047128405128'>
-  </end>  <end channel='G2' time='0.00919047128405128'>
-  </end>  <end channel='G10' time='0.00919047128405128'>
-  </end>  <end channel='G6' time='0.00919047128405128'>
-  </end>  <end channel='G1' time='0.00919047128405128'>
-  </end>  <end channel='G9' time='0.00919047128405128'>
-  </end>  <end channel='G5' time='0.00919047128405128'>
-  </end>  <start channel='F15' iteration='nil' time='0.00938925846353846'>
-  </start>  <end channel='F1' time='0.00939517128405128'>
-  </end>  <end channel='F2' time='0.00939517128405128'>
-  </end>  <start channel='F16' iteration='nil' time='0.00948021128405128'>
-  </start>  <end channel='F16' time='0.00948031128405128'>
-  </end>  <end channel='F11' time='0.00953794974558974'>
-  </end>  <end channel='F15' time='0.00959405846353846'>
-  </end>  <start channel='F4' iteration='nil' time='0.00972947897635897'>
-  </start>  <start channel='F5' iteration='nil' time='0.00972947897635897'>
-  </start>  <end channel='F5' time='0.00983187897635897'>
-  </end>  <end channel='F4' time='0.00993427897635897'>
-  </end>  <start channel='F7' iteration='nil' time='0.009968120002'>
-  </start>  <end channel='F7' time='0.010070520002'>
-  </end>  <start channel='F11' iteration='nil' time='0.0108287958994359'>
-  </start>  <start channel='F12' iteration='nil' time='0.0108287958994359'>
-  </start>  <end channel='F12' time='0.0109311958994359'>
-  </end>  <start channel='F10' iteration='nil' time='0.011018520002'>
-  </start>  <start channel='F13' iteration='nil' time='0.0110323661558462'>
-  </start>  <end channel='F13' time='0.0111347661558462'>
-  </end>  <end channel='F10' time='0.011223320002'>
-  </end>  <start channel='F1' iteration='nil' time='0.0112452820512821'>
-  </start>  <start channel='G1' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='F2' iteration='nil' time='0.0112452820512821'>
-  </start>  <start channel='G2' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='G4' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='G8' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='G6' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='G5' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='G10' iteration='5' time='0.0112452820512821'>
-  </start>  <start channel='G9' iteration='5' time='0.0112452820512821'>
-  </start>  <end channel='G2' time='0.0112453820512821'>
-  </end>  <end channel='G6' time='0.0112453820512821'>
-  </end>  <end channel='G4' time='0.0112453820512821'>
-  </end>  <end channel='G8' time='0.0112453820512821'>
-  </end>  <end channel='G5' time='0.0112453820512821'>
-  </end>  <end channel='G9' time='0.0112453820512821'>
-  </end>  <end channel='G10' time='0.0112453820512821'>
-  </end>  <end channel='G1' time='0.0112453820512821'>
-  </end>  <end channel='F1' time='0.0114500820512821'>
-  </end>  <end channel='F2' time='0.0114500820512821'>
-  </end>  <start channel='F15' iteration='nil' time='0.0114993046173846'>
-  </start>  <start channel='F16' iteration='nil' time='0.0115902574378974'>
-  </start>  <end channel='F16' time='0.0115903574378974'>
-  </end>  <end channel='F11' time='0.0116479958994359'>
-  </end>  <end channel='F15' time='0.0117041046173846'>
-  </end>  <start channel='F4' iteration='nil' time='0.0117843897435897'>
-  </start>  <start channel='F5' iteration='nil' time='0.0117843897435897'>
-  </start>  <end channel='F5' time='0.0118867897435897'>
-  </end>  <end channel='F4' time='0.0119891897435897'>
-  </end>  <start channel='F7' iteration='nil' time='0.0120230307692308'>
-  </start>  <end channel='F7' time='0.0121254307692308'>
-  </end>  <start channel='F11' iteration='nil' time='0.0128837066666667'>
-  </start>  <start channel='F12' iteration='nil' time='0.0128837066666667'>
-  </start>  <end channel='F12' time='0.0129861066666667'>
-  </end>  <start channel='F10' iteration='nil' time='0.0130734307692308'>
-  </start>  <start channel='F13' iteration='nil' time='0.0130872769230769'>
-  </start>  <end channel='F13' time='0.0131896769230769'>
-  </end>  <start channel='F1' iteration='nil' time='0.0132452820512821'>
-  </start>  <start channel='F2' iteration='nil' time='0.0132452820512821'>
-  </start>  <start channel='G2' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G1' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G5' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G6' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G4' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G10' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G8' iteration='6' time='0.0132452820512821'>
-  </start>  <start channel='G9' iteration='6' time='0.0132452820512821'>
-  </start>  <end channel='G4' time='0.0132453820512821'>
-  </end>  <end channel='G6' time='0.0132453820512821'>
-  </end>  <end channel='G1' time='0.0132453820512821'>
-  </end>  <end channel='G9' time='0.0132453820512821'>
-  </end>  <end channel='G10' time='0.0132453820512821'>
-  </end>  <end channel='G8' time='0.0132453820512821'>
-  </end>  <end channel='G2' time='0.0132453820512821'>
-  </end>  <end channel='G5' time='0.0132453820512821'>
-  </end>  <end channel='F10' time='0.0132782307692308'>
-  </end>  <end channel='F1' time='0.0134500820512821'>
-  </end>  <end channel='F2' time='0.0134500820512821'>
-  </end>  <start channel='F15' iteration='nil' time='0.0135542153846154'>
-  </start>  <start channel='F16' iteration='nil' time='0.0137003035917436'>
-  </start>  <end channel='F16' time='0.0137004035917436'>
-  </end>  <end channel='F11' time='0.0137029066666667'>
-  </end>  <end channel='F15' time='0.0137590153846154'>
-  </end>  <start channel='F5' iteration='nil' time='0.0137677743589744'>
-  </start>  <start channel='F4' iteration='nil' time='0.0137677743589744'>
-  </start>  <end channel='F5' time='0.0138701743589744'>
-  </end>  <end channel='F4' time='0.0139725743589744'>
-  </end>  <start channel='F7' iteration='nil' time='0.0141512358974359'>
-  </start>  <end channel='F7' time='0.0143560358974359'>
-  </end>  <start channel='F11' iteration='nil' time='0.0147833733333333'>
-  </start>  <start channel='F12' iteration='nil' time='0.0147833733333333'>
-  </start>  <end channel='F12' time='0.0148857733333333'>
-  </end>  <start channel='F10' iteration='nil' time='0.0149712'>
-  </start>  <end channel='F10' time='0.015176'>
-  </end>  <end channel='F11' time='0.0151929733333333'>
-  </end>  <start channel='F13' iteration='nil' time='0.0153283446153846'>
-  </start>  <end channel='F13' time='0.0154307446153846'>
-  </end>  <start channel='F16' iteration='nil' time='0.0154706246153846'>
-  </start>  <end channel='F16' time='0.0154707246153846'>
-  </end>  <start channel='F1' iteration='nil' time='0.0155913005128205'>
-  </start>  <start channel='F2' iteration='nil' time='0.0155913005128205'>
-  </start>  <start channel='G1' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G8' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G10' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G6' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G4' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G9' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G2' iteration='7' time='0.0155913005128205'>
-  </start>  <start channel='G5' iteration='7' time='0.0155913005128205'>
-  </start>  <end channel='G6' time='0.0155914005128205'>
-  </end>  <end channel='G1' time='0.0155914005128205'>
-  </end>  <end channel='G10' time='0.0155914005128205'>
-  </end>  <end channel='G9' time='0.0155914005128205'>
-  </end>  <end channel='G2' time='0.0155914005128205'>
-  </end>  <end channel='G5' time='0.0155914005128205'>
-  </end>  <end channel='G4' time='0.0155914005128205'>
-  </end>  <end channel='G8' time='0.0155914005128205'>
-  </end>  <end channel='F1' time='0.0157961005128205'>
-  </end>  <end channel='F2' time='0.0157961005128205'>
-  </end>  <start channel='F15' iteration='nil' time='0.0158007958974359'>
-  </start>  <end channel='F15' time='0.0160055958974359'>
-  </end>  <start channel='F16' iteration='nil' time='0.0160973097435897'>
-  </start>  <end channel='F16' time='0.0160974097435897'>
-  </end>  <start channel='F4' iteration='nil' time='0.0161137928205128'>
-  </start>  <start channel='F5' iteration='nil' time='0.0161137928205128'>
-  </start>  <end channel='F5' time='0.0162161928205128'>
-  </end>  <end channel='F4' time='0.0163185928205128'>
-  </end>  <start channel='F7' iteration='nil' time='0.0164972543589744'>
-  </start>  <end channel='F7' time='0.0167020543589744'>
-  </end>  <start channel='F11' iteration='nil' time='0.0171293917948718'>
-  </start>  <start channel='F12' iteration='nil' time='0.0171293917948718'>
-  </start>  <end channel='F12' time='0.0172317917948718'>
-  </end>  <start channel='F10' iteration='nil' time='0.0173172184615385'>
-  </start>  <end channel='F10' time='0.0175220184615385'>
-  </end>  <end channel='F11' time='0.0175389917948718'>
-  </end>  <start channel='F13' iteration='nil' time='0.0176743630769231'>
-  </start>  <end channel='F13' time='0.0177767630769231'>
-  </end>  <start channel='F1' iteration='nil' time='0.017937318974359'>
-  </start>  <start channel='F2' iteration='nil' time='0.017937318974359'>
-  </start>  <start channel='G1' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G2' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G4' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G5' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G6' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G8' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G9' iteration='8' time='0.017937318974359'>
-  </start>  <start channel='G10' iteration='8' time='0.017937318974359'>
-  </start>  <end channel='G10' time='0.017937418974359'>
-  </end>  <end channel='G9' time='0.017937418974359'>
-  </end>  <end channel='G6' time='0.017937418974359'>
-  </end>  <end channel='G8' time='0.017937418974359'>
-  </end>  <end channel='G4' time='0.017937418974359'>
-  </end>  <end channel='G2' time='0.017937418974359'>
-  </end>  <end channel='G5' time='0.017937418974359'>
-  </end>  <end channel='G1' time='0.017937418974359'>
-  </end>  <end channel='F1' time='0.018142118974359'>
-  </end>  <end channel='F2' time='0.018142118974359'>
-  </end>  <start channel='F15' iteration='nil' time='0.0181468143589744'>
-  </start>  <end channel='F15' time='0.0183516143589744'>
-  </end>  <start channel='F16' iteration='nil' time='0.0184404348717949'>
-  </start>  <end channel='F16' time='0.0184405348717949'>
-  </end>  <start channel='F5' iteration='nil' time='0.0184598112820513'>
-  </start>  <start channel='F4' iteration='nil' time='0.0184598112820513'>
-  </start>  <end channel='F5' time='0.0185622112820513'>
-  </end>  <end channel='F4' time='0.0186646112820513'>
-  </end>  <start channel='F7' iteration='nil' time='0.0188432728205128'>
-  </start>  <end channel='F7' time='0.0190480728205128'>
-  </end>  <start channel='F11' iteration='nil' time='0.0194754102564103'>
-  </start>  <start channel='F12' iteration='nil' time='0.0194754102564103'>
-  </start>  <end channel='F12' time='0.0195778102564103'>
-  </end>  <start channel='F10' iteration='nil' time='0.0196632369230769'>
-  </start>  <end channel='F10' time='0.0198680369230769'>
-  </end>  <end channel='F11' time='0.0198850102564103'>
-  </end>  <start channel='F13' iteration='nil' time='0.0200203815384615'>
-  </start>  <end channel='F13' time='0.0201227815384615'>
-  </end>  <start channel='F1' iteration='nil' time='0.0202833374358974'>
-  </start>  <start channel='F2' iteration='nil' time='0.0202833374358974'>
-  </start>  <start channel='G1' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G6' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G8' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G5' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G4' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G2' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G9' iteration='9' time='0.0202833374358974'>
-  </start>  <start channel='G10' iteration='9' time='0.0202833374358974'>
-  </start>  <end channel='G6' time='0.0202834374358974'>
-  </end>  <end channel='G8' time='0.0202834374358974'>
-  </end>  <end channel='G10' time='0.0202834374358974'>
-  </end>  <end channel='G1' time='0.0202834374358974'>
-  </end>  <end channel='G9' time='0.0202834374358974'>
-  </end>  <end channel='G5' time='0.0202834374358974'>
-  </end>  <end channel='G4' time='0.0202834374358974'>
-  </end>  <end channel='G2' time='0.0202834374358974'>
-  </end>  <end channel='F1' time='0.0204881374358974'>
-  </end>  <end channel='F2' time='0.0204881374358974'>
-  </end>  <start channel='F15' iteration='nil' time='0.0204928328205128'>
-  </start>  <end channel='F15' time='0.0206976328205128'>
-  </end>  <start channel='F16' iteration='nil' time='0.0207864533333333'>
-  </start>  <end channel='F16' time='0.0207865533333333'>
-  </end>  <start channel='F5' iteration='nil' time='0.0208058297435897'>
-  </start>  <start channel='F4' iteration='nil' time='0.0208058297435897'>
-  </start>  <end channel='F5' time='0.0209082297435897'>
-  </end>  <end channel='F4' time='0.0210106297435897'>
-  </end>  <start channel='F7' iteration='nil' time='0.0211892912820513'>
-  </start>  <end channel='F7' time='0.0213940912820513'>
-  </end>  <start channel='F12' iteration='nil' time='0.0218214287179487'>
-  </start>  <start channel='F11' iteration='nil' time='0.0218214287179487'>
-  </start>  <end channel='F12' time='0.0219238287179487'>
-  </end>  <start channel='F10' iteration='nil' time='0.0220092553846154'>
-  </start>  <end channel='F10' time='0.0222140553846154'>
-  </end>  <end channel='F11' time='0.0222310287179487'>
-  </end>  <start channel='F13' iteration='nil' time='0.0223664'>
-  </start>  <end channel='F13' time='0.0224688'>
-  </end>  <start channel='G1' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='F1' iteration='nil' time='0.0226293558974359'>
-  </start>  <start channel='G2' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='G4' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='G6' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='G5' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='G8' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='F2' iteration='nil' time='0.0226293558974359'>
-  </start>  <start channel='G9' iteration='10' time='0.0226293558974359'>
-  </start>  <start channel='G10' iteration='10' time='0.0226293558974359'>
-  </start>  <end channel='G4' time='0.0226294558974359'>
-  </end>  <end channel='G10' time='0.0226294558974359'>
-  </end>  <end channel='G9' time='0.0226294558974359'>
-  </end>  <end channel='G1' time='0.0226294558974359'>
-  </end>  <end channel='G2' time='0.0226294558974359'>
-  </end>  <end channel='G8' time='0.0226294558974359'>
-  </end>  <end channel='G5' time='0.0226294558974359'>
-  </end>  <end channel='G6' time='0.0226294558974359'>
-  </end>  <end channel='F1' time='0.0228341558974359'>
-  </end>  <end channel='F2' time='0.0228341558974359'>
-  </end>  <start channel='F15' iteration='nil' time='0.0228388512820513'>
-  </start>  <end channel='F15' time='0.0230436512820513'>
-  </end>  <start channel='F2' iteration='nil' time='0.0231022071794872'>
-  </start>  <start channel='F1' iteration='nil' time='0.0231022071794872'>
-  </start>  <start channel='G1' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G2' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G4' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G8' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G5' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G9' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G10' iteration='11' time='0.0231022071794872'>
-  </start>  <start channel='G6' iteration='11' time='0.0231022071794872'>
-  </start>  <end channel='G2' time='0.0231023071794872'>
-  </end>  <end channel='G6' time='0.0231023071794872'>
-  </end>  <end channel='G9' time='0.0231023071794872'>
-  </end>  <end channel='G1' time='0.0231023071794872'>
-  </end>  <end channel='G10' time='0.0231023071794872'>
-  </end>  <end channel='G4' time='0.0231023071794872'>
-  </end>  <end channel='G5' time='0.0231023071794872'>
-  </end>  <end channel='G8' time='0.0231023071794872'>
-  </end>  <start channel='F16' iteration='nil' time='0.0231324717948718'>
-  </start>  <end channel='F16' time='0.0231325717948718'>
-  </end>  <start channel='F4' iteration='nil' time='0.0231684635897436'>
-  </start>  <start channel='F5' iteration='nil' time='0.0231684635897436'>
-  </start>  <end channel='F5' time='0.0232708635897436'>
-  </end>  <end channel='F2' time='0.0233070071794872'>
-  </end>  <end channel='F1' time='0.0233070071794872'>
-  </end>  <end channel='F4' time='0.0233732635897436'>
-  </end>  <start channel='F7' iteration='nil' time='0.0234071046153846'>
-  </start>  <end channel='F7' time='0.0235095046153846'>
-  </end>  <start channel='F4' iteration='nil' time='0.0236909558974359'>
-  </start>  <start channel='F5' iteration='nil' time='0.0236909558974359'>
-  </start>  <end channel='F5' time='0.0237933558974359'>
-  </end>  <end channel='F4' time='0.0238957558974359'>
-  </end>  <start channel='F11' iteration='nil' time='0.0242677805128205'>
-  </start>  <start channel='F12' iteration='nil' time='0.0242677805128205'>
-  </start>  <end channel='F12' time='0.0243701805128205'>
-  </end>  <start channel='F10' iteration='nil' time='0.0244575046153846'>
-  </start>  <start channel='F13' iteration='nil' time='0.0244713507692308'>
-  </start>  <end channel='F13' time='0.0245737507692308'>
-  </end>  <end channel='F10' time='0.0246623046153846'>
-  </end>  <start channel='F15' iteration='nil' time='0.0249382892307692'>
-  </start>  <start channel='F7' iteration='nil' time='0.0249689343589743'>
-  </start>  <end channel='F11' time='0.0250869805128205'>
-  </end>  <end channel='F15' time='0.0251430892307692'>
-  </end>  <end channel='F7' time='0.0251737343589744'>
-  </end>  <start channel='F11' iteration='nil' time='0.0257088779487179'>
-  </start>  <start channel='F12' iteration='nil' time='0.0257088779487179'>
-  </start>  <end channel='F12' time='0.0258112779487179'>
-  </end>  <start channel='F10' iteration='nil' time='0.0260393148717949'>
-  </start>  <end channel='F11' time='0.0261184779487179'>
-  </end>  <start channel='F13' iteration='nil' time='0.0261625005128205'>
-  </start>  <end channel='F10' time='0.0262441148717949'>
-  </end>  <end channel='F13' time='0.0262649005128205'>
-  </end>  <start channel='F2' iteration='nil' time='0.0264254564102564'>
-  </start>  <start channel='F1' iteration='nil' time='0.0264254564102564'>
-  </start>  <start channel='G1' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G6' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G4' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G8' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G5' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G10' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G9' iteration='12' time='0.0264254564102564'>
-  </start>  <start channel='G2' iteration='12' time='0.0264254564102564'>
-  </start>  <end channel='G8' time='0.0264255564102564'>
-  </end>  <end channel='G5' time='0.0264255564102564'>
-  </end>  <end channel='G10' time='0.0264255564102564'>
-  </end>  <end channel='G6' time='0.0264255564102564'>
-  </end>  <end channel='G1' time='0.0264255564102564'>
-  </end>  <end channel='G2' time='0.0264255564102564'>
-  </end>  <end channel='G4' time='0.0264255564102564'>
-  </end>  <end channel='G9' time='0.0264255564102564'>
-  </end>  <end channel='F2' time='0.0266302564102564'>
-  </end>  <end channel='F1' time='0.0266302564102564'>
-  </end>  <start channel='F15' iteration='nil' time='0.0266349517948718'>
-  </start>  <end channel='F15' time='0.0268397517948718'>
-  </end>  <start channel='F5' iteration='nil' time='0.0269645641025641'>
-  </start>  <start channel='F4' iteration='nil' time='0.0269645641025641'>
-  </start>  <end channel='F5' time='0.0270669641025641'>
-  </end>  <start channel='F16' iteration='nil' time='0.0271027015384615'>
-  </start>  <end channel='F16' time='0.0271028015384615'>
-  </end>  <end channel='F4' time='0.0271693641025641'>
-  </end>  <start channel='F16' iteration='nil' time='0.027191622051282'>
-  </start>  <end channel='F16' time='0.027191722051282'>
-  </end>  <start channel='F7' iteration='nil' time='0.0272032051282051'>
-  </start>  <end channel='F7' time='0.0273056051282051'>
-  </end>  <start channel='F11' iteration='nil' time='0.028063881025641'>
-  </start>  <start channel='F12' iteration='nil' time='0.028063881025641'>
-  </start>  <end channel='F12' time='0.028166281025641'>
-  </end>  <start channel='F10' iteration='nil' time='0.0282536051282051'>
-  </start>  <start channel='F13' iteration='nil' time='0.0282674512820513'>
-  </start>  <start channel='F1' iteration='nil' time='0.0283480835897436'>
-  </start>  <start channel='F2' iteration='nil' time='0.0283480835897436'>
-  </start>  <start channel='G1' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G4' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G6' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G2' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G5' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G10' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G8' iteration='13' time='0.0283480835897436'>
-  </start>  <start channel='G9' iteration='13' time='0.0283480835897436'>
-  </start>  <end channel='G1' time='0.0283481835897436'>
-  </end>  <end channel='G10' time='0.0283481835897436'>
-  </end>  <end channel='G8' time='0.0283481835897436'>
-  </end>  <end channel='G6' time='0.0283481835897436'>
-  </end>  <end channel='G4' time='0.0283481835897436'>
-  </end>  <end channel='G5' time='0.0283481835897436'>
-  </end>  <end channel='G2' time='0.0283481835897436'>
-  </end>  <end channel='G9' time='0.0283481835897436'>
-  </end>  <end channel='F13' time='0.0283698512820513'>
-  </end>  <end channel='F10' time='0.0284584051282051'>
-  </end>  <end channel='F1' time='0.0285528835897436'>
-  </end>  <end channel='F2' time='0.0285528835897436'>
-  </end>  <start channel='F15' iteration='nil' time='0.0287343897435897'>
-  </start>  <start channel='F1' iteration='nil' time='0.0288209348717949'>
-  </start>  <start channel='F2' iteration='nil' time='0.0288209348717949'>
-  </start>  <start channel='G1' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G6' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G2' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G5' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G4' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G9' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G8' iteration='14' time='0.0288209348717949'>
-  </start>  <start channel='G10' iteration='14' time='0.0288209348717949'>
-  </start>  <end channel='G1' time='0.0288210348717949'>
-  </end>  <end channel='G2' time='0.0288210348717949'>
-  </end>  <end channel='G4' time='0.0288210348717949'>
-  </end>  <end channel='G9' time='0.0288210348717949'>
-  </end>  <end channel='G6' time='0.0288210348717949'>
-  </end>  <end channel='G8' time='0.0288210348717949'>
-  </end>  <end channel='G10' time='0.0288210348717949'>
-  </end>  <end channel='G5' time='0.0288210348717949'>
-  </end>  <end channel='F11' time='0.028883081025641'>
-  </end>  <start channel='F4' iteration='nil' time='0.0288871912820513'>
-  </start>  <start channel='F5' iteration='nil' time='0.0288871912820513'>
-  </start>  <end channel='F15' time='0.0289391897435897'>
-  </end>  <end channel='F5' time='0.0289895912820513'>
-  </end>  <end channel='F2' time='0.0290257348717949'>
-  </end>  <end channel='F1' time='0.0290257348717949'>
-  </end>  <end channel='F4' time='0.0290919912820513'>
-  </end>  <start channel='F7' iteration='nil' time='0.0291258323076923'>
-  </start>  <end channel='F7' time='0.0292282323076923'>
-  </end>  <start channel='F5' iteration='nil' time='0.029426298974359'>
-  </start>  <start channel='F4' iteration='nil' time='0.029426298974359'>
-  </start>  <end channel='F5' time='0.029528698974359'>
-  </end>  <end channel='F4' time='0.029631098974359'>
-  </end>  <start channel='F12' iteration='nil' time='0.0299865082051282'>
-  </start>  <start channel='F11' iteration='nil' time='0.0299865082051282'>
-  </start>  <end channel='F12' time='0.0300889082051282'>
-  </end>  <start channel='F10' iteration='nil' time='0.0301762323076923'>
-  </start>  <start channel='F13' iteration='nil' time='0.0301900784615384'>
-  </start>  <end channel='F13' time='0.0302924784615384'>
-  </end>  <end channel='F10' time='0.0303810323076923'>
-  </end>  <start channel='F7' iteration='nil' time='0.0305594569230769'>
-  </start>  <start channel='F15' iteration='nil' time='0.0306570169230769'>
-  </start>  <end channel='F7' time='0.0306618569230769'>
-  </end>  <end channel='F11' time='0.0308057082051282'>
-  </end>  <end channel='F15' time='0.0308618169230769'>
-  </end>  <start channel='F16' iteration='nil' time='0.0309353887179487'>
-  </start>  <end channel='F16' time='0.0309354887179487'>
-  </end>  <start channel='F13' iteration='nil' time='0.0316237030769231'>
-  </start>  <start channel='F12' iteration='nil' time='0.0316561441025641'>
-  </start>  <start channel='F11' iteration='nil' time='0.0316561441025641'>
-  </start>  <end channel='F13' time='0.0317261030769231'>
-  </end>  <end channel='F12' time='0.0317585441025641'>
-  </end>  <start channel='F10' iteration='nil' time='0.0318436579487179'>
-  </start>  <start channel='F1' iteration='nil' time='0.0318917543589744'>
-  </start>  <start channel='F2' iteration='nil' time='0.0318917543589744'>
-  </start>  <start channel='G4' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G2' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G1' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G8' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G5' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G9' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G6' iteration='15' time='0.0318917543589744'>
-  </start>  <start channel='G10' iteration='15' time='0.0318917543589744'>
-  </start>  <end channel='G9' time='0.0318918543589744'>
-  </end>  <end channel='G6' time='0.0318918543589744'>
-  </end>  <end channel='G4' time='0.0318918543589744'>
-  </end>  <end channel='G5' time='0.0318918543589744'>
-  </end>  <end channel='G8' time='0.0318918543589744'>
-  </end>  <end channel='G10' time='0.0318918543589744'>
-  </end>  <end channel='G1' time='0.0318918543589744'>
-  </end>  <end channel='G2' time='0.0318918543589744'>
-  </end>  <end channel='F10' time='0.0320484579487179'>
-  </end>  <end channel='F2' time='0.0320965543589744'>
-  </end>  <end channel='F1' time='0.0320965543589744'>
-  </end>  <start channel='F15' iteration='nil' time='0.0322081964102564'>
-  </start>  <end channel='F15' time='0.0324129964102564'>
-  </end>  <start channel='F5' iteration='nil' time='0.0324142466666667'>
-  </start>  <start channel='F4' iteration='nil' time='0.0324142466666667'>
-  </start>  <end channel='F11' time='0.0324753441025641'>
-  </end>  <end channel='F5' time='0.0325166466666667'>
-  </end>  <end channel='F4' time='0.0326190466666667'>
-  </end>  <start channel='F7' iteration='nil' time='0.0327977082051282'>
-  </start>  <end channel='F7' time='0.0330025082051282'>
-  </end>  <start channel='F11' iteration='nil' time='0.0334298456410256'>
-  </start>  <start channel='F12' iteration='nil' time='0.0334298456410256'>
-  </start>  <end channel='F12' time='0.0335322456410256'>
-  </end>  <start channel='F10' iteration='nil' time='0.0336176723076923'>
-  </start>  <end channel='F10' time='0.0338224723076923'>
-  </end>  <end channel='F11' time='0.0338394456410256'>
-  </end>  <start channel='F13' iteration='nil' time='0.0339748169230769'>
-  </start>  <end channel='F13' time='0.0340772169230769'>
-  </end>  <start channel='F15' iteration='nil' time='0.0344472682051282'>
-  </start>  <end channel='F15' time='0.0346520682051282'>
-  </end>  <start channel='F16' iteration='nil' time='0.0346665938461539'>
-  </start>  <end channel='F16' time='0.0346666938461539'>
-  </end>  <start channel='F1' iteration='nil' time='0.0349347451282051'>
-  </start>  <start channel='G1' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='G2' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='F2' iteration='nil' time='0.0349347451282051'>
-  </start>  <start channel='G5' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='G6' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='G4' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='G8' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='G9' iteration='16' time='0.0349347451282051'>
-  </start>  <start channel='G10' iteration='16' time='0.0349347451282051'>
-  </start>  <end channel='G2' time='0.0349348451282051'>
-  </end>  <end channel='G8' time='0.0349348451282051'>
-  </end>  <end channel='G9' time='0.0349348451282051'>
-  </end>  <end channel='G6' time='0.0349348451282051'>
-  </end>  <end channel='G1' time='0.0349348451282051'>
-  </end>  <end channel='G4' time='0.0349348451282051'>
-  </end>  <end channel='G10' time='0.0349348451282051'>
-  </end>  <end channel='G5' time='0.0349348451282051'>
-  </end>  <end channel='F1' time='0.0351395451282051'>
-  </end>  <end channel='F2' time='0.0351395451282051'>
-  </end>  <start channel='F16' iteration='nil' time='0.035272798974359'>
-  </start>  <end channel='F16' time='0.035272898974359'>
-  </end>  <start channel='F16' iteration='nil' time='0.0353617194871795'>
-  </start>  <end channel='F16' time='0.0353618194871795'>
-  </end>  <start channel='F5' iteration='nil' time='0.0354572374358974'>
-  </start>  <start channel='F4' iteration='nil' time='0.0354572374358974'>
-  </start>  <end channel='F5' time='0.0355596374358974'>
-  </end>  <end channel='F4' time='0.0356620374358974'>
-  </end>  <start channel='F7' iteration='nil' time='0.035840698974359'>
-  </start>  <end channel='F7' time='0.036045498974359'>
-  </end>  <start channel='F11' iteration='nil' time='0.0364728364102564'>
-  </start>  <start channel='F12' iteration='nil' time='0.0364728364102564'>
-  </start>  <end channel='F12' time='0.0365752364102564'>
-  </end>  <start channel='F10' iteration='nil' time='0.0366606630769231'>
-  </start>  <end channel='F10' time='0.0368654630769231'>
-  </end>  <end channel='F11' time='0.0368824364102564'>
-  </end>  <start channel='F13' iteration='nil' time='0.0370178076923077'>
-  </start>  <end channel='F13' time='0.0371202076923077'>
-  </end>  <start channel='F2' iteration='nil' time='0.0372807635897436'>
-  </start>  <start channel='F1' iteration='nil' time='0.0372807635897436'>
-  </start>  <start channel='G1' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G4' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G6' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G8' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G5' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G9' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G2' iteration='17' time='0.0372807635897436'>
-  </start>  <start channel='G10' iteration='17' time='0.0372807635897436'>
-  </start>  <end channel='G8' time='0.0372808635897436'>
-  </end>  <end channel='G9' time='0.0372808635897436'>
-  </end>  <end channel='G6' time='0.0372808635897436'>
-  </end>  <end channel='G5' time='0.0372808635897436'>
-  </end>  <end channel='G4' time='0.0372808635897436'>
-  </end>  <end channel='G10' time='0.0372808635897436'>
-  </end>  <end channel='G1' time='0.0372808635897436'>
-  </end>  <end channel='G2' time='0.0372808635897436'>
-  </end>  <end channel='F2' time='0.0374855635897436'>
-  </end>  <end channel='F1' time='0.0374855635897436'>
-  </end>  <start channel='F15' iteration='nil' time='0.037490258974359'>
-  </start>  <end channel='F15' time='0.037695058974359'>
-  </end>  <start channel='F16' iteration='nil' time='0.0377838794871795'>
-  </start>  <end channel='F16' time='0.0377839794871795'>
-  </end>  <start channel='F5' iteration='nil' time='0.0378032558974359'>
-  </start>  <start channel='F4' iteration='nil' time='0.0378032558974359'>
-  </start>  <end channel='F5' time='0.0379056558974359'>
-  </end>  <end channel='F4' time='0.0380080558974359'>
-  </end>  <start channel='F7' iteration='nil' time='0.0381867174358975'>
-  </start>  <end channel='F7' time='0.0383915174358975'>
-  </end>  <start channel='F11' iteration='nil' time='0.0388188548717949'>
-  </start>  <start channel='F12' iteration='nil' time='0.0388188548717949'>
-  </start>  <end channel='F12' time='0.0389212548717949'>
-  </end>  <start channel='F10' iteration='nil' time='0.0390066815384616'>
-  </start>  <end channel='F10' time='0.0392114815384616'>
-  </end>  <end channel='F11' time='0.0392284548717949'>
-  </end>  <start channel='F13' iteration='nil' time='0.0393638261538462'>
-  </start>  <end channel='F13' time='0.0394662261538462'>
-  </end>  <start channel='F1' iteration='nil' time='0.0396267820512821'>
-  </start>  <start channel='F2' iteration='nil' time='0.0396267820512821'>
-  </start>  <start channel='G5' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G4' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G2' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G1' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G6' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G8' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G9' iteration='18' time='0.0396267820512821'>
-  </start>  <start channel='G10' iteration='18' time='0.0396267820512821'>
-  </start>  <end channel='G8' time='0.0396268820512821'>
-  </end>  <end channel='G10' time='0.0396268820512821'>
-  </end>  <end channel='G9' time='0.0396268820512821'>
-  </end>  <end channel='G6' time='0.0396268820512821'>
-  </end>  <end channel='G2' time='0.0396268820512821'>
-  </end>  <end channel='G1' time='0.0396268820512821'>
-  </end>  <end channel='G4' time='0.0396268820512821'>
-  </end>  <end channel='G5' time='0.0396268820512821'>
-  </end>  <end channel='F1' time='0.0398315820512821'>
-  </end>  <end channel='F2' time='0.0398315820512821'>
-  </end>  <start channel='F15' iteration='nil' time='0.0398362774358975'>
-  </start>  <end channel='F15' time='0.0400410774358975'>
-  </end>  <start channel='F16' iteration='nil' time='0.040129897948718'>
-  </start>  <end channel='F16' time='0.040129997948718'>
-  </end>  <start channel='F5' iteration='nil' time='0.0401492743589744'>
-  </start>  <start channel='F4' iteration='nil' time='0.0401492743589744'>
-  </start>  <end channel='F5' time='0.0402516743589744'>
-  </end>  <end channel='F4' time='0.0403540743589744'>
-  </end>  <start channel='F7' iteration='nil' time='0.0405327358974359'>
-  </start>  <end channel='F7' time='0.0407375358974359'>
-  </end>  <start channel='F11' iteration='nil' time='0.0411648733333334'>
-  </start>  <start channel='F12' iteration='nil' time='0.0411648733333334'>
-  </start>  <end channel='F12' time='0.0412672733333334'>
-  </end>  <start channel='F10' iteration='nil' time='0.0413527'>
-  </start>  <end channel='F10' time='0.0415575'>
-  </end>  <end channel='F11' time='0.0415744733333334'>
-  </end>  <start channel='F13' iteration='nil' time='0.0417098446153847'>
-  </start>  <end channel='F13' time='0.0418122446153847'>
-  </end>  <start channel='F2' iteration='nil' time='0.0419728005128206'>
-  </start>  <start channel='F1' iteration='nil' time='0.0419728005128206'>
-  </start>  <start channel='G2' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G1' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G4' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G5' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G8' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G9' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G6' iteration='19' time='0.0419728005128206'>
-  </start>  <start channel='G10' iteration='19' time='0.0419728005128206'>
-  </start>  <end channel='G4' time='0.0419729005128206'>
-  </end>  <end channel='G2' time='0.0419729005128206'>
-  </end>  <end channel='G6' time='0.0419729005128206'>
-  </end>  <end channel='G5' time='0.0419729005128206'>
-  </end>  <end channel='G1' time='0.0419729005128206'>
-  </end>  <end channel='G9' time='0.0419729005128206'>
-  </end>  <end channel='G10' time='0.0419729005128206'>
-  </end>  <end channel='G8' time='0.0419729005128206'>
-  </end>  <end channel='F1' time='0.0421776005128206'>
-  </end>  <end channel='F2' time='0.0421776005128206'>
-  </end>  <start channel='F15' iteration='nil' time='0.042182295897436'>
-  </start>  <end channel='F15' time='0.042387095897436'>
-  </end>  <start channel='F16' iteration='nil' time='0.0424759164102565'>
-  </start>  <end channel='F16' time='0.0424760164102565'>
-  </end>  <start channel='F4' iteration='nil' time='0.0424952928205129'>
-  </start>  <start channel='F5' iteration='nil' time='0.0424952928205129'>
-  </start>  <end channel='F5' time='0.0425976928205129'>
-  </end>  <end channel='F4' time='0.0427000928205129'>
-  </end>  <start channel='F7' iteration='nil' time='0.0428787543589744'>
-  </start>  <end channel='F7' time='0.0430835543589744'>
-  </end>  <start channel='F11' iteration='nil' time='0.0435108917948719'>
-  </start>  <start channel='F12' iteration='nil' time='0.0435108917948719'>
-  </start>  <end channel='F12' time='0.0436132917948719'>
-  </end>  <start channel='F10' iteration='nil' time='0.0436987184615385'>
-  </start>  <end channel='F10' time='0.0439035184615385'>
-  </end>  <end channel='F11' time='0.0439204917948719'>
-  </end>  <start channel='F13' iteration='nil' time='0.0440558630769232'>
-  </start>  <end channel='F13' time='0.0441582630769232'>
-  </end>  <start channel='F1' iteration='nil' time='0.0443188189743591'>
-  </start>  <start channel='F2' iteration='nil' time='0.0443188189743591'>
-  </start>  <start channel='G1' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G2' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G6' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G5' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G9' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G4' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G10' iteration='20' time='0.0443188189743591'>
-  </start>  <start channel='G8' iteration='20' time='0.0443188189743591'>
-  </start>  <end channel='G2' time='0.0443189189743591'>
-  </end>  <end channel='G9' time='0.0443189189743591'>
-  </end>  <end channel='G1' time='0.0443189189743591'>
-  </end>  <end channel='G10' time='0.0443189189743591'>
-  </end>  <end channel='G8' time='0.0443189189743591'>
-  </end>  <end channel='G5' time='0.0443189189743591'>
-  </end>  <end channel='G4' time='0.0443189189743591'>
-  </end>  <end channel='G6' time='0.0443189189743591'>
-  </end>  <end channel='F2' time='0.0445236189743591'>
-  </end>  <end channel='F1' time='0.0445236189743591'>
-  </end>  <start channel='F15' iteration='nil' time='0.0445283143589744'>
-  </start>  <end channel='F15' time='0.0447331143589744'>
-  </end>  <start channel='F1' iteration='nil' time='0.0447916702564103'>
-  </start>  <start channel='F2' iteration='nil' time='0.0447916702564103'>
-  </start>  <start channel='G4' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G8' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G2' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G1' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G5' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G9' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G6' iteration='21' time='0.0447916702564103'>
-  </start>  <start channel='G10' iteration='21' time='0.0447916702564103'>
-  </start>  <end channel='G8' time='0.0447917702564103'>
-  </end>  <end channel='G1' time='0.0447917702564103'>
-  </end>  <end channel='G9' time='0.0447917702564103'>
-  </end>  <end channel='G6' time='0.0447917702564103'>
-  </end>  <end channel='G10' time='0.0447917702564103'>
-  </end>  <end channel='G4' time='0.0447917702564103'>
-  </end>  <end channel='G2' time='0.0447917702564103'>
-  </end>  <end channel='G5' time='0.0447917702564103'>
-  </end>  <start channel='F16' iteration='nil' time='0.044821934871795'>
-  </start>  <end channel='F16' time='0.044822034871795'>
-  </end>  <start channel='F5' iteration='nil' time='0.0448579266666667'>
-  </start>  <start channel='F4' iteration='nil' time='0.0448579266666667'>
-  </start>  <end channel='F5' time='0.0449603266666668'>
-  </end>  <end channel='F1' time='0.0449964702564103'>
-  </end>  <end channel='F2' time='0.0449964702564103'>
-  </end>  <end channel='F4' time='0.0450627266666667'>
-  </end>  <start channel='F7' iteration='nil' time='0.0450965676923078'>
-  </start>  <end channel='F7' time='0.0451989676923078'>
-  </end>  <start channel='F5' iteration='nil' time='0.0453970343589744'>
-  </start>  <start channel='F4' iteration='nil' time='0.0453970343589744'>
-  </start>  <end channel='F5' time='0.0454994343589744'>
-  </end>  <end channel='F4' time='0.0456018343589744'>
-  </end>  <start channel='F11' iteration='nil' time='0.0459572435897437'>
-  </start>  <start channel='F12' iteration='nil' time='0.0459572435897437'>
-  </start>  <end channel='F12' time='0.0460596435897437'>
-  </end>  <start channel='F10' iteration='nil' time='0.0461469676923078'>
-  </start>  <start channel='F13' iteration='nil' time='0.0461608138461539'>
-  </start>  <start channel='F2' iteration='nil' time='0.0462417523076924'>
-  </start>  <start channel='F1' iteration='nil' time='0.0462417523076924'>
-  </start>  <start channel='G8' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G1' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G10' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G6' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G9' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G4' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G5' iteration='22' time='0.0462417523076924'>
-  </start>  <start channel='G2' iteration='22' time='0.0462417523076924'>
-  </start>  <end channel='G5' time='0.0462418523076924'>
-  </end>  <end channel='G2' time='0.0462418523076924'>
-  </end>  <end channel='G1' time='0.0462418523076924'>
-  </end>  <end channel='G4' time='0.0462418523076924'>
-  </end>  <end channel='G8' time='0.0462418523076924'>
-  </end>  <end channel='G9' time='0.0462418523076924'>
-  </end>  <end channel='G6' time='0.0462418523076924'>
-  </end>  <end channel='G10' time='0.0462418523076924'>
-  </end>  <end channel='F13' time='0.0462632138461539'>
-  </end>  <end channel='F10' time='0.0463517676923078'>
-  </end>  <end channel='F2' time='0.0464465523076924'>
-  </end>  <end channel='F1' time='0.0464465523076924'>
-  </end>  <start channel='F7' iteration='nil' time='0.0465301923076924'>
-  </start>  <start channel='F15' iteration='nil' time='0.0466277523076924'>
-  </start>  <end channel='F7' time='0.0466325923076924'>
-  </end>  <end channel='F11' time='0.0467764435897437'>
-  </end>  <start channel='F5' iteration='nil' time='0.0467808600000001'>
-  </start>  <start channel='F4' iteration='nil' time='0.0467808600000001'>
-  </start>  <end channel='F15' time='0.0468325523076924'>
-  </end>  <end channel='F5' time='0.0468832600000001'>
-  </end>  <end channel='F4' time='0.0469856600000001'>
-  </end>  <start channel='F13' iteration='nil' time='0.0475944384615386'>
-  </start>  <start channel='F12' iteration='nil' time='0.0476268794871796'>
-  </start>  <start channel='F11' iteration='nil' time='0.0476268794871796'>
-  </start>  <end channel='F13' time='0.0476968384615386'>
-  </end>  <end channel='F12' time='0.0477292794871796'>
-  </end>  <start channel='F10' iteration='nil' time='0.0478143933333334'>
-  </start>  <end channel='F10' time='0.0480191933333334'>
-  </end>  <start channel='F7' iteration='nil' time='0.0480713615384616'>
-  </start>  <end channel='F7' time='0.0481737615384616'>
-  </end>  <start channel='F15' iteration='nil' time='0.0481789317948719'>
-  </start>  <end channel='F15' time='0.0483837317948719'>
-  </end>  <end channel='F11' time='0.0484460794871796'>
-  </end>  <start channel='F13' iteration='nil' time='0.0491356076923078'>
-  </start>  <end channel='F13' time='0.0492380076923078'>
-  </end>  <start channel='F11' iteration='nil' time='0.0492965153846155'>
-  </start>  <start channel='F12' iteration='nil' time='0.0492965153846155'>
-  </start>  <start channel='F10' iteration='nil' time='0.0493655728205129'>
-  </start>  <end channel='F12' time='0.0493989153846155'>
-  </end>  <end channel='F10' time='0.0495703728205129'>
-  </end>  <start channel='F15' iteration='nil' time='0.0497634538461539'>
-  </start>  <end channel='F15' time='0.0499682538461539'>
-  </end>  <end channel='F11' time='0.0501157153846155'>
-  </end>  <start channel='F16' iteration='nil' time='0.050502376923077'>
-  </start>  <end channel='F16' time='0.050502476923077'>
-  </end>  <start channel='F1' iteration='nil' time='0.0507705282051283'>
-  </start>  <start channel='F2' iteration='nil' time='0.0507705282051283'>
-  </start>  <start channel='G2' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G1' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G5' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G4' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G6' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G8' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G10' iteration='23' time='0.0507705282051283'>
-  </start>  <start channel='G9' iteration='23' time='0.0507705282051283'>
-  </start>  <end channel='G10' time='0.0507706282051283'>
-  </end>  <end channel='G4' time='0.0507706282051283'>
-  </end>  <end channel='G8' time='0.0507706282051283'>
-  </end>  <end channel='G1' time='0.0507706282051283'>
-  </end>  <end channel='G2' time='0.0507706282051283'>
-  </end>  <end channel='G9' time='0.0507706282051283'>
-  </end>  <end channel='G5' time='0.0507706282051283'>
-  </end>  <end channel='G6' time='0.0507706282051283'>
-  </end>  <end channel='F2' time='0.0509753282051283'>
-  </end>  <end channel='F1' time='0.0509753282051283'>
-  </end>  <start channel='F16' iteration='nil' time='0.0511410692307694'>
-  </start>  <end channel='F16' time='0.0511411692307694'>
-  </end>  <start channel='F16' iteration='nil' time='0.0512299897435899'>
-  </start>  <end channel='F16' time='0.0512300897435899'>
-  </end>  <start channel='F4' iteration='nil' time='0.051309635897436'>
-  </start>  <start channel='F5' iteration='nil' time='0.051309635897436'>
-  </start>  <start channel='F1' iteration='nil' time='0.0514092205128206'>
-  </start>  <start channel='F2' iteration='nil' time='0.0514092205128206'>
-  </start>  <start channel='G4' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G8' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G9' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G5' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G6' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G1' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G2' iteration='24' time='0.0514092205128206'>
-  </start>  <start channel='G10' iteration='24' time='0.0514092205128206'>
-  </start>  <end channel='G2' time='0.0514093205128206'>
-  </end>  <end channel='G9' time='0.0514093205128206'>
-  </end>  <end channel='G4' time='0.0514093205128206'>
-  </end>  <end channel='G10' time='0.0514093205128206'>
-  </end>  <end channel='G1' time='0.0514093205128206'>
-  </end>  <end channel='G6' time='0.0514093205128206'>
-  </end>  <end channel='G5' time='0.0514093205128206'>
-  </end>  <end channel='G8' time='0.0514093205128206'>
-  </end>  <end channel='F5' time='0.051412035897436'>
-  </end>  <end channel='F4' time='0.051514435897436'>
-  </end>  <start channel='F7' iteration='nil' time='0.051548276923077'>
-  </start>  <end channel='F1' time='0.0516140205128206'>
-  </end>  <end channel='F2' time='0.0516140205128206'>
-  </end>  <end channel='F7' time='0.051650676923077'>
-  </end>  <start channel='F5' iteration='nil' time='0.0519483282051283'>
-  </start>  <start channel='F4' iteration='nil' time='0.0519483282051283'>
-  </start>  <end channel='F5' time='0.0520507282051283'>
-  </end>  <end channel='F4' time='0.0521531282051283'>
-  </end>  <start channel='F11' iteration='nil' time='0.0524089528205129'>
-  </start>  <start channel='F12' iteration='nil' time='0.0524089528205129'>
-  </start>  <end channel='F12' time='0.0525113528205129'>
-  </end>  <start channel='F10' iteration='nil' time='0.052598676923077'>
-  </start>  <start channel='F13' iteration='nil' time='0.0526125230769232'>
-  </start>  <end channel='F13' time='0.0527149230769232'>
-  </end>  <end channel='F10' time='0.052803476923077'>
-  </end>  <start channel='F1' iteration='nil' time='0.0528593025641027'>
-  </start>  <start channel='F2' iteration='nil' time='0.0528593025641027'>
-  </start>  <start channel='G1' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G2' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G4' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G6' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G5' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G8' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G9' iteration='25' time='0.0528593025641027'>
-  </start>  <start channel='G10' iteration='25' time='0.0528593025641027'>
-  </start>  <end channel='G9' time='0.0528594025641027'>
-  </end>  <end channel='G4' time='0.0528594025641027'>
-  </end>  <end channel='G2' time='0.0528594025641027'>
-  </end>  <end channel='G1' time='0.0528594025641027'>
-  </end>  <end channel='G8' time='0.0528594025641027'>
-  </end>  <end channel='G5' time='0.0528594025641027'>
-  </end>  <end channel='G10' time='0.0528594025641027'>
-  </end>  <end channel='G6' time='0.0528594025641027'>
-  </end>  <start channel='F7' iteration='nil' time='0.0529819015384617'>
-  </start>  <end channel='F1' time='0.0530641025641027'>
-  </end>  <end channel='F2' time='0.0530641025641027'>
-  </end>  <start channel='F15' iteration='nil' time='0.0530794615384617'>
-  </start>  <end channel='F7' time='0.0530843015384617'>
-  </end>  <end channel='F11' time='0.0532281528205129'>
-  </end>  <end channel='F15' time='0.0532842615384617'>
-  </end>  <start channel='F5' iteration='nil' time='0.0533984102564104'>
-  </start>  <start channel='F4' iteration='nil' time='0.0533984102564104'>
-  </start>  <end channel='F5' time='0.0535008102564104'>
-  </end>  <end channel='F4' time='0.0536032102564104'>
-  </end>  <start channel='F13' iteration='nil' time='0.0540461476923078'>
-  </start>  <start channel='F12' iteration='nil' time='0.0540785887179488'>
-  </start>  <start channel='F11' iteration='nil' time='0.0540785887179488'>
-  </start>  <end channel='F13' time='0.0541485476923078'>
-  </end>  <end channel='F12' time='0.0541809887179488'>
-  </end>  <start channel='F10' iteration='nil' time='0.0542661025641027'>
-  </start>  <end channel='F10' time='0.0544709025641027'>
-  </end>  <start channel='F7' iteration='nil' time='0.0545230707692309'>
-  </start>  <end channel='F7' time='0.0546254707692309'>
-  </end>  <start channel='F15' iteration='nil' time='0.0546306410256412'>
-  </start>  <end channel='F15' time='0.0548354410256412'>
-  </end>  <end channel='F11' time='0.0548977887179488'>
-  </end>  <start channel='F13' iteration='nil' time='0.0555873169230771'>
-  </start>  <end channel='F13' time='0.0556897169230771'>
-  </end>  <start channel='F11' iteration='nil' time='0.0557482246153847'>
-  </start>  <start channel='F12' iteration='nil' time='0.0557482246153847'>
-  </start>  <start channel='F10' iteration='nil' time='0.0558172820512822'>
-  </start>  <end channel='F12' time='0.0558506246153847'>
-  </end>  <end channel='F10' time='0.0560220820512822'>
-  </end>  <start channel='F15' iteration='nil' time='0.0562151630769232'>
-  </start>  <end channel='F15' time='0.0564199630769232'>
-  </end>  <end channel='F11' time='0.0565674246153847'>
-  </end>  <start channel='F16' iteration='nil' time='0.0569540861538463'>
-  </start>  <end channel='F16' time='0.0569541861538463'>
-  </end>  <start channel='F1' iteration='nil' time='0.0572222374358976'>
-  </start>  <start channel='F2' iteration='nil' time='0.0572222374358976'>
-  </start>  <start channel='G2' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G4' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G1' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G8' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G6' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G5' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G9' iteration='26' time='0.0572222374358976'>
-  </start>  <start channel='G10' iteration='26' time='0.0572222374358976'>
-  </start>  <end channel='G1' time='0.0572223374358976'>
-  </end>  <end channel='G5' time='0.0572223374358976'>
-  </end>  <end channel='G9' time='0.0572223374358976'>
-  </end>  <end channel='G2' time='0.0572223374358976'>
-  </end>  <end channel='G10' time='0.0572223374358976'>
-  </end>  <end channel='G8' time='0.0572223374358976'>
-  </end>  <end channel='G4' time='0.0572223374358976'>
-  </end>  <end channel='G6' time='0.0572223374358976'>
-  </end>  <end channel='F1' time='0.0574270374358976'>
-  </end>  <end channel='F2' time='0.0574270374358976'>
-  </end>  <start channel='F16' iteration='nil' time='0.0575927784615386'>
-  </start>  <end channel='F16' time='0.0575928784615386'>
-  </end>  <start channel='F16' iteration='nil' time='0.0576816989743591'>
-  </start>  <end channel='F16' time='0.0576817989743591'>
-  </end>  <start channel='F5' iteration='nil' time='0.0577447297435899'>
-  </start>  <start channel='F4' iteration='nil' time='0.0577447297435899'>
-  </start>  <end channel='F5' time='0.0578471297435899'>
-  </end>  <end channel='F4' time='0.0579495297435899'>
-  </end>  <start channel='F7' iteration='nil' time='0.0581281912820514'>
-  </start>  <end channel='F7' time='0.0583329912820514'>
-  </end>  <start channel='F12' iteration='nil' time='0.0587603287179489'>
-  </start>  <start channel='F11' iteration='nil' time='0.0587603287179489'>
-  </start>  <end channel='F12' time='0.0588627287179489'>
-  </end>  <start channel='F10' iteration='nil' time='0.0589481553846155'>
-  </start>  <end channel='F10' time='0.0591529553846155'>
-  </end>  <end channel='F11' time='0.0591699287179489'>
-  </end>  <start channel='F13' iteration='nil' time='0.0593053000000002'>
-  </start>  <end channel='F13' time='0.0594077000000002'>
-  </end>  <start channel='F1' iteration='nil' time='0.0595682558974361'>
-  </start>  <start channel='F2' iteration='nil' time='0.0595682558974361'>
-  </start>  <start channel='G2' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G1' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G5' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G4' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G6' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G10' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G8' iteration='27' time='0.0595682558974361'>
-  </start>  <start channel='G9' iteration='27' time='0.0595682558974361'>
-  </start>  <end channel='G4' time='0.0595683558974361'>
-  </end>  <end channel='G5' time='0.0595683558974361'>
-  </end>  <end channel='G9' time='0.0595683558974361'>
-  </end>  <end channel='G6' time='0.0595683558974361'>
-  </end>  <end channel='G8' time='0.0595683558974361'>
-  </end>  <end channel='G2' time='0.0595683558974361'>
-  </end>  <end channel='G10' time='0.0595683558974361'>
-  </end>  <end channel='G1' time='0.0595683558974361'>
-  </end>  <end channel='F1' time='0.0597730558974361'>
-  </end>  <end channel='F2' time='0.0597730558974361'>
-  </end>  <start channel='F15' iteration='nil' time='0.0597777512820515'>
-  </start>  <end channel='F15' time='0.0599825512820515'>
-  </end>  <start channel='F16' iteration='nil' time='0.060071371794872'>
-  </start>  <end channel='F16' time='0.060071471794872'>
-  </end>  <start channel='F5' iteration='nil' time='0.0600907482051284'>
-  </start>  <start channel='F4' iteration='nil' time='0.0600907482051284'>
-  </start>  <end channel='F5' time='0.0601931482051284'>
-  </end>  <end channel='F4' time='0.0602955482051284'>
-  </end>  <start channel='F7' iteration='nil' time='0.0604742097435899'>
-  </start>  <end channel='F7' time='0.0606790097435899'>
-  </end>  <start channel='F12' iteration='nil' time='0.0611063471794874'>
-  </start>  <start channel='F11' iteration='nil' time='0.0611063471794874'>
-  </start>  <end channel='F12' time='0.0612087471794874'>
-  </end>  <start channel='F10' iteration='nil' time='0.061294173846154'>
-  </start>  <end channel='F10' time='0.061498973846154'>
-  </end>  <end channel='F11' time='0.0615159471794874'>
-  </end>  <start channel='F13' iteration='nil' time='0.0616513184615386'>
-  </start>  <end channel='F13' time='0.0617537184615386'>
-  </end>  <start channel='F1' iteration='nil' time='0.0619142743589745'>
-  </start>  <start channel='F2' iteration='nil' time='0.0619142743589745'>
-  </start>  <start channel='G2' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G1' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G4' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G6' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G5' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G8' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G9' iteration='28' time='0.0619142743589745'>
-  </start>  <start channel='G10' iteration='28' time='0.0619142743589745'>
-  </start>  <end channel='G4' time='0.0619143743589745'>
-  </end>  <end channel='G10' time='0.0619143743589745'>
-  </end>  <end channel='G1' time='0.0619143743589745'>
-  </end>  <end channel='G2' time='0.0619143743589745'>
-  </end>  <end channel='G8' time='0.0619143743589745'>
-  </end>  <end channel='G5' time='0.0619143743589745'>
-  </end>  <end channel='G9' time='0.0619143743589745'>
-  </end>  <end channel='G6' time='0.0619143743589745'>
-  </end>  <end channel='F1' time='0.0621190743589745'>
-  </end>  <end channel='F2' time='0.0621190743589745'>
-  </end>  <start channel='F15' iteration='nil' time='0.0621237697435899'>
-  </start>  <end channel='F15' time='0.0623285697435899'>
-  </end>  <start channel='F16' iteration='nil' time='0.0624173902564105'>
-  </start>  <end channel='F16' time='0.0624174902564105'>
-  </end>  <start channel='F4' iteration='nil' time='0.0624367666666669'>
-  </start>  <start channel='F5' iteration='nil' time='0.0624367666666669'>
-  </start>  <end channel='F5' time='0.0625391666666669'>
-  </end>  <end channel='F4' time='0.0626415666666669'>
-  </end>  <start channel='F7' iteration='nil' time='0.0628202282051284'>
-  </start>  <end channel='F7' time='0.0630250282051284'>
-  </end>  <start channel='F12' iteration='nil' time='0.0634523656410258'>
-  </start>  <start channel='F11' iteration='nil' time='0.0634523656410258'>
-  </start>  <end channel='F12' time='0.0635547656410258'>
-  </end>  <start channel='F10' iteration='nil' time='0.0636401923076925'>
-  </start>  <end channel='F10' time='0.0638449923076925'>
-  </end>  <end channel='F11' time='0.0638619656410258'>
-  </end>  <start channel='F13' iteration='nil' time='0.0639973369230771'>
-  </start>  <end channel='F13' time='0.0640997369230771'>
-  </end>  <start channel='F2' iteration='nil' time='0.064260292820513'>
-  </start>  <start channel='F1' iteration='nil' time='0.064260292820513'>
-  </start>  <start channel='G2' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G1' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G5' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G6' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G8' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G10' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G4' iteration='29' time='0.064260292820513'>
-  </start>  <start channel='G9' iteration='29' time='0.064260292820513'>
-  </start>  <end channel='G6' time='0.064260392820513'>
-  </end>  <end channel='G8' time='0.064260392820513'>
-  </end>  <end channel='G2' time='0.064260392820513'>
-  </end>  <end channel='G1' time='0.064260392820513'>
-  </end>  <end channel='G5' time='0.064260392820513'>
-  </end>  <end channel='G9' time='0.064260392820513'>
-  </end>  <end channel='G10' time='0.064260392820513'>
-  </end>  <end channel='G4' time='0.064260392820513'>
-  </end>  <end channel='F1' time='0.064465092820513'>
-  </end>  <end channel='F2' time='0.064465092820513'>
-  </end>  <start channel='F15' iteration='nil' time='0.0644697882051284'>
-  </start>  <end channel='F15' time='0.0646745882051284'>
-  </end>  <start channel='F16' iteration='nil' time='0.0647634087179489'>
-  </start>  <end channel='F16' time='0.0647635087179489'>
-  </end>  <start channel='F4' iteration='nil' time='0.0647827851282053'>
-  </start>  <start channel='F5' iteration='nil' time='0.0647827851282053'>
-  </start>  <end channel='F5' time='0.0648851851282053'>
-  </end>  <end channel='F4' time='0.0649875851282053'>
-  </end>  <start channel='F7' iteration='nil' time='0.0651662466666668'>
-  </start>  <end channel='F7' time='0.0653710466666668'>
-  </end>  <start channel='F11' iteration='nil' time='0.0657983841025643'>
-  </start>  <start channel='F12' iteration='nil' time='0.0657983841025643'>
-  </start>  <end channel='F12' time='0.0659007841025643'>
-  </end>  <start channel='F10' iteration='nil' time='0.0659862107692309'>
-  </start>  <end channel='F10' time='0.066191010769231'>
-  </end>  <end channel='F11' time='0.0662079841025642'>
-  </end>  <start channel='F13' iteration='nil' time='0.0663433553846155'>
-  </start>  <end channel='F13' time='0.0664457553846155'>
-  </end>  <start channel='F1' iteration='nil' time='0.0666063112820514'>
-  </start>  <start channel='F2' iteration='nil' time='0.0666063112820514'>
-  </start>  <start channel='G1' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G2' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G6' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G5' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G4' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G10' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G9' iteration='30' time='0.0666063112820514'>
-  </start>  <start channel='G8' iteration='30' time='0.0666063112820514'>
-  </start>  <end channel='G10' time='0.0666064112820514'>
-  </end>  <end channel='G2' time='0.0666064112820514'>
-  </end>  <end channel='G8' time='0.0666064112820514'>
-  </end>  <end channel='G4' time='0.0666064112820514'>
-  </end>  <end channel='G5' time='0.0666064112820514'>
-  </end>  <end channel='G6' time='0.0666064112820514'>
-  </end>  <end channel='G9' time='0.0666064112820514'>
-  </end>  <end channel='G1' time='0.0666064112820514'>
-  </end>  <end channel='F2' time='0.0668111112820514'>
-  </end>  <end channel='F1' time='0.0668111112820514'>
-  </end>  <start channel='F15' iteration='nil' time='0.0668158066666668'>
-  </start>  <end channel='F15' time='0.0670206066666668'>
-  </end>  <start channel='F1' iteration='nil' time='0.0670791625641027'>
-  </start>  <start channel='F2' iteration='nil' time='0.0670791625641027'>
-  </start>  <start channel='G1' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G5' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G2' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G4' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G10' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G9' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G8' iteration='31' time='0.0670791625641027'>
-  </start>  <start channel='G6' iteration='31' time='0.0670791625641027'>
-  </start>  <end channel='G2' time='0.0670792625641027'>
-  </end>  <end channel='G10' time='0.0670792625641027'>
-  </end>  <end channel='G4' time='0.0670792625641027'>
-  </end>  <end channel='G5' time='0.0670792625641027'>
-  </end>  <end channel='G9' time='0.0670792625641027'>
-  </end>  <end channel='G1' time='0.0670792625641027'>
-  </end>  <end channel='G6' time='0.0670792625641027'>
-  </end>  <end channel='G8' time='0.0670792625641027'>
-  </end>  <start channel='F16' iteration='nil' time='0.0671094271794873'>
-  </start>  <end channel='F16' time='0.0671095271794873'>
-  </end>  <start channel='F4' iteration='nil' time='0.0671454189743591'>
-  </start>  <start channel='F5' iteration='nil' time='0.0671454189743591'>
-  </start>  <end channel='F5' time='0.0672478189743591'>
-  </end>  <end channel='F2' time='0.0672839625641027'>
-  </end>  <end channel='F1' time='0.0672839625641027'>
-  </end>  <end channel='F4' time='0.0673502189743591'>
-  </end>  <start channel='F7' iteration='nil' time='0.0673840600000001'>
-  </start>  <end channel='F7' time='0.0674864600000002'>
-  </end>  <start channel='F5' iteration='nil' time='0.0676845266666668'>
-  </start>  <start channel='F4' iteration='nil' time='0.0676845266666668'>
-  </start>  <end channel='F5' time='0.0677869266666668'>
-  </end>  <end channel='F4' time='0.0678893266666668'>
-  </end>  <start channel='F11' iteration='nil' time='0.068244735897436'>
-  </start>  <start channel='F12' iteration='nil' time='0.068244735897436'>
-  </start>  <end channel='F12' time='0.068347135897436'>
-  </end>  <start channel='F10' iteration='nil' time='0.0684344600000001'>
-  </start>  <start channel='F13' iteration='nil' time='0.0684483061538463'>
-  </start>  <start channel='F2' iteration='nil' time='0.0685292446153847'>
-  </start>  <start channel='F1' iteration='nil' time='0.0685292446153847'>
-  </start>  <start channel='G2' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G6' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G1' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G5' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G10' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G4' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G8' iteration='32' time='0.0685292446153847'>
-  </start>  <start channel='G9' iteration='32' time='0.0685292446153847'>
-  </start>  <end channel='G4' time='0.0685293446153847'>
-  </end>  <end channel='G9' time='0.0685293446153847'>
-  </end>  <end channel='G10' time='0.0685293446153847'>
-  </end>  <end channel='G1' time='0.0685293446153847'>
-  </end>  <end channel='G2' time='0.0685293446153847'>
-  </end>  <end channel='G8' time='0.0685293446153847'>
-  </end>  <end channel='G6' time='0.0685293446153847'>
-  </end>  <end channel='G5' time='0.0685293446153847'>
-  </end>  <end channel='F13' time='0.0685507061538463'>
-  </end>  <end channel='F10' time='0.0686392600000001'>
-  </end>  <end channel='F1' time='0.0687340446153848'>
-  </end>  <end channel='F2' time='0.0687340446153848'>
-  </end>  <start channel='F7' iteration='nil' time='0.0688176846153848'>
-  </start>  <start channel='F15' iteration='nil' time='0.0689152446153848'>
-  </start>  <end channel='F7' time='0.0689200846153848'>
-  </end>  <end channel='F11' time='0.069063935897436'>
-  </end>  <start channel='F5' iteration='nil' time='0.0690683523076924'>
-  </start>  <start channel='F4' iteration='nil' time='0.0690683523076924'>
-  </start>  <end channel='F15' time='0.0691200446153848'>
-  </end>  <end channel='F5' time='0.0691707523076924'>
-  </end>  <end channel='F4' time='0.0692731523076924'>
-  </end>  <start channel='F13' iteration='nil' time='0.0698819307692309'>
-  </start>  <start channel='F11' iteration='nil' time='0.0699143717948719'>
-  </start>  <start channel='F12' iteration='nil' time='0.0699143717948719'>
-  </start>  <end channel='F13' time='0.0699843307692309'>
-  </end>  <end channel='F12' time='0.070016771794872'>
-  </end>  <start channel='F10' iteration='nil' time='0.0701018856410258'>
-  </start>  <end channel='F10' time='0.0703066856410258'>
-  </end>  <start channel='F7' iteration='nil' time='0.070358853846154'>
-  </start>  <end channel='F7' time='0.070461253846154'>
-  </end>  <start channel='F15' iteration='nil' time='0.0704664241025642'>
-  </start>  <end channel='F15' time='0.0706712241025642'>
-  </end>  <end channel='F11' time='0.070733571794872'>
-  </end>  <start channel='F13' iteration='nil' time='0.0714231000000001'>
-  </start>  <end channel='F13' time='0.0715255000000001'>
-  </end>  <start channel='F11' iteration='nil' time='0.0715840076923079'>
-  </start>  <start channel='F12' iteration='nil' time='0.0715840076923079'>
-  </start>  <start channel='F10' iteration='nil' time='0.0716530651282053'>
-  </start>  <end channel='F12' time='0.0716864076923079'>
-  </end>  <end channel='F10' time='0.0718578651282053'>
-  </end>  <start channel='F15' iteration='nil' time='0.0720509461538463'>
-  </start>  <end channel='F15' time='0.0722557461538463'>
-  </end>  <end channel='F11' time='0.0724032076923079'>
-  </end>  <start channel='F16' iteration='nil' time='0.0727898692307693'>
-  </start>  <end channel='F16' time='0.0727899692307693'>
-  </end>  <start channel='F2' iteration='nil' time='0.0730580205128206'>
-  </start>  <start channel='F1' iteration='nil' time='0.0730580205128206'>
-  </start>  <start channel='G1' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G2' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G4' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G5' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G6' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G9' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G8' iteration='33' time='0.0730580205128206'>
-  </start>  <start channel='G10' iteration='33' time='0.0730580205128206'>
-  </start>  <end channel='G4' time='0.0730581205128206'>
-  </end>  <end channel='G8' time='0.0730581205128206'>
-  </end>  <end channel='G9' time='0.0730581205128206'>
-  </end>  <end channel='G1' time='0.0730581205128206'>
-  </end>  <end channel='G6' time='0.0730581205128206'>
-  </end>  <end channel='G2' time='0.0730581205128206'>
-  </end>  <end channel='G10' time='0.0730581205128206'>
-  </end>  <end channel='G5' time='0.0730581205128206'>
-  </end>  <end channel='F1' time='0.0732628205128206'>
-  </end>  <end channel='F2' time='0.0732628205128206'>
-  </end>  <start channel='F16' iteration='nil' time='0.0734285615384616'>
-  </start>  <end channel='F16' time='0.0734286615384616'>
-  </end>  <start channel='F16' iteration='nil' time='0.0735174820512821'>
-  </start>  <end channel='F16' time='0.0735175820512821'>
-  </end>  <start channel='F5' iteration='nil' time='0.0735971282051283'>
-  </start>  <start channel='F4' iteration='nil' time='0.0735971282051283'>
-  </start>  <start channel='F1' iteration='nil' time='0.0736967128205129'>
-  </start>  <start channel='F2' iteration='nil' time='0.0736967128205129'>
-  </start>  <start channel='G2' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G1' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G6' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G10' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G5' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G4' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G8' iteration='34' time='0.0736967128205129'>
-  </start>  <start channel='G9' iteration='34' time='0.0736967128205129'>
-  </start>  <end channel='G1' time='0.0736968128205129'>
-  </end>  <end channel='G2' time='0.0736968128205129'>
-  </end>  <end channel='G4' time='0.0736968128205129'>
-  </end>  <end channel='G8' time='0.0736968128205129'>
-  </end>  <end channel='G9' time='0.0736968128205129'>
-  </end>  <end channel='G6' time='0.0736968128205129'>
-  </end>  <end channel='G5' time='0.0736968128205129'>
-  </end>  <end channel='G10' time='0.0736968128205129'>
-  </end>  <end channel='F5' time='0.0736995282051283'>
-  </end>  <end channel='F4' time='0.0738019282051283'>
-  </end>  <start channel='F7' iteration='nil' time='0.0738357692307693'>
-  </start>  <end channel='F1' time='0.0739015128205129'>
-  </end>  <end channel='F2' time='0.0739015128205129'>
-  </end>  <end channel='F7' time='0.0739381692307693'>
-  </end>  <start channel='F5' iteration='nil' time='0.0742358205128206'>
-  </start>  <start channel='F4' iteration='nil' time='0.0742358205128206'>
-  </start>  <end channel='F5' time='0.0743382205128206'>
-  </end>  <end channel='F4' time='0.0744406205128206'>
-  </end>  <start channel='F11' iteration='nil' time='0.0746964451282052'>
-  </start>  <start channel='F12' iteration='nil' time='0.0746964451282052'>
-  </start>  <end channel='F12' time='0.0747988451282052'>
-  </end>  <start channel='F10' iteration='nil' time='0.0748861692307693'>
-  </start>  <start channel='F13' iteration='nil' time='0.0749000153846155'>
-  </start>  <end channel='F13' time='0.0750024153846155'>
-  </end>  <end channel='F10' time='0.0750909692307693'>
-  </end>  <start channel='F1' iteration='nil' time='0.0751467948717949'>
-  </start>  <start channel='F2' iteration='nil' time='0.0751467948717949'>
-  </start>  <start channel='G9' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G8' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G5' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G10' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G6' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G2' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G4' iteration='35' time='0.0751467948717949'>
-  </start>  <start channel='G1' iteration='35' time='0.0751467948717949'>
-  </start>  <end channel='G5' time='0.0751468948717949'>
-  </end>  <end channel='G4' time='0.0751468948717949'>
-  </end>  <end channel='G6' time='0.0751468948717949'>
-  </end>  <end channel='G1' time='0.0751468948717949'>
-  </end>  <end channel='G10' time='0.0751468948717949'>
-  </end>  <end channel='G2' time='0.0751468948717949'>
-  </end>  <end channel='G9' time='0.0751468948717949'>
-  </end>  <end channel='G8' time='0.0751468948717949'>
-  </end>  <start channel='F7' iteration='nil' time='0.0752693938461539'>
-  </start>  <end channel='F2' time='0.075351594871795'>
-  </end>  <end channel='F1' time='0.075351594871795'>
-  </end>  <start channel='F15' iteration='nil' time='0.0753669538461539'>
-  </start>  <end channel='F7' time='0.0753717938461539'>
-  </end>  <end channel='F11' time='0.0755156451282052'>
-  </end>  <end channel='F15' time='0.0755717538461539'>
-  </end>  <start channel='F5' iteration='nil' time='0.0756692871794873'>
-  </start>  <start channel='F4' iteration='nil' time='0.0756692871794873'>
-  </start>  <end channel='F5' time='0.0757716871794873'>
-  </end>  <end channel='F4' time='0.0758740871794873'>
-  </end>  <start channel='F13' iteration='nil' time='0.0763336400000001'>
-  </start>  <start channel='F11' iteration='nil' time='0.0763660810256411'>
-  </start>  <start channel='F12' iteration='nil' time='0.0763660810256411'>
-  </start>  <end channel='F13' time='0.0764360400000001'>
-  </end>  <end channel='F12' time='0.0764684810256411'>
-  </end>  <start channel='F10' iteration='nil' time='0.076553594871795'>
-  </start>  <end channel='F10' time='0.076758394871795'>
-  </end>  <start channel='F15' iteration='nil' time='0.0769181333333334'>
-  </start>  <start channel='F7' iteration='nil' time='0.0769387682051283'>
-  </start>  <end channel='F15' time='0.0771229333333334'>
-  </end>  <end channel='F7' time='0.0771435682051283'>
-  </end>  <end channel='F11' time='0.0771852810256411'>
-  </end>  <start channel='F12' iteration='nil' time='0.0778071784615386'>
-  </start>  <start channel='F11' iteration='nil' time='0.0778071784615386'>
-  </start>  <end channel='F12' time='0.0779095784615386'>
-  </end>  <start channel='F10' iteration='nil' time='0.0780191589743591'>
-  </start>  <start channel='F13' iteration='nil' time='0.0782070882051283'>
-  </start>  <end channel='F11' time='0.0782167784615386'>
-  </end>  <end channel='F10' time='0.0782239589743591'>
-  </end>  <end channel='F13' time='0.0783094882051283'>
-  </end>  <start channel='F16' iteration='nil' time='0.078407116923077'>
-  </start>  <end channel='F16' time='0.078407216923077'>
-  </end>  <start channel='F1' iteration='nil' time='0.0786752682051283'>
-  </start>  <start channel='G1' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='G5' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='G10' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='G9' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='G6' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='G2' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='G4' iteration='36' time='0.0786752682051283'>
-  </start>  <start channel='F2' iteration='nil' time='0.0786752682051283'>
-  </start>  <start channel='G8' iteration='36' time='0.0786752682051283'>
-  </start>  <end channel='G8' time='0.0786753682051283'>
-  </end>  <end channel='G1' time='0.0786753682051283'>
-  </end>  <end channel='G4' time='0.0786753682051283'>
-  </end>  <end channel='G5' time='0.0786753682051283'>
-  </end>  <end channel='G2' time='0.0786753682051283'>
-  </end>  <end channel='G9' time='0.0786753682051283'>
-  </end>  <end channel='G6' time='0.0786753682051283'>
-  </end>  <end channel='G10' time='0.0786753682051283'>
-  </end>  <start channel='F15' iteration='nil' time='0.0786795394871795'>
-  </start>  <end channel='F1' time='0.0788800682051283'>
-  </end>  <end channel='F2' time='0.0788800682051283'>
-  </end>  <end channel='F15' time='0.0788843394871795'>
-  </end>  <start channel='F5' iteration='nil' time='0.079214375897436'>
-  </start>  <start channel='F4' iteration='nil' time='0.079214375897436'>
-  </start>  <end channel='F5' time='0.079316775897436'>
-  </end>  <end channel='F4' time='0.079419175897436'>
-  </end>  <start channel='F7' iteration='nil' time='0.079453016923077'>
-  </start>  <end channel='F7' time='0.079555416923077'>
-  </end>  <start channel='F16' iteration='nil' time='0.0795836738461539'>
-  </start>  <end channel='F16' time='0.0795837738461539'>
-  </end>  <start channel='F11' iteration='nil' time='0.0803136928205129'>
-  </start>  <start channel='F12' iteration='nil' time='0.0803136928205129'>
-  </start>  <end channel='F12' time='0.0804160928205129'>
-  </end>  <start channel='F10' iteration='nil' time='0.080503416923077'>
-  </start>  <start channel='F13' iteration='nil' time='0.0805172630769231'>
-  </start>  <end channel='F13' time='0.0806196630769231'>
-  </end>  <end channel='F10' time='0.080708216923077'>
-  </end>  <start channel='F1' iteration='nil' time='0.0807853143589744'>
-  </start>  <start channel='F2' iteration='nil' time='0.0807853143589744'>
-  </start>  <start channel='G1' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G2' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G5' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G4' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G6' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G8' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G9' iteration='37' time='0.0807853143589744'>
-  </start>  <start channel='G10' iteration='37' time='0.0807853143589744'>
-  </start>  <end channel='G8' time='0.0807854143589744'>
-  </end>  <end channel='G10' time='0.0807854143589744'>
-  </end>  <end channel='G6' time='0.0807854143589744'>
-  </end>  <end channel='G4' time='0.0807854143589744'>
-  </end>  <end channel='G1' time='0.0807854143589744'>
-  </end>  <end channel='G9' time='0.0807854143589744'>
-  </end>  <end channel='G5' time='0.0807854143589744'>
-  </end>  <end channel='G2' time='0.0807854143589744'>
-  </end>  <start channel='F15' iteration='nil' time='0.0809842015384616'>
-  </start>  <end channel='F1' time='0.0809901143589744'>
-  </end>  <end channel='F2' time='0.0809901143589744'>
-  </end>  <start channel='F16' iteration='nil' time='0.0810861097435898'>
-  </start>  <end channel='F16' time='0.0810862097435898'>
-  </end>  <end channel='F11' time='0.0811328928205129'>
-  </end>  <end channel='F15' time='0.0811890015384616'>
-  </end>  <start channel='F5' iteration='nil' time='0.0813244220512821'>
-  </start>  <start channel='F4' iteration='nil' time='0.0813244220512821'>
-  </start>  <start channel='F1' iteration='nil' time='0.0813542610256411'>
-  </start>  <start channel='F2' iteration='nil' time='0.0813542610256411'>
-  </start>  <start channel='G1' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G2' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G4' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G6' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G5' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G10' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G8' iteration='38' time='0.0813542610256411'>
-  </start>  <start channel='G9' iteration='38' time='0.0813542610256411'>
-  </start>  <end channel='G8' time='0.0813543610256411'>
-  </end>  <end channel='G10' time='0.0813543610256411'>
-  </end>  <end channel='G5' time='0.0813543610256411'>
-  </end>  <end channel='G2' time='0.0813543610256411'>
-  </end>  <end channel='G1' time='0.0813543610256411'>
-  </end>  <end channel='G9' time='0.0813543610256411'>
-  </end>  <end channel='G4' time='0.0813543610256411'>
-  </end>  <end channel='G6' time='0.0813543610256411'>
-  </end>  <end channel='F5' time='0.0814268220512821'>
-  </end>  <end channel='F4' time='0.0815292220512821'>
-  </end>  <end channel='F1' time='0.0815590610256411'>
-  </end>  <end channel='F2' time='0.0815590610256411'>
-  </end>  <start channel='F7' iteration='nil' time='0.0815630630769231'>
-  </start>  <end channel='F7' time='0.0816654630769231'>
-  </end>  <start channel='F5' iteration='nil' time='0.0818933687179488'>
-  </start>  <start channel='F4' iteration='nil' time='0.0818933687179488'>
-  </start>  <end channel='F5' time='0.0819957687179488'>
-  </end>  <end channel='F4' time='0.0820981687179488'>
-  </end>  <start channel='F11' iteration='nil' time='0.082423738974359'>
-  </start>  <start channel='F12' iteration='nil' time='0.082423738974359'>
-  </start>  <end channel='F12' time='0.082526138974359'>
-  </end>  <start channel='F10' iteration='nil' time='0.0826134630769231'>
-  </start>  <start channel='F13' iteration='nil' time='0.0826273092307693'>
-  </start>  <end channel='F13' time='0.0827297092307693'>
-  </end>  <end channel='F10' time='0.0828182630769231'>
-  </end>  <start channel='F7' iteration='nil' time='0.0829966876923078'>
-  </start>  <start channel='F15' iteration='nil' time='0.0830942476923077'>
-  </start>  <end channel='F7' time='0.0830990876923078'>
-  </end>  <start channel='F16' iteration='nil' time='0.0831852005128206'>
-  </start>  <end channel='F16' time='0.0831853005128206'>
-  </end>  <end channel='F11' time='0.083242938974359'>
-  </end>  <end channel='F15' time='0.0832990476923078'>
-  </end>  <start channel='F13' iteration='nil' time='0.0840609338461539'>
-  </start>  <start channel='F11' iteration='nil' time='0.0840933748717949'>
-  </start>  <start channel='F12' iteration='nil' time='0.0840933748717949'>
-  </start>  <end channel='F13' time='0.0841633338461539'>
-  </end>  <end channel='F12' time='0.0841957748717949'>
-  </end>  <start channel='F10' iteration='nil' time='0.0842808887179488'>
-  </start>  <start channel='F1' iteration='nil' time='0.0843289851282052'>
-  </start>  <start channel='F2' iteration='nil' time='0.0843289851282052'>
-  </start>  <start channel='G4' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G9' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G6' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G2' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G5' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G10' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G8' iteration='39' time='0.0843289851282052'>
-  </start>  <start channel='G1' iteration='39' time='0.0843289851282052'>
-  </start>  <end channel='G10' time='0.0843290851282052'>
-  </end>  <end channel='G8' time='0.0843290851282052'>
-  </end>  <end channel='G2' time='0.0843290851282052'>
-  </end>  <end channel='G4' time='0.0843290851282052'>
-  </end>  <end channel='G6' time='0.0843290851282052'>
-  </end>  <end channel='G9' time='0.0843290851282052'>
-  </end>  <end channel='G5' time='0.0843290851282052'>
-  </end>  <end channel='G1' time='0.0843290851282052'>
-  </end>  <end channel='F10' time='0.0844856887179488'>
-  </end>  <end channel='F1' time='0.0845337851282052'>
-  </end>  <end channel='F2' time='0.0845337851282052'>
-  </end>  <start channel='F15' iteration='nil' time='0.0846454271794872'>
-  </start>  <end channel='F15' time='0.0848502271794872'>
-  </end>  <start channel='F5' iteration='nil' time='0.0848680928205129'>
-  </start>  <start channel='F4' iteration='nil' time='0.0848680928205129'>
-  </start>  <end channel='F11' time='0.0849125748717949'>
-  </end>  <end channel='F5' time='0.0849704928205129'>
-  </end>  <end channel='F4' time='0.0850728928205129'>
-  </end>  <start channel='F7' iteration='nil' time='0.0851067338461539'>
-  </start>  <end channel='F7' time='0.0852091338461539'>
-  </end>  <start channel='F12' iteration='nil' time='0.0859674097435898'>
-  </start>  <start channel='F11' iteration='nil' time='0.0859674097435898'>
-  </start>  <end channel='F12' time='0.0860698097435898'>
-  </end>  <start channel='F10' iteration='nil' time='0.0861571338461539'>
-  </start>  <start channel='F13' iteration='nil' time='0.0861709800000001'>
-  </start>  <end channel='F13' time='0.0862733800000001'>
-  </end>  <end channel='F10' time='0.0863619338461539'>
-  </end>  <start channel='F15' iteration='nil' time='0.0866379184615385'>
-  </start>  <end channel='F11' time='0.0867866097435898'>
-  </end>  <end channel='F15' time='0.0868427184615385'>
-  </end>  <start channel='F16' iteration='nil' time='0.0872009953846154'>
-  </start>  <end channel='F16' time='0.0872010953846154'>
-  </end>  <start channel='F1' iteration='nil' time='0.0874691466666667'>
-  </start>  <start channel='F2' iteration='nil' time='0.0874691466666667'>
-  </start>  <start channel='G1' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G4' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G5' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G2' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G9' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G10' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G8' iteration='40' time='0.0874691466666667'>
-  </start>  <start channel='G6' iteration='40' time='0.0874691466666667'>
-  </start>  <end channel='G8' time='0.0874692466666667'>
-  </end>  <end channel='G4' time='0.0874692466666667'>
-  </end>  <end channel='G10' time='0.0874692466666667'>
-  </end>  <end channel='G2' time='0.0874692466666667'>
-  </end>  <end channel='G6' time='0.0874692466666667'>
-  </end>  <end channel='G5' time='0.0874692466666667'>
-  </end>  <end channel='G9' time='0.0874692466666667'>
-  </end>  <end channel='G1' time='0.0874692466666667'>
-  </end>  <end channel='F2' time='0.0876739466666667'>
-  </end>  <end channel='F1' time='0.0876739466666667'>
-  </end>  <start channel='F16' iteration='nil' time='0.0878396876923077'>
-  </start>  <end channel='F16' time='0.0878397876923077'>
-  </end>  <start channel='F16' iteration='nil' time='0.0879286082051282'>
-  </start>  <end channel='F16' time='0.0879287082051282'>
-  </end>  <start channel='F5' iteration='nil' time='0.0880082543589744'>
-  </start>  <start channel='F4' iteration='nil' time='0.0880082543589744'>
-  </start>  <start channel='F1' iteration='nil' time='0.088107838974359'>
-  </start>  <start channel='F2' iteration='nil' time='0.088107838974359'>
-  </start>  <start channel='G6' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G4' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G2' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G5' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G10' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G9' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G1' iteration='41' time='0.088107838974359'>
-  </start>  <start channel='G8' iteration='41' time='0.088107838974359'>
-  </start>  <end channel='G5' time='0.088107938974359'>
-  </end>  <end channel='G9' time='0.088107938974359'>
-  </end>  <end channel='G6' time='0.088107938974359'>
-  </end>  <end channel='G8' time='0.088107938974359'>
-  </end>  <end channel='G10' time='0.088107938974359'>
-  </end>  <end channel='G2' time='0.088107938974359'>
-  </end>  <end channel='G4' time='0.088107938974359'>
-  </end>  <end channel='G1' time='0.088107938974359'>
-  </end>  <end channel='F5' time='0.0881106543589744'>
-  </end>  <end channel='F4' time='0.0882130543589744'>
-  </end>  <start channel='F7' iteration='nil' time='0.0882468953846154'>
-  </start>  <end channel='F1' time='0.088312638974359'>
-  </end>  <end channel='F2' time='0.088312638974359'>
-  </end>  <end channel='F7' time='0.0883492953846154'>
-  </end>  <start channel='F4' iteration='nil' time='0.0886303312820513'>
-  </start>  <start channel='F5' iteration='nil' time='0.0886303312820513'>
-  </start>  <end channel='F5' time='0.0887327312820513'>
-  </end>  <end channel='F4' time='0.0888351312820513'>
-  </end>  <start channel='F11' iteration='nil' time='0.0891075712820513'>
-  </start>  <start channel='F12' iteration='nil' time='0.0891075712820513'>
-  </start>  <end channel='F12' time='0.0892099712820513'>
-  </end>  <start channel='F10' iteration='nil' time='0.0892972953846154'>
-  </start>  <start channel='F13' iteration='nil' time='0.0893111415384616'>
-  </start>  <end channel='F13' time='0.0894135415384616'>
-  </end>  <end channel='F10' time='0.0895020953846154'>
-  </end>  <start channel='F15' iteration='nil' time='0.08977808'>
-  </start>  <start channel='F7' iteration='nil' time='0.0898087251282051'>
-  </start>  <end channel='F11' time='0.0899267712820513'>
-  </end>  <end channel='F15' time='0.08998288'>
-  </end>  <end channel='F7' time='0.0900135251282051'>
-  </end>  <start channel='F12' iteration='nil' time='0.0905486687179487'>
-  </start>  <start channel='F11' iteration='nil' time='0.0905486687179487'>
-  </start>  <end channel='F12' time='0.0906510687179487'>
-  </end>  <start channel='F10' iteration='nil' time='0.0908791056410257'>
-  </start>  <end channel='F11' time='0.0909582687179487'>
-  </end>  <end channel='F10' time='0.0910839056410257'>
-  </end>  <start channel='F13' iteration='nil' time='0.0911681323076923'>
-  </start>  <end channel='F13' time='0.0912705323076923'>
-  </end>  <start channel='G5' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='G6' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='F1' iteration='nil' time='0.0914310882051282'>
-  </start>  <start channel='G8' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='G4' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='G9' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='G2' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='G1' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='G10' iteration='42' time='0.0914310882051282'>
-  </start>  <start channel='F2' iteration='nil' time='0.0914310882051282'>
-  </start>  <end channel='G5' time='0.0914311882051282'>
-  </end>  <end channel='G2' time='0.0914311882051282'>
-  </end>  <end channel='G9' time='0.0914311882051282'>
-  </end>  <end channel='G6' time='0.0914311882051282'>
-  </end>  <end channel='G8' time='0.0914311882051282'>
-  </end>  <end channel='G4' time='0.0914311882051282'>
-  </end>  <end channel='G1' time='0.0914311882051282'>
-  </end>  <end channel='G10' time='0.0914311882051282'>
-  </end>  <end channel='F2' time='0.0916358882051282'>
-  </end>  <end channel='F1' time='0.0916358882051282'>
-  </end>  <start channel='F15' iteration='nil' time='0.0916405835897436'>
-  </start>  <end channel='F15' time='0.0918453835897436'>
-  </end>  <start channel='F16' iteration='nil' time='0.0919424923076923'>
-  </start>  <end channel='F16' time='0.0919425923076923'>
-  </end>  <start channel='F5' iteration='nil' time='0.0919535805128205'>
-  </start>  <start channel='F4' iteration='nil' time='0.0919535805128205'>
-  </start>  <start channel='F16' iteration='nil' time='0.0920314128205128'>
-  </start>  <end channel='F16' time='0.0920315128205128'>
-  </end>  <end channel='F5' time='0.0920559805128205'>
-  </end>  <end channel='F4' time='0.0921583805128205'>
-  </end>  <start channel='F7' iteration='nil' time='0.092337042051282'>
-  </start>  <end channel='F7' time='0.092541842051282'>
-  </end>  <start channel='F11' iteration='nil' time='0.0929691794871794'>
-  </start>  <start channel='F12' iteration='nil' time='0.0929691794871794'>
-  </start>  <end channel='F12' time='0.0930715794871794'>
-  </end>  <start channel='F10' iteration='nil' time='0.0931570061538461'>
-  </start>  <end channel='F10' time='0.0933618061538461'>
-  </end>  <end channel='F11' time='0.0933787794871794'>
-  </end>  <start channel='F13' iteration='nil' time='0.0935141507692307'>
-  </start>  <end channel='F13' time='0.0936165507692307'>
-  </end>  <start channel='F1' iteration='nil' time='0.0937771066666666'>
-  </start>  <start channel='F2' iteration='nil' time='0.0937771066666666'>
-  </start>  <start channel='G1' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G8' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G9' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G10' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G5' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G4' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G2' iteration='43' time='0.0937771066666666'>
-  </start>  <start channel='G6' iteration='43' time='0.0937771066666666'>
-  </start>  <end channel='G6' time='0.0937772066666666'>
-  </end>  <end channel='G5' time='0.0937772066666666'>
-  </end>  <end channel='G8' time='0.0937772066666666'>
-  </end>  <end channel='G9' time='0.0937772066666666'>
-  </end>  <end channel='G1' time='0.0937772066666666'>
-  </end>  <end channel='G4' time='0.0937772066666666'>
-  </end>  <end channel='G10' time='0.0937772066666666'>
-  </end>  <end channel='G2' time='0.0937772066666666'>
-  </end>  <end channel='F2' time='0.0939819066666666'>
-  </end>  <end channel='F1' time='0.0939819066666666'>
-  </end>  <start channel='F15' iteration='nil' time='0.093986602051282'>
-  </start>  <end channel='F15' time='0.094191402051282'>
-  </end>  <start channel='F16' iteration='nil' time='0.0942802225641025'>
-  </start>  <end channel='F16' time='0.0942803225641025'>
-  </end>  <start channel='F5' iteration='nil' time='0.0942995989743589'>
-  </start>  <start channel='F4' iteration='nil' time='0.0942995989743589'>
-  </start>  <end channel='F5' time='0.0944019989743589'>
-  </end>  <end channel='F4' time='0.0945043989743589'>
-  </end>  <start channel='F7' iteration='nil' time='0.0946830605128205'>
-  </start>  <end channel='F7' time='0.0948878605128205'>
-  </end>  <start channel='F11' iteration='nil' time='0.0953151979487179'>
-  </start>  <start channel='F12' iteration='nil' time='0.0953151979487179'>
-  </start>  <end channel='F12' time='0.0954175979487179'>
-  </end>  <start channel='F10' iteration='nil' time='0.0955030246153846'>
-  </start>  <end channel='F10' time='0.0957078246153846'>
-  </end>  <end channel='F11' time='0.0957247979487179'>
-  </end>  <start channel='F13' iteration='nil' time='0.0958601692307692'>
-  </start>  <end channel='F13' time='0.0959625692307692'>
-  </end>  <start channel='F2' iteration='nil' time='0.096123125128205'>
-  </start>  <start channel='F1' iteration='nil' time='0.096123125128205'>
-  </start>  <start channel='G2' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G1' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G4' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G5' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G6' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G10' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G9' iteration='44' time='0.096123125128205'>
-  </start>  <start channel='G8' iteration='44' time='0.096123125128205'>
-  </start>  <end channel='G8' time='0.0961232251282051'>
-  </end>  <end channel='G6' time='0.0961232251282051'>
-  </end>  <end channel='G2' time='0.0961232251282051'>
-  </end>  <end channel='G5' time='0.0961232251282051'>
-  </end>  <end channel='G1' time='0.0961232251282051'>
-  </end>  <end channel='G4' time='0.0961232251282051'>
-  </end>  <end channel='G9' time='0.0961232251282051'>
-  </end>  <end channel='G10' time='0.0961232251282051'>
-  </end>  <end channel='F1' time='0.0963279251282051'>
-  </end>  <end channel='F2' time='0.0963279251282051'>
-  </end>  <start channel='F15' iteration='nil' time='0.0963326205128204'>
-  </start>  <end channel='F15' time='0.0965374205128205'>
-  </end>  <start channel='F16' iteration='nil' time='0.096626241025641'>
-  </start>  <end channel='F16' time='0.096626341025641'>
-  </end>  <start channel='F5' iteration='nil' time='0.0966456174358974'>
-  </start>  <start channel='F4' iteration='nil' time='0.0966456174358974'>
-  </start>  <end channel='F5' time='0.0967480174358974'>
-  </end>  <end channel='F4' time='0.0968504174358974'>
-  </end>  <start channel='F7' iteration='nil' time='0.0970290789743589'>
-  </start>  <end channel='F7' time='0.0972338789743589'>
-  </end>  <start channel='F11' iteration='nil' time='0.0976612164102563'>
-  </start>  <start channel='F12' iteration='nil' time='0.0976612164102563'>
-  </start>  <end channel='F12' time='0.0977636164102563'>
-  </end>  <start channel='F10' iteration='nil' time='0.097849043076923'>
-  </start>  <end channel='F10' time='0.098053843076923'>
-  </end>  <end channel='F11' time='0.0980708164102563'>
-  </end>  <start channel='F13' iteration='nil' time='0.0982061876923076'>
-  </start>  <end channel='F13' time='0.0983085876923076'>
-  </end>  <start channel='G1' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='G4' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='G5' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='G2' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='F1' iteration='nil' time='0.0984691435897435'>
-  </start>  <start channel='F2' iteration='nil' time='0.0984691435897435'>
-  </start>  <start channel='G8' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='G6' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='G9' iteration='45' time='0.0984691435897435'>
-  </start>  <start channel='G10' iteration='45' time='0.0984691435897435'>
-  </start>  <end channel='G10' time='0.0984692435897435'>
-  </end>  <end channel='G4' time='0.0984692435897435'>
-  </end>  <end channel='G1' time='0.0984692435897435'>
-  </end>  <end channel='G8' time='0.0984692435897435'>
-  </end>  <end channel='G5' time='0.0984692435897435'>
-  </end>  <end channel='G2' time='0.0984692435897435'>
-  </end>  <end channel='G9' time='0.0984692435897435'>
-  </end>  <end channel='G6' time='0.0984692435897435'>
-  </end>  <end channel='F1' time='0.0986739435897435'>
-  </end>  <end channel='F2' time='0.0986739435897435'>
-  </end>  <start channel='F15' iteration='nil' time='0.0986786389743589'>
-  </start>  <end channel='F15' time='0.0988834389743589'>
-  </end>  <start channel='F16' iteration='nil' time='0.0989722594871794'>
-  </start>  <end channel='F16' time='0.0989723594871794'>
-  </end>  <start channel='F5' iteration='nil' time='0.0989916358974358'>
-  </start>  <start channel='F4' iteration='nil' time='0.0989916358974358'>
-  </start>  <end channel='F5' time='0.0990940358974358'>
-  </end>  <end channel='F4' time='0.0991964358974358'>
-  </end>  <start channel='F7' iteration='nil' time='0.0993750974358973'>
-  </start>  <end channel='F7' time='0.0995798974358973'>
-  </end>  <start channel='F11' iteration='nil' time='0.100007234871795'>
-  </start>  <start channel='F12' iteration='nil' time='0.100007234871795'>
-  </start></trace>

@@ -4,11 +4,13 @@ import random
 from poosl_model_generator import setup_simulation
 import shutil
 from task_scheduler import schedule_tasks
+from copypastaslave import write_combi_model
 
-def create_model_params(taskmaps,node_processor_types,voltage_scaling,os_policies):
+def create_model_params(taskmaps,node_processor_types,voltage_scaling,os_policies,combi_high = 99):
     model_parameters = {"Application" : "Applicate"}
     for i,taskmap in enumerate(taskmaps):
-        model_parameters["MapTask" + str(i+1) + "To"] =taskmap
+        if i!=combi_high:
+            model_parameters["MapTask" + str(i+1) + "To"] =taskmap
     for i,proc_type in enumerate(node_processor_types):
         model_parameters["NodeProcessorType"+ str(i+1)] = proc_type
     for i,VSF in enumerate(voltage_scaling):
@@ -38,17 +40,25 @@ def perform_simulation(dna,i=0):
     node_processor_types = dna[:6]
     vsfs = dna[6:12]
     os_policies = dna[12:]
-    taskmaps = schedule_tasks(node_processor_types,vsfs)
+    taskmaps,combis = schedule_tasks(node_processor_types,vsfs)
+    
     mydir = "poosl_model"+str(i)
-
+    
     latency = 99999
     power_consumption = 99999
     no_processors = 99999
     names = ["Latency","PowerConsumption","Number of Processors"] + task_map_names
     best_taskmap = taskmaps[0]
     succes = 0
-    for taskmap in taskmaps:
-        model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies)
+    for i_tm,taskmap in enumerate(taskmaps):
+        combi = combis[i_tm]
+        print(combi)
+        write_combi_model(combi[0]+1,combi[1]+1,mydir)
+
+        chigh = 99
+        if combi[0] != combi[1]:
+            chigh = combi[1]
+        model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies,chigh)
         simulate_processor(model_params,mydir)
         f = open(mydir+"/Application.log", "r")
         output = f.read()
