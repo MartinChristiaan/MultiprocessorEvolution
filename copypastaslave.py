@@ -275,7 +275,7 @@ def write_combi_model(combi_low,combi_high,mdir):
     generate_processor_source(combi_low,combi_high,mdir + "/simulator/MIPS.txt","poosl_model_source/simulator/MIPS.txt")
     
 #generate_template(2,3,"temp.poosl")
-generate_combi_task(2,4,"temp.poosl")
+#generate_combi_task(6,8,"temp.poosl")
     
 
 

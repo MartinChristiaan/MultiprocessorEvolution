@@ -20,7 +20,7 @@ init
 
 methods
 
-	CheckTokenAvailabilityForReads(Scenario: String)()
+	CheckTokenAvailabilityForReads(Scenario:String)()
 		In1_F12_T7!InspectTokenAvailability(1);
 		In1_F12_T7?TokensAvailable;
 		In2_F13_T8!InspectTokenAvailability(1);
@@ -37,13 +37,16 @@ methods
 			Control!MappedTo(MapTo)
 		rap
 
-	PerformWrites(Scenario: String)()
+	PerformWrites(Scenario:String)()
 		Out_F15_T11!WriteTokens
 
-	ReleaseSpaceForReads(Scenario: String)()
+	ReleaseSpaceForReads(Scenario:String)()
 		In1_F12_T7!ReleaseRoom;
 		In2_F13_T8!ReleaseRoom
 
-	ReserveSpaceForWrites(Scenario: String, Iteration: Integer)()
+	ReserveSpaceForWrites(Scenario:String,Iteration:Integer)()
 		Out_F15_T11!ReserveRoom(1, Iteration);
 		Out_F15_T11?ReservationSuccessful
+
+
+		

@@ -47,12 +47,12 @@ def perform_simulation(dna,i=0):
     latency = 99999
     power_consumption = 99999
     no_processors = 99999
-    names = ["Latency","PowerConsumption","Number of Processors"] + task_map_names
+    names = ["Latency","PowerConsumption","Number of Processors"] + ["Combined Tasks"] + task_map_names
     best_taskmap = taskmaps[0]
+    best_combi = combis[0]
     succes = 0
     for i_tm,taskmap in enumerate(taskmaps):
         combi = combis[i_tm]
-        print(combi)
         write_combi_model(combi[0]+1,combi[1]+1,mydir)
 
         chigh = 99
@@ -87,9 +87,10 @@ def perform_simulation(dna,i=0):
                 power_consumption = total_time * avg_power
                 no_processors = len(set(taskmap))
                 best_taskmap = taskmap
-        if succes == 3:
+        if succes == 1:
             break
     values = [latency,power_consumption,no_processors]
+    values += [(best_combi[0]+1,best_combi[1]+1)]
     values.extend(best_taskmap)
     return names,values
    

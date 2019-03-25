@@ -37,7 +37,7 @@ methods
 	ReleaseSpaceForReads(Scenario:String)()
 			In_F5_T2!ReleaseRoom
 
-	ReserveSpaceForWrites(Scenario: String,Iteration:Integer)()
+	ReserveSpaceForWrites(Scenario:String,Iteration:Integer)()
 		Out_F10_T9!ReserveRoom(1, Iteration);
 		Out_F10_T9?ReservationSuccessful
 		

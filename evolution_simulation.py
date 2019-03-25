@@ -13,16 +13,16 @@ def quotate(mystr):
     return '"' + mystr + '"'
 columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeProcessorType4","NodeProcessorType5","NodeProcessorType6","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 
-pop_size = 10
+pop_size = 70
 parents_per_child=2
-mutation_chance = 0.1
+mutation_chance = 0.15
 no_parallel_simulations = 1
-NodeProcessorTypes = [quotate(s) for s in [ "Adreno" , "MIPS"]]#,"ARMv8"]]  
-VSFs =  [str(1.0)]#,str(2.0/3.0),str(1.0/2.0)]
+NodeProcessorTypes = [quotate(s) for s in [ "Adreno"]*2 +["MIPS"]*2+["ARMv8"]]  
+VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
 gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 2
-max_gen = 10
+max_gen = 70
 gen_no = 0
 while True:
     try:
@@ -43,12 +43,12 @@ def create_generation_offspring(generation_df,known_dna):
     crowd_distances =crowding_distance(fronts,ranks)
     mating_pool = tournament(ranks, pop_size, tournament_rounds,crowd_distances)
     mating_pool = np.unique(mating_pool)
-    parents =list(generation_df[generation_df.columns[14:]].iloc[mating_pool].values)
+    parents =list(generation_df[generation_df.columns[15:]].iloc[mating_pool].values)
     offspring,known_dna,_ = create_offspring(parents,parents_per_child,pop_size,mutation_chance,gene_pool,known_dna)
     return offspring,known_dna
 if gen_no!=0:
     for i,row in generation_df.iterrows():
-        row_genes = generation_df[generation_df.columns[14:]]
+        row_genes = generation_df[generation_df.columns[15:]]
         known_dna.add(tuple(list(row_genes)))
 
 if __name__ == "__main__":
@@ -65,6 +65,7 @@ if __name__ == "__main__":
         generation_df.to_csv("generation0.csv",index=False)
         gen_no+=1
     while gen_no < max_gen:
+        print("Generation : {0}".format(gen_no))
         offspring,known_dna = create_generation_offspring(generation_df,known_dna)
         generation_genes_df = pd.DataFrame()
         for processor in offspring:
