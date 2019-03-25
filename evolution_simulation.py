@@ -24,6 +24,19 @@ gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 2
 max_gen = 70
 gen_no = 0
+
+def add_paretorank_and_save(generation_df,gen):
+    latency = list(generation_df['Latency'])
+    PowerConsumption = list(generation_df['PowerConsumption'])
+    no_processors = list(generation_df['Number of Processors'])
+    objective_scores = np.array([latency,PowerConsumption,no_processors]).T
+    fronts,ranks = pareto_rank(np.array(objective_scores))
+
+    generation_df['pareto rank'] = ranks
+    generation_df.to_csv('generation{0}.csv'.format(gen),index=False)
+
+
+
 while True:
     try:
         generation_df = pd.read_csv('generation' + str(gen_no) + '.csv')
@@ -73,7 +86,7 @@ if __name__ == "__main__":
             generation_genes_df = generation_genes_df.append(row)
         results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
         generation_df = generation_df.append(results)
-        generation_df.to_csv("generation"+str(gen_no) +".csv",index=False)
+        add_paretorank_and_save(generation_df,gen_no)
         gen_no+=1
 
     
