@@ -11,25 +11,25 @@ Application: Application(
 // mapping of the tasks to processor nodes
 // should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 
-MapTask1To := "Node1",
-MapTask24To := "Node2",
+MapTask1To := "Node4",
+MapTask2To := "Node1",
 MapTask3To := "Node6",
-MapTask5To := "Node5",
+MapTask4To := "Node6",
+MapTask5To := "Node3",
 MapTask6To := "Node4",
-MapTask7To := "Node3",
-MapTask8To := "Node6",
-MapTask9To := "Node4",
-MapTask10To := "Node4",
-MapTask11To := "Node4",
+MapTask78To := "Node6",
+MapTask9To := "Node5",
+MapTask10To := "Node1",
+MapTask11To := "Node1",
 
 // priorities should be positive Integer numbers
 PriorityTask1 := 1,
-PriorityTask24 := 2,
+PriorityTask2 := 2,
 PriorityTask3 := 3,
+PriorityTask4 := 4,
 PriorityTask5 := 5,
 PriorityTask6 := 6,
-PriorityTask7 := 7,
-PriorityTask8 := 8,
+PriorityTask78 := 7,
 PriorityTask9 := 9,
 PriorityTask10 := 10,
 PriorityTask11 := 11,
@@ -45,28 +45,28 @@ MPSoC: Platform(
 // You are allowed to change these parameters
 
 // Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-Node1ProcessorType := "Adreno",
+Node1ProcessorType := "MIPS",
 Node2ProcessorType := "Adreno",
-Node3ProcessorType := "MIPS",
-Node4ProcessorType := "MIPS",
-Node5ProcessorType := "ARMv8",
-Node6ProcessorType := "ARMv8",
+Node3ProcessorType := "Adreno",
+Node4ProcessorType := "Adreno",
+Node5ProcessorType := "MIPS",
+Node6ProcessorType := "MIPS",
 
 // The voltage scaling factors for each of the node
 // The result should be a Real valued number, do not write something like '2/3' !
-VSF1 := 0.25,
-VSF2 := 1.0,
+VSF1 := 1.0,
+VSF2 := 0.6666666666666666,
 VSF3 := 0.6666666666666666,
 VSF4 := 1.0,
-VSF5 := 0.25,
+VSF5 := 1.0,
 VSF6 := 1.0,
 
 // The operating system scheduling policies. Must be either "PB" of "FCFS"
-OSPolicy1 := "FCFS",
+OSPolicy1 := "PB",
 OSPolicy2 := "FCFS",
-OSPolicy3 := "FCFS",
+OSPolicy3 := "PB",
 OSPolicy4 := "FCFS",
-OSPolicy5 := "FCFS",
+OSPolicy5 := "PB",
 OSPolicy6 := "FCFS",
 
 // Do not change the following parameters

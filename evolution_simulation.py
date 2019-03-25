@@ -16,7 +16,7 @@ columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeP
 pop_size = 70
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 1
+no_parallel_simulations = 3
 NodeProcessorTypes = [quotate(s) for s in [ "Adreno"]*2 +["MIPS"]*2+["ARMv8"]]  
 VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
@@ -86,7 +86,7 @@ if __name__ == "__main__":
             generation_genes_df = generation_genes_df.append(row)
         results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
         generation_df = generation_df.append(results)
-        add_paretorank_and_save(generation_df,gen_no)
+        generation_df.to_csv('generation{0}.csv'.format(gen_no),index=False)
         gen_no+=1
 
     

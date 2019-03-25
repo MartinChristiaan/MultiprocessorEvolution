@@ -6,7 +6,7 @@ process class Task1 (MapTo: String, Name: String, Priority: Integer, ThroughputC
 
 ports
 // to the control channels
-C_G1_T2, C_G2_T3,  C_G4_T5, C_G5_T6, C_G6_T7, C_G7_T8, C_G8_T9, C_G9_T10, C_G10_T11
+C_G1_T2, C_G2_T3, C_G3_T4, C_G4_T5, C_G5_T6, C_G6_T7,  C_G8_T9, C_G9_T10, C_G10_T11
 // to the data channels
 D_F1_T2, D_F2_T3, D_F3_T4, In_F16_T11,
 // to the platform side
@@ -15,11 +15,11 @@ Computation
 messages
 C_G1_T2!MappedTo(String), C_G1_T2?ReservationSuccessful(), C_G1_T2!ReserveRoom(Integer,Integer), C_G1_T2!WriteTokens(String,Integer),
 C_G2_T3!MappedTo(String), C_G2_T3?ReservationSuccessful(), C_G2_T3!ReserveRoom(Integer,Integer), C_G2_T3!WriteTokens(String,Integer),
-   
+C_G3_T4!MappedTo(String), C_G3_T4?ReservationSuccessful(), C_G3_T4!ReserveRoom(Integer,Integer), C_G3_T4!WriteTokens(String,Integer),
 C_G4_T5!MappedTo(String), C_G4_T5?ReservationSuccessful(), C_G4_T5!ReserveRoom(Integer,Integer), C_G4_T5!WriteTokens(String,Integer),
 C_G5_T6!MappedTo(String), C_G5_T6?ReservationSuccessful(), C_G5_T6!ReserveRoom(Integer,Integer), C_G5_T6!WriteTokens(String,Integer),
 C_G6_T7!MappedTo(String), C_G6_T7?ReservationSuccessful(), C_G6_T7!ReserveRoom(Integer,Integer), C_G6_T7!WriteTokens(String,Integer),
-C_G7_T8!MappedTo(String), C_G7_T8?ReservationSuccessful(), C_G7_T8!ReserveRoom(Integer,Integer), C_G7_T8!WriteTokens(String,Integer),
+   
 C_G8_T9!MappedTo(String), C_G8_T9?ReservationSuccessful(), C_G8_T9!ReserveRoom(Integer,Integer), C_G8_T9!WriteTokens(String,Integer),
 C_G9_T10!MappedTo(String), C_G9_T10?ReservationSuccessful(), C_G9_T10!ReserveRoom(Integer,Integer), C_G9_T10!WriteTokens(String,Integer),
 C_G10_T11!MappedTo(String), C_G10_T11?ReservationSuccessful(), C_G10_T11!ReserveRoom(Integer,Integer), C_G10_T11!WriteTokens(String,Integer),
@@ -127,13 +127,13 @@ C_G1_T2!MappedTo(MapTo)
 and
 C_G2_T3!MappedTo(MapTo)
 and
+C_G3_T4!MappedTo(MapTo)
+and
 C_G4_T5!MappedTo(MapTo)
 and
 C_G5_T6!MappedTo(MapTo)
 and
 C_G6_T7!MappedTo(MapTo)
-and
-C_G7_T8!MappedTo(MapTo)
 and
 C_G8_T9!MappedTo(MapTo)
 and
@@ -161,11 +161,11 @@ fi;
 // write all control tokens
 C_G1_T2!WriteTokens(Scenario,Iteration);
 C_G2_T3!WriteTokens(Scenario,Iteration);
-
+C_G3_T4!WriteTokens(Scenario,Iteration);
 C_G4_T5!WriteTokens(Scenario,Iteration);
 C_G5_T6!WriteTokens(Scenario,Iteration);
 C_G6_T7!WriteTokens(Scenario,Iteration);
-C_G7_T8!WriteTokens(Scenario,Iteration);
+
 C_G8_T9!WriteTokens(Scenario,Iteration);
 C_G9_T10!WriteTokens(Scenario,Iteration);
 C_G10_T11!WriteTokens(Scenario,Iteration)
@@ -192,16 +192,16 @@ C_G1_T2!ReserveRoom(1,Iteration);
 C_G1_T2?ReservationSuccessful;
 C_G2_T3!ReserveRoom(1,Iteration);
 C_G2_T3?ReservationSuccessful;
-
-
+C_G3_T4!ReserveRoom(1,Iteration);
+C_G3_T4?ReservationSuccessful;
 C_G4_T5!ReserveRoom(1,Iteration);
 C_G4_T5?ReservationSuccessful;
 C_G5_T6!ReserveRoom(1,Iteration);
 C_G5_T6?ReservationSuccessful;
 C_G6_T7!ReserveRoom(1,Iteration);
 C_G6_T7?ReservationSuccessful;
-C_G7_T8!ReserveRoom(1,Iteration);
-C_G7_T8?ReservationSuccessful;
+
+
 C_G8_T9!ReserveRoom(1,Iteration);
 C_G8_T9?ReservationSuccessful;
 C_G9_T10!ReserveRoom(1,Iteration);
