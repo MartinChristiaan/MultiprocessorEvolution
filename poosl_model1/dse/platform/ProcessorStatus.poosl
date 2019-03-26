@@ -65,7 +65,7 @@ methods
 	readProcessorProfile(Type: String): ProcessorStatus 
 		| File: FileIn, Task: String |
 		// open the corresponding processor profile file
-        File := new(FileIn) source( "C:\\Users\\marti\\source\\repos\\MultiprocessorEvolution\\poosl_model1\\simulator\\"+Type + ".txt") open;
+        File := new(FileIn) source( "C:\\Users\\marti\\Source\\Repos\\Multiproc2\\poosl_model1\\simulator\\"+Type + ".txt") open;
 		// read the data from the file
 		File readWord; // "Frequency"
 		Frequency := File readWord toInteger asReal; 

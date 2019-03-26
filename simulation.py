@@ -46,7 +46,7 @@ def perform_simulation(dna,i=0):
     vsfs = dna[2:8]
     os_policies = dna[8:14]
 
-    print("Evolving Task Schedule " + str(datetime.datetime.now().minute))
+    #print("Evolving Task Schedule " + str(datetime.datetime.now().minute))
     taskmaps,combis = schedule_tasks(node_processor_types,vsfs,node_pref)
     
     mydir = "poosl_model"+str(i)
@@ -66,7 +66,7 @@ def perform_simulation(dna,i=0):
         if combi[0] != combi[1]:
             chigh = combi[1]
         model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies,chigh)
-        print("Simulating" + str(datetime.datetime.now().minute))
+        #print("Simulating" + str(datetime.datetime.now().minute))
         simulate_processor(model_params,mydir)
         f = open(mydir+"/Application.log", "r")
         output = f.read()

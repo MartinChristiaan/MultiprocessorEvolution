@@ -14,10 +14,10 @@ def quotate(mystr):
     return '"' + mystr + '"'
 columns = ["NodeProcessorTypeDistribution","No_Proc_Preffered","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 
-pop_size = 100
+pop_size = 6
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 1
+no_parallel_simulations = 3
 
 
 def get_all_distributions(max_size):
@@ -87,7 +87,7 @@ if __name__ == "__main__":
             generation_genes_df = generation_genes_df.append(row)
         for i in range(no_parallel_simulations):
             poosl_model_generator.setup_simulation(i)
-        results = autosim.autosim(perform_simulation,generation_genes_df,no_parallel_simulations)
+        results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
         generation_df = generation_df.append(results)
         generation_df.to_csv("generations/generation0.csv",index=False)
         gen_no+=1
