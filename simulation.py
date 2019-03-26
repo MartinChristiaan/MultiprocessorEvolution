@@ -37,10 +37,15 @@ def is_number(s):
 
 def perform_simulation(dna,i=0):
     task_map_names = ['MapTask1To','MapTask2To','MapTask3To',"MapTask4To","MapTask5To","MapTask6To","MapTask7To","	MapTask8To","MapTask9To","MapTask10To","MapTask11To"]
-    node_processor_types = dna[:6]
-    vsfs = dna[6:12]
-    os_policies = dna[12:]
-    taskmaps,combis = schedule_tasks(node_processor_types,vsfs)
+    proc_type_distribution = dna[0]
+    node_pref = dna[1]
+    if isinstance(proc_type_distribution, str):
+        proc_type_distribution = (int(proc_type_distribution[1]),int(proc_type_distribution[4]),int(proc_type_distribution[7]))
+    node_processor_types = ['"MIPS"']*proc_type_distribution[0] + proc_type_distribution[1]*['"Adreno"'] + proc_type_distribution[2] * ['"ARMv8"']
+    vsfs = dna[2:8]
+    os_policies = dna[8:14]
+
+    taskmaps,combis = schedule_tasks(node_processor_types,vsfs,node_pref)
     
     mydir = "poosl_model"+str(i)
     

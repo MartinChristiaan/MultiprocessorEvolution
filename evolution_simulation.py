@@ -11,18 +11,31 @@ import autosim_multiproc
 import poosl_model_generator
 def quotate(mystr):
     return '"' + mystr + '"'
-columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeProcessorType4","NodeProcessorType5","NodeProcessorType6","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
+columns = ["NodeProcessorTypeDistribution","No_Proc_Preffered","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 
-pop_size = 70
+pop_size = 3
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 4
-NodeProcessorTypes = [quotate(s) for s in [ "Adreno"]*2 +["MIPS"]*2+["ARMv8"]]  
+no_parallel_simulations = 1
+
+
+def get_all_distributions(max_size):
+    distr = []
+    for x in range(0,max_size+1):
+        for y in range(0,max_size+1 - x):
+            z = max_size - x- y
+            distr.append((x,y,z))
+    return distr
+
+
+Processor_type_distribution = get_all_distributions(6)
+Processor_type_distribution+=Processor_type_distribution[-18:] # Initial bias towards high performance processors
+
 VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
-gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
+gene_pool = [Processor_type_distribution]+[[4,5,6]] + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 3
-max_gen = 70
+max_gen = 3
 gen_no = 0
 
 def add_paretorank_and_save(generation_df,gen):
@@ -33,13 +46,13 @@ def add_paretorank_and_save(generation_df,gen):
     fronts,ranks = pareto_rank(np.array(objective_scores))
 
     generation_df['pareto rank'] = ranks
-    generation_df.to_csv('generation{0}.csv'.format(gen),index=False)
+    generation_df.to_csv('generations/generation{0}.csv'.format(gen),index=False)
 
 
 
 while True:
     try:
-        generation_df = pd.read_csv('generation' + str(gen_no) + '.csv')
+        generation_df = pd.read_csv('generations/generation' + str(gen_no) + '.csv')
         gen_no+=1    
     except:
         if gen_no ==0:
@@ -75,7 +88,7 @@ if __name__ == "__main__":
             poosl_model_generator.setup_simulation(i)
         results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
         generation_df = generation_df.append(results)
-        generation_df.to_csv("generation0.csv",index=False)
+        generation_df.to_csv("generations/generation0.csv",index=False)
         gen_no+=1
     while gen_no < max_gen:
         print("Generation : {0}".format(gen_no))
@@ -86,7 +99,7 @@ if __name__ == "__main__":
             generation_genes_df = generation_genes_df.append(row)
         results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
         generation_df = generation_df.append(results)
-        generation_df.to_csv('generation{0}.csv'.format(gen_no),index=False)
+        generation_df.to_csv('generations/generation{0}.csv'.format(gen_no),index=False)
         gen_no+=1
 
     

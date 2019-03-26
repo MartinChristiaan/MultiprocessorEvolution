@@ -121,7 +121,7 @@ no_gen = 70
 mutation_chance = 0.15
 
 
-def schedule_tasks(nodes_cmd,voltages_cmd):
+def schedule_tasks(nodes_cmd,voltages_cmd,nodepref):
     nodes = []
 
     possible_task_combinations = get_possible_task_combinations()
@@ -138,42 +138,42 @@ def schedule_tasks(nodes_cmd,voltages_cmd):
     # Load some node array
     schedule_cmds = []
     combi_cmds = []
-    for nodepref in [4,5,6]:
-        population,known_dna = create_initial_population(gene_pool,pop_size)
-        #population = np.array(population)
-        best_times = []
-        avg_times = []
-        for gen in range(no_gen):
-            start = time.time()
-            durations = [calculate_schedule_time(genes,nodes) for genes in population]
-            
-            for i,genes in enumerate(population):
-                if len(set(genes)) == nodepref+1:
-                    durations[i]-=1e-6
-            parents_ids = tournament(durations,pop_size,2)
-            parents_ids = np.unique(parents_ids)
-            parents =  [population[parents_id] for parents_id in parents_ids]
-            
 
-            offspring,known_dna,_ = create_offspring(parents,2,pop_size*2-len(parents),mutation_chance,gene_pool,known_dna)
-            population = parents+offspring
-            best_times += [min(durations)]
-            avg_times +=[np.mean(durations)]
-
+    population,known_dna = create_initial_population(gene_pool,pop_size)
+    #population = np.array(population)
+    best_times = []
+    avg_times = []
+    for gen in range(no_gen):
+        start = time.time()
         durations = [calculate_schedule_time(genes,nodes) for genes in population]
-      
+        
         for i,genes in enumerate(population):
-            if len(set(genes)) == nodepref+1:
-                durations[i]-=1e-5
-        sort_ids = np.argsort(durations)
-        population_sorted = [population[sort_id] for sort_id in sort_ids]
-        population_sorted = population_sorted[:5]
-        for genes in population_sorted:
-            schedule_cmd = []
-            for node_asigened in genes[:-1]:
-                schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
-            combi_cmds+= [genes[-1]]
-            schedule_cmds += [(schedule_cmd)]
+            if len(set(genes)) == nodepref:
+                durations[i]-=1e-3
+        parents_ids = tournament(durations,pop_size,2)
+        parents_ids = np.unique(parents_ids)
+        parents =  [population[parents_id] for parents_id in parents_ids]
+        
+
+        offspring,known_dna,_ = create_offspring(parents,2,pop_size*2-len(parents),mutation_chance,gene_pool,known_dna)
+        population = parents+offspring
+        best_times += [min(durations)]
+        avg_times +=[np.mean(durations)]
+
+    durations = [calculate_schedule_time(genes,nodes) for genes in population]
+    
+    for i,genes in enumerate(population):
+        if len(set(genes)) == nodepref+1:
+            durations[i]-=1e-3
+    sort_ids = np.argsort(durations)
+    population_sorted = [population[sort_id] for sort_id in sort_ids]
+    population_sorted = population_sorted[:7]
+    for genes in population_sorted:
+        schedule_cmd = []
+        for node_asigened in genes[:-1]:
+            schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
+        combi_cmds+= [genes[-1]]
+        schedule_cmds += [(schedule_cmd)]
     # import matplotlib.pyplot as plt
     # import matplotlib
     # matplotlib.style.use('ggplot')
@@ -194,7 +194,6 @@ voltages_cmd = [str(2/3),str(1.0),str(1.0),str(1.0),str(2/3),str(1.0)]
 
 
 #start = time.time()
-schedule_cmds = schedule_tasks(nodes_cmd,voltages_cmd)
 # stop = time.time()-start
 # # # 
 # print(stop)
