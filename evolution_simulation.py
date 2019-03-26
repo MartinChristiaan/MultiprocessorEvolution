@@ -8,12 +8,13 @@ from simulation import perform_simulation
 from task_scheduler import schedule_tasks
 import pandas as pd
 import autosim_multiproc
+import autosim
 import poosl_model_generator
 def quotate(mystr):
     return '"' + mystr + '"'
 columns = ["NodeProcessorTypeDistribution","No_Proc_Preffered","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 
-pop_size = 3
+pop_size = 100
 parents_per_child=2
 mutation_chance = 0.15
 no_parallel_simulations = 1
@@ -35,7 +36,7 @@ VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
 gene_pool = [Processor_type_distribution]+[[4,5,6]] + [VSFs]*6 + [OSPolicys]*6
 tournament_rounds = 3
-max_gen = 3
+max_gen = 70
 gen_no = 0
 
 def add_paretorank_and_save(generation_df,gen):
@@ -86,7 +87,7 @@ if __name__ == "__main__":
             generation_genes_df = generation_genes_df.append(row)
         for i in range(no_parallel_simulations):
             poosl_model_generator.setup_simulation(i)
-        results = autosim_multiproc.autosim_multiproc(perform_simulation,generation_genes_df,no_parallel_simulations)
+        results = autosim.autosim(perform_simulation,generation_genes_df,no_parallel_simulations)
         generation_df = generation_df.append(results)
         generation_df.to_csv("generations/generation0.csv",index=False)
         gen_no+=1

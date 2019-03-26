@@ -11,25 +11,25 @@ Application: Application(
 // mapping of the tasks to processor nodes
 // should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 
-MapTask1To := "Node6",
-MapTask2To := "Node6",
-MapTask3To := "Node6",
-MapTask4To := "Node5",
-MapTask58To := "Node2",
-MapTask6To := "Node4",
-MapTask7To := "Node6",
-MapTask9To := "Node1",
-MapTask10To := "Node2",
-MapTask11To := "Node3",
+MapTask1To := "Node2",
+MapTask23To := "Node6",
+MapTask4To := "Node1",
+MapTask5To := "Node6",
+MapTask6To := "Node1",
+MapTask7To := "Node1",
+MapTask8To := "Node6",
+MapTask9To := "Node4",
+MapTask10To := "Node4",
+MapTask11To := "Node4",
 
 // priorities should be positive Integer numbers
 PriorityTask1 := 1,
-PriorityTask2 := 2,
-PriorityTask3 := 3,
+PriorityTask23 := 2,
 PriorityTask4 := 4,
-PriorityTask58 := 5,
+PriorityTask5 := 5,
 PriorityTask6 := 6,
 PriorityTask7 := 7,
+PriorityTask8 := 8,
 PriorityTask9 := 9,
 PriorityTask10 := 10,
 PriorityTask11 := 11,
@@ -45,29 +45,29 @@ MPSoC: Platform(
 // You are allowed to change these parameters
 
 // Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-Node1ProcessorType := "Adreno",
+Node1ProcessorType := "MIPS",
 Node2ProcessorType := "MIPS",
-Node3ProcessorType := "ARMv8",
-Node4ProcessorType := "Adreno",
-Node5ProcessorType := "MIPS",
-Node6ProcessorType := "MIPS",
+Node3ProcessorType := "MIPS",
+Node4ProcessorType := "MIPS",
+Node5ProcessorType := "Adreno",
+Node6ProcessorType := "Adreno",
 
 // The voltage scaling factors for each of the node
 // The result should be a Real valued number, do not write something like '2/3' !
 VSF1 := 1.0,
-VSF2 := 1.0,
-VSF3 := 0.666666667,
+VSF2 := 0.6666666666666666,
+VSF3 := 0.25,
 VSF4 := 1.0,
-VSF5 := 0.666666667,
+VSF5 := 0.5,
 VSF6 := 1.0,
 
 // The operating system scheduling policies. Must be either "PB" of "FCFS"
 OSPolicy1 := "FCFS",
-OSPolicy2 := "FCFS",
+OSPolicy2 := "PB",
 OSPolicy3 := "PB",
 OSPolicy4 := "FCFS",
 OSPolicy5 := "PB",
-OSPolicy6 := "PB",
+OSPolicy6 := "FCFS",
 
 // Do not change the following parameters
 NoC_BandwidthPerConnection := 10000000.0,
