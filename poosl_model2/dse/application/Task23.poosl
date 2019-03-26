@@ -1,14 +1,15 @@
 import "Task.poosl"
 
-process class Task24 extends Task
+process class Task23 extends Task
 
 ports 
 	In_F1_T1, 
 	Out1_F4_T5, 
 	Out2_F5_T6,
 
-	In_F3_T1, 
-	Out_F8_T8
+	In_F2_T1, 
+	Out1_F6_T7, 
+	Out2_F7_T8
 	
 messages 
 	Control!MappedTo(String), 
@@ -18,9 +19,10 @@ messages
 	Out1_F4_T5!WriteTokens(), 
 	Out2_F5_T6!MappedTo(String), Out2_F5_T6?ReservationSuccessful(), Out2_F5_T6!ReserveRoom(Integer, Integer),
 	Out2_F5_T6!WriteTokens(),
-In_F3_T1!InspectTokenAvailability(Integer), In_F3_T1!MappedTo(String), In_F3_T1!ReleaseRoom(),
-	In_F3_T1?TokensAvailable(), Out_F8_T8!MappedTo(String), Out_F8_T8?ReservationSuccessful(), Out_F8_T8!ReserveRoom(Integer, Integer),
-	Out_F8_T8!WriteTokens()
+In_F2_T1!InspectTokenAvailability(Integer), In_F2_T1!MappedTo(String), In_F2_T1!ReleaseRoom(),
+	In_F2_T1?TokensAvailable(), Out1_F6_T7!MappedTo(String), Out1_F6_T7?ReservationSuccessful(), Out1_F6_T7!ReserveRoom(Integer, Integer),
+	Out1_F6_T7!WriteTokens(), Out2_F7_T8!MappedTo(String), Out2_F7_T8?ReservationSuccessful(), Out2_F7_T8!ReserveRoom(Integer, Integer),
+	Out2_F7_T8!WriteTokens()
 
 variables
 
@@ -33,10 +35,8 @@ methods
 		In_F1_T1!InspectTokenAvailability(1);
 		In_F1_T1?TokensAvailable;
 
-		if Scenario = "S2" then
-			In_F3_T1!InspectTokenAvailability(1);
-			In_F3_T1?TokensAvailable
-		fi
+		In_F2_T1!InspectTokenAvailability(1);
+		In_F2_T1?TokensAvailable
 
 	NotifyBuffersAboutMapping()()
 		par
@@ -48,25 +48,24 @@ methods
 		and
 			Control!MappedTo(MapTo)
         and
-			In_F3_T1!MappedTo(MapTo)
+			In_F2_T1!MappedTo(MapTo)
 		and
-			Out_F8_T8!MappedTo(MapTo)
+			Out1_F6_T7!MappedTo(MapTo)
+		and
+			Out2_F7_T8!MappedTo(MapTo)
 		rap
 
 	PerformWrites(Scenario:String)()
 		Out2_F5_T6!WriteTokens;
 		Out1_F4_T5!WriteTokens;
 
-		if Scenario = "S2" then
-			Out_F8_T8!WriteTokens
-		fi
+		Out1_F6_T7!WriteTokens;
+		Out2_F7_T8!WriteTokens
 
 	ReleaseSpaceForReads(Scenario:String)()
 		In_F1_T1!ReleaseRoom;
 
-		if Scenario = "S2" then
-			In_F3_T1!ReleaseRoom
-		fi
+		In_F2_T1!ReleaseRoom
 
 	ReserveSpaceForWrites(Scenario:String,Iteration:Integer)()
 			Out1_F4_T5!ReserveRoom(1, Iteration);
@@ -74,8 +73,13 @@ methods
 			Out2_F5_T6!ReserveRoom(1, Iteration);
 			Out2_F5_T6?ReservationSuccessful;
 
-		if Scenario = "S2" then
-			Out_F8_T8!ReserveRoom(1, Iteration);
-			Out_F8_T8?ReservationSuccessful
-		fi
+	if Scenario = "S1" then
+		Out2_F7_T8!ReserveRoom(1,Iteration);
+		Out2_F7_T8?ReservationSuccessful
+	else
+		Out2_F7_T8!ReserveRoom(2,Iteration);
+		Out2_F7_T8?ReservationSuccessful
+	fi;
+		Out1_F6_T7!ReserveRoom(1,Iteration);
+		Out1_F6_T7?ReservationSuccessful
 			

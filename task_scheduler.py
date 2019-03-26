@@ -138,7 +138,7 @@ def schedule_tasks(nodes_cmd,voltages_cmd):
     # Load some node array
     schedule_cmds = []
     combi_cmds = []
-    for nodepref in [6]:
+    for nodepref in [4,5,6]:
         population,known_dna = create_initial_population(gene_pool,pop_size)
         #population = np.array(population)
         best_times = []
@@ -164,10 +164,10 @@ def schedule_tasks(nodes_cmd,voltages_cmd):
       
         for i,genes in enumerate(population):
             if len(set(genes)) == nodepref+1:
-                durations[i]-=1e-6
+                durations[i]-=1e-5
         sort_ids = np.argsort(durations)
         population_sorted = [population[sort_id] for sort_id in sort_ids]
-        population_sorted = population_sorted[:11]
+        population_sorted = population_sorted[:5]
         for genes in population_sorted:
             schedule_cmd = []
             for node_asigened in genes[:-1]:

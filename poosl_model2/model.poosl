@@ -12,24 +12,24 @@ Application: Application(
 // should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 
 MapTask1To := "Node1",
-MapTask2To := "Node2",
-MapTask3To := "Node3",
-MapTask4To := "Node4",
-MapTask5To := "Node5",
-MapTask68To := "Node6",
-MapTask7To := "Node3",
-MapTask9To := "Node5",
-MapTask10To := "Node6",
-MapTask11To := "Node6",
+MapTask23To := "Node2",
+MapTask4To := "Node6",
+MapTask5To := "Node1",
+MapTask6To := "Node5",
+MapTask7To := "Node2",
+MapTask8To := "Node6",
+MapTask9To := "Node6",
+MapTask10To := "Node4",
+MapTask11To := "Node4",
 
 // priorities should be positive Integer numbers
 PriorityTask1 := 1,
-PriorityTask2 := 2,
-PriorityTask3 := 3,
+PriorityTask23 := 2,
 PriorityTask4 := 4,
 PriorityTask5 := 5,
-PriorityTask68 := 6,
+PriorityTask6 := 6,
 PriorityTask7 := 7,
+PriorityTask8 := 8,
 PriorityTask9 := 9,
 PriorityTask10 := 10,
 PriorityTask11 := 11,
@@ -45,25 +45,25 @@ MPSoC: Platform(
 // You are allowed to change these parameters
 
 // Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-Node1ProcessorType := "MIPS",
-Node2ProcessorType := "ARMv8",
+Node1ProcessorType := "Adreno",
+Node2ProcessorType := "Adreno",
 Node3ProcessorType := "Adreno",
-Node4ProcessorType := "Adreno",
+Node4ProcessorType := "MIPS",
 Node5ProcessorType := "MIPS",
 Node6ProcessorType := "MIPS",
 
 // The voltage scaling factors for each of the node
 // The result should be a Real valued number, do not write something like '2/3' !
 VSF1 := 1.0,
-VSF2 := 0.6666666666666666,
-VSF3 := 1.0,
+VSF2 := 1.0,
+VSF3 := 0.6666666666666666,
 VSF4 := 1.0,
-VSF5 := 1.0,
+VSF5 := 0.5,
 VSF6 := 1.0,
 
 // The operating system scheduling policies. Must be either "PB" of "FCFS"
-OSPolicy1 := "PB",
-OSPolicy2 := "FCFS",
+OSPolicy1 := "FCFS",
+OSPolicy2 := "PB",
 OSPolicy3 := "FCFS",
 OSPolicy4 := "FCFS",
 OSPolicy5 := "PB",

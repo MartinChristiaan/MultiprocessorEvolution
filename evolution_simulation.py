@@ -16,12 +16,12 @@ columns = ["NodeProcessorType1","NodeProcessorType2","NodeProcessorType3","NodeP
 pop_size = 70
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 3
+no_parallel_simulations = 4
 NodeProcessorTypes = [quotate(s) for s in [ "Adreno"]*2 +["MIPS"]*2+["ARMv8"]]  
 VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
 gene_pool = [NodeProcessorTypes]*6 + [VSFs]*6 + [OSPolicys]*6
-tournament_rounds = 2
+tournament_rounds = 3
 max_gen = 70
 gen_no = 0
 
