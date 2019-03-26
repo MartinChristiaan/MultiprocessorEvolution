@@ -11,7 +11,7 @@ plt.ion()
 
 
 while True:
-    for g in range(7):
+    for g in range(14):
 
 
         generation_df = pd.read_csv('generation{0}.csv'.format(g))

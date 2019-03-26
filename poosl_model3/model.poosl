@@ -11,16 +11,16 @@ Application: Application(
 // mapping of the tasks to processor nodes
 // should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 
-MapTask1To := "Node2",
-MapTask2To := "Node1",
-MapTask3To := "Node5",
-MapTask4To := "Node2",
-MapTask5To := "Node1",
+MapTask1To := "Node4",
+MapTask2To := "Node4",
+MapTask3To := "Node6",
+MapTask4To := "Node6",
+MapTask5To := "Node3",
 MapTask6To := "Node4",
 MapTask78To := "Node6",
-MapTask9To := "Node4",
-MapTask10To := "Node6",
-MapTask11To := "Node6",
+MapTask9To := "Node2",
+MapTask10To := "Node5",
+MapTask11To := "Node1",
 
 // priorities should be positive Integer numbers
 PriorityTask1 := 1,
@@ -45,29 +45,29 @@ MPSoC: Platform(
 // You are allowed to change these parameters
 
 // Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-Node1ProcessorType := "Adreno",
-Node2ProcessorType := "Adreno",
+Node1ProcessorType := "MIPS",
+Node2ProcessorType := "ARMv8",
 Node3ProcessorType := "MIPS",
-Node4ProcessorType := "MIPS",
-Node5ProcessorType := "Adreno",
+Node4ProcessorType := "Adreno",
+Node5ProcessorType := "MIPS",
 Node6ProcessorType := "MIPS",
 
 // The voltage scaling factors for each of the node
 // The result should be a Real valued number, do not write something like '2/3' !
 VSF1 := 1.0,
 VSF2 := 1.0,
-VSF3 := 0.6666666666666666,
+VSF3 := 0.666666667,
 VSF4 := 1.0,
-VSF5 := 1.0,
+VSF5 := 0.666666667,
 VSF6 := 1.0,
 
 // The operating system scheduling policies. Must be either "PB" of "FCFS"
 OSPolicy1 := "FCFS",
-OSPolicy2 := "PB",
-OSPolicy3 := "FCFS",
+OSPolicy2 := "FCFS",
+OSPolicy3 := "PB",
 OSPolicy4 := "FCFS",
 OSPolicy5 := "PB",
-OSPolicy6 := "FCFS",
+OSPolicy6 := "PB",
 
 // Do not change the following parameters
 NoC_BandwidthPerConnection := 10000000.0,

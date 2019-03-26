@@ -11,17 +11,17 @@ instances
 		// mapping of the tasks to processor nodes
 		// should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 		
-		MapTask1To := "Node1", 
-		MapTask2To := "Node2", 
-		MapTask3To := "Node1", 
-		MapTask4To := "Node4", 
-		MapTask5To := "Node3", 
-		MapTask6To := "Node6", 
+		MapTask1To := "Node2", 
+		MapTask2To := "Node4", 
+		MapTask3To := "Node2", 
+		MapTask4To := "Node6", 
+		MapTask5To := "Node1", 
+		MapTask6To := "Node4", 
 		MapTask7To := "Node2", 
-		MapTask8To := "Node4", 
-		MapTask9To := "Node6", 
-		MapTask10To := "Node5", 
-		MapTask11To := "Node6", 
+		MapTask8To := "Node6", 
+		MapTask9To := "Node1", 
+		MapTask10To := "Node6", 
+		MapTask11To := "Node1", 
 
 		// priorities should be positive Integer numbers
 		PriorityTask1 := 1, 
@@ -51,25 +51,25 @@ instances
 		Node2ProcessorType := "Adreno", 
 		Node3ProcessorType := "Adreno", 
 		Node4ProcessorType := "Adreno",
-		Node5ProcessorType := "MIPS",
+		Node5ProcessorType := "ARMv8",
 		Node6ProcessorType := "MIPS",
 
 		// The voltage scaling factors for each of the node
 		// The result should be a Real valued number, do not write something like '2/3' !
 		VSF1 := 1.0,
 		VSF2 := 1.0,
-		VSF3 := 0.6666666666666666,
+		VSF3 := 0.666666667,
 		VSF4 := 1.0,
-		VSF5 := 0.5,
+		VSF5 := 0.666666667,
 		VSF6 := 1.0,
 		
 		// The operating system scheduling policies. Must be either "PB" of "FCFS"
 		OSPolicy1 := "FCFS",
 		OSPolicy2 := "FCFS",
-		OSPolicy3 := "FCFS",
+		OSPolicy3 := "PB",
 		OSPolicy4 := "FCFS",
-		OSPolicy5 := "FCFS",
-		OSPolicy6 := "FCFS",
+		OSPolicy5 := "PB",
+		OSPolicy6 := "PB",
 
 		// Do not change the following parameters
 		NoC_BandwidthPerConnection := 10000000.0, 
