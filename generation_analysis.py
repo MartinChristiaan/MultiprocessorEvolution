@@ -69,6 +69,6 @@ def add_paretorank_and_save(generation_df,gen):
     generation_df['Combined Tasks'] = combi_tasks
     print(proc_used)
     print(full_volt)
-    generation_df.to_csv('ProcessorDistribution_ranked5.csv',index=False)
+    generation_df.to_csv('generations/ComboNodesAndProcTypes_ranked.csv',index=False)
 
-add_paretorank_and_save(pd.read_csv('generations/ProcessorDistribution.csv'),0)
+add_paretorank_and_save(pd.read_csv('generations/ComboNodesAndProcTypes.csv'),0)

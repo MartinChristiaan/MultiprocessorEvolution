@@ -6,6 +6,7 @@ import shutil
 from task_scheduler import schedule_tasks
 from copypastaslave import write_combi_model
 import datetime
+import pandas as pd
 
 def create_model_params(taskmaps,node_processor_types,voltage_scaling,os_policies,combi_high = 99):
     model_parameters = {"Application" : "Applicate"}
@@ -46,7 +47,8 @@ def perform_simulation(dna,i=0):
     vsfs = dna[3:9]
     os_policies = dna[9:15]
 
-
+    if isinstance(combi_task, str):
+        combi_task = (int(combi_task[1]),int(combi_task[4]))
     #print("Evolving Task Schedule " + str(datetime.datetime.now().minute))
     ctc = (combi_task[0]-1,combi_task[1]-1)
     taskmaps = schedule_tasks(node_processor_types,vsfs,node_pref,ctc)
@@ -108,3 +110,83 @@ def perform_simulation(dna,i=0):
     values.extend(best_taskmap)
     return names,values
    
+
+def perform_simulation_finetune(dna,i=0):
+    task_map_names = ['MapTask1To','MapTask2To','MapTask3To',"MapTask4To","MapTask5To","MapTask6To","MapTask7To","	MapTask8To","MapTask9To","MapTask10To","MapTask11To"]
+    source_df = pd.read_csv('generations/source.csv') 
+    platform_id = dna[0]
+    platform = source_df.iloc[platform_id]
+    proc_type_distribution = platform['NodeProcessorTypeDistribution']
+    print(proc_type_distribution)
+    node_pref = platform['Number of Processors']
+    print(node_pref)
+    combi_task = platform['Combined Tasks']
+    print(combi_task)
+    if isinstance(proc_type_distribution, str):
+        proc_type_distribution = (int(proc_type_distribution[1]),int(proc_type_distribution[4]),int(proc_type_distribution[7]))
+    node_processor_types = ['"MIPS"']*proc_type_distribution[0] + proc_type_distribution[1]*['"Adreno"'] + proc_type_distribution[2] * ['"ARMv8"']
+    vsfs = dna[1:7]
+    os_policies = dna[7:13]
+
+    if isinstance(combi_task, str):
+        combi_task = (int(combi_task[1]),int(combi_task[4]))
+    #print("Evolving Task Schedule " + str(datetime.datetime.now().minute))
+    ctc = (combi_task[0]-1,combi_task[1]-1)
+    taskmaps = schedule_tasks(node_processor_types,vsfs,node_pref,ctc)
+    for i in range(6-len(node_processor_types)):
+        node_processor_types.append('"MIPS"')    
+    mydir = "poosl_model"+str(i)
+    
+    latency = 99999
+    power_consumption = 99999
+    no_processors = 99999
+    names = ["Latency","PowerConsumption","Number of Processors"] + ["Combined Tasks"] + task_map_names
+    best_taskmap = taskmaps[0]
+    succes = 0
+    for i_tm,taskmap in enumerate(taskmaps):
+        combi = combi_task
+        write_combi_model(combi[0],combi[1],mydir)
+
+        chigh = 99
+        if combi[0] != combi[1]:
+            chigh = combi[1]-1
+        model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies,chigh)
+        #print("Simulating" + str(datetime.datetime.now().minute))
+        succeeeded = simulate_processor(model_params,mydir)
+        if succeeeded:
+            try:
+                f = open(mydir+"/Application.log", "r")
+                output = f.read()
+                words = output.split()
+                if not words[0] == "Failed":
+                    succes+=1
+                    new_latency = float(words[28])
+                    if new_latency < latency:
+                        latency = new_latency
+                        f= open(mydir+"/Battery.log", "r")
+                        output = f.read()
+                        words = output.split()
+                        cnt=0
+                        avg_power = 0
+                        for word in words:
+                            if is_number(word):
+                                cnt+=1
+                                if cnt == 2:
+                                    avg_power = float(word)
+
+                        
+                        f= open(mydir+"/BatteryTrace.xml", "r")
+                        output = f.read()
+                        words = output.split()
+                        total_time = float(words[-3].split("'")[1])
+                        power_consumption = total_time * avg_power
+                        no_processors = len(set(taskmap))
+                        best_taskmap = taskmap
+            except: 
+                pass
+            if succes == 1:
+                break
+    values = [latency,power_consumption,no_processors]
+    values += [(combi_task[0],combi_task[1])]
+    values.extend(best_taskmap)
+    return names,values
