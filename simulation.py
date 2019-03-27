@@ -66,7 +66,7 @@ def perform_simulation(dna,i=0):
 
         chigh = 99
         if combi[0] != combi[1]:
-            chigh = combi[1]
+            chigh = combi[1]-1
         model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies,chigh)
         #print("Simulating" + str(datetime.datetime.now().minute))
         succeeeded = simulate_processor(model_params,mydir)
