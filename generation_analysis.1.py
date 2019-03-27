@@ -24,14 +24,13 @@ def add_paretorank_and_save(generation_df,gen):
     no_adreno = []
     full_volt = []
     for i,row in generation_df.iterrows():
-        # processors = list(row[15:21])
-        proc_dist = row[15]
-        nmips = int(proc_dist[1])
-        nadreno = int(proc_dist[4])
-        narm = int(proc_dist[7])
+        processors = list(row[15:21])
+        nmips = 0
+        nadreno = 0
+        narm = 0
         # Which nodes are actually used?
         schedule = list(set(list(row[4:15])))
-        vsfs = (list(row[18:24]))
+        vsfs = (list(row[21:27]))
         no_full_voltage = 0
         proc_used = []
         for task in schedule:
@@ -42,19 +41,19 @@ def add_paretorank_and_save(generation_df,gen):
                 if vs == 1.0:
                     no_full_voltage+=1
         
-        # for p,proc in enumerate(processors):
-        #     if p in proc_used:
-        #         if "MIPS" in proc:
-        #             nmips +=1
-        #         if "Adreno" in proc:
-        #             nadreno+=1
-        #         if "ARM" in proc:
-        #             narm+=1
+        for p,proc in enumerate(processors):
+            if p in proc_used:
+                if "MIPS" in proc:
+                    nmips +=1
+                if "Adreno" in proc:
+                    nadreno+=1
+                if "ARM" in proc:
+                    narm+=1
 
         no_mips+=[nmips]
         no_adreno+=[nadreno]
         no_arm+=[narm]
-        full_volt +=[no_full_voltage/(nmips+nadreno+narm)]
+        full_volt +=[no_full_voltage]
         combi_task = row['Combined Tasks']
         
         if combi_task[1] == combi_task[4]:
@@ -69,6 +68,6 @@ def add_paretorank_and_save(generation_df,gen):
     generation_df['Combined Tasks'] = combi_tasks
     print(proc_used)
     print(full_volt)
-    generation_df.to_csv('ProcessorDistribution_ranked5.csv',index=False)
+    generation_df.to_csv('generation{0}_ranked5.csv'.format(gen),index=False)
 
-add_paretorank_and_save(pd.read_csv('generations/ProcessorDistribution.csv'),0)
+add_paretorank_and_save(pd.read_csv('generations/ProcessorDistribution.csv'),2)

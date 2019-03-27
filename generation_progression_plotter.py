@@ -11,11 +11,13 @@ plt.ion()
 
 
 while True:
-    for g in range(14):
+    for g in range(18):
 
 
-        generation_df = pd.read_csv('generation{0}.csv'.format(g))
+        generation_df = pd.read_csv('legacy/generation{0}.csv'.format(g))
         generation_df = generation_df[generation_df['Latency']<9000]
+
+        generation_df = generation_df[generation_df['PowerConsumption']>0.01]
 
         latency = list(generation_df['Latency'])
         PowerConsumption = list(generation_df['PowerConsumption'])
