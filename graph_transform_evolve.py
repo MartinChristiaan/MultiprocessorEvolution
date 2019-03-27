@@ -14,14 +14,14 @@ columns = ["NodeProcessorTypeDistribution","No_Proc_Preffered","Combi_Task","VSF
 pop_size = 70
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 1
+no_parallel_simulations = 6
 
 def get_possible_task_combinations():
     combi_tasks = []
-    for low in range(2,5): 
-        for high in range(low+1,5):
-            combi_tasks.append((low,high))
-
+    # for low in range(2,5): 
+    #     for high in range(low+1,5):
+    #         combi_tasks.append((low,high))
+    combi_tasks.append((3,4))
     for low in range(5,9):
         for high in range(low+1,9):
             combi_tasks.append((low,high))

@@ -70,36 +70,39 @@ def perform_simulation(dna,i=0):
         model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies,chigh)
         #print("Simulating" + str(datetime.datetime.now().minute))
         succeeeded = simulate_processor(model_params,mydir)
-
-        f = open(mydir+"/Application.log", "r")
-        output = f.read()
-        words = output.split()
-        if not words[0] == "Failed" and succeeeded:
-            succes+=1
-            new_latency = float(words[28])
-            if new_latency < latency:
-                latency = new_latency
-                f= open(mydir+"/Battery.log", "r")
+        if succeeeded:
+            try:
+                f = open(mydir+"/Application.log", "r")
                 output = f.read()
                 words = output.split()
-                cnt=0
-                avg_power = 0
-                for word in words:
-                    if is_number(word):
-                        cnt+=1
-                        if cnt == 2:
-                            avg_power = float(word)
+                if not words[0] == "Failed":
+                    succes+=1
+                    new_latency = float(words[28])
+                    if new_latency < latency:
+                        latency = new_latency
+                        f= open(mydir+"/Battery.log", "r")
+                        output = f.read()
+                        words = output.split()
+                        cnt=0
+                        avg_power = 0
+                        for word in words:
+                            if is_number(word):
+                                cnt+=1
+                                if cnt == 2:
+                                    avg_power = float(word)
 
-                
-                f= open(mydir+"/BatteryTrace.xml", "r")
-                output = f.read()
-                words = output.split()
-                total_time = float(words[-3].split("'")[1])
-                power_consumption = total_time * avg_power
-                no_processors = len(set(taskmap))
-                best_taskmap = taskmap
-        if succes == 1:
-            break
+                        
+                        f= open(mydir+"/BatteryTrace.xml", "r")
+                        output = f.read()
+                        words = output.split()
+                        total_time = float(words[-3].split("'")[1])
+                        power_consumption = total_time * avg_power
+                        no_processors = len(set(taskmap))
+                        best_taskmap = taskmap
+            except: 
+                pass
+            if succes == 1:
+                break
     values = [latency,power_consumption,no_processors]
     values += [(combi_task[0],combi_task[1])]
     values.extend(best_taskmap)

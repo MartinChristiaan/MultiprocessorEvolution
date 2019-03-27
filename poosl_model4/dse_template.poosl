@@ -5,80 +5,78 @@ importlib "dse/platform/platform.poosl"
 
 system
 instances
-	Application: Application(
-		// You are allowed to change these parameters
-		
-		// mapping of the tasks to processor nodes
-		// should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
-		
-		MapTask1To := {params[MapTask1To]}, 
-		MapTask2To := {params[MapTask2To]}, 
-		MapTask3To := {params[MapTask3To]}, 
-		MapTask4To := {params[MapTask4To]}, 
-		MapTask5To := {params[MapTask5To]}, 
-		MapTask6To := {params[MapTask6To]}, 
-		MapTask7To := {params[MapTask7To]}, 
-		MapTask8To := {params[MapTask8To]}, 
-		MapTask9To := {params[MapTask9To]}, 
-		MapTask10To := {params[MapTask10To]}, 
-		MapTask11To := {params[MapTask11To]}, 
+Application: Application(
+// You are allowed to change these parameters
 
-		// priorities should be positive Integer numbers
-		PriorityTask1 := 1, 
-		PriorityTask2 := 2, 
-		PriorityTask3 := 3, 
-		PriorityTask4 := 4, 
-		PriorityTask5 := 5, 
-		PriorityTask6 := 6, 
-		PriorityTask7 := 7, 
-		PriorityTask8 := 8,
-		PriorityTask9 := 9,  
-		PriorityTask10 := 10,
-		PriorityTask11 := 11,
-		
-		// Do not change the following parameters!
-		AccuracyCheckInterval := 0.03, 
-		ThroughputConstraint := 500.0, 		
-		LatencyBound := 0.020,
-		GlobalTimeOut := 50.0
-	)
-	
-	MPSoC: Platform(
-		// You are allowed to change these parameters
-		
-		// Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-		Node1ProcessorType := {params[NodeProcessorType1]}, 
-		Node2ProcessorType := {params[NodeProcessorType2]}, 
-		Node3ProcessorType := {params[NodeProcessorType3]}, 
-		Node4ProcessorType := {params[NodeProcessorType4]},
-		Node5ProcessorType := {params[NodeProcessorType5]},
-		Node6ProcessorType := {params[NodeProcessorType6]},
+// mapping of the tasks to processor nodes
+// should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 
-		// The voltage scaling factors for each of the node
-		// The result should be a Real valued number, do not write something like '2/3' !
-		VSF1 := {params[VSF1]},
-		VSF2 := {params[VSF2]},
-		VSF3 := {params[VSF3]},
-		VSF4 := {params[VSF4]},
-		VSF5 := {params[VSF5]},
-		VSF6 := {params[VSF6]},
-		
-		// The operating system scheduling policies. Must be either "PB" of "FCFS"
-		OSPolicy1 := {params[OSPolicy1]},
-		OSPolicy2 := {params[OSPolicy2]},
-		OSPolicy3 := {params[OSPolicy3]},
-		OSPolicy4 := {params[OSPolicy4]},
-		OSPolicy5 := {params[OSPolicy5]},
-		OSPolicy6 := {params[OSPolicy6]},
+MapTask1To := {params[MapTask1To]},
+MapTask2To := {params[MapTask2To]},
+MapTask3To := {params[MapTask3To]},
+MapTask4To := {params[MapTask4To]},
+MapTask58To := {params[MapTask5To]},
+MapTask6To := {params[MapTask6To]},
+MapTask7To := {params[MapTask7To]},
+MapTask9To := {params[MapTask9To]},
+MapTask10To := {params[MapTask10To]},
+MapTask11To := {params[MapTask11To]},
 
-		// Do not change the following parameters
-		NoC_BandwidthPerConnection := 10000000.0, 
-		NoC_ConnectionSetUpLatency := 0.00002, 
-		Node_InternalBandwidth := 200000000.0, 
-		Node_InternalConnectionSetUpLatency := 0.00001, 
-		PowerPerActiveConnection := 0.01, 
-		PowerPerStoredByte := 0.0000012, 
-		AccuracyCheckInterval := 0.03, 
-		MaxEventTimeToLog := 0.1
-	)
-	channels
+// priorities should be positive Integer numbers
+PriorityTask1 := 1,
+PriorityTask2 := 2,
+PriorityTask3 := 3,
+PriorityTask4 := 4,
+PriorityTask58 := 5,
+PriorityTask6 := 6,
+PriorityTask7 := 7,
+PriorityTask9 := 9,
+PriorityTask10 := 10,
+PriorityTask11 := 11,
+
+// Do not change the following parameters!
+AccuracyCheckInterval := 0.03,
+ThroughputConstraint := 500.0,
+LatencyBound := 0.020,
+GlobalTimeOut := 50.0
+)
+
+MPSoC: Platform(
+// You are allowed to change these parameters
+
+// Processor types, select one of "ARMv8", "Adreno" or "MIPS"
+Node1ProcessorType := {params[NodeProcessorType1]},
+Node2ProcessorType := {params[NodeProcessorType2]},
+Node3ProcessorType := {params[NodeProcessorType3]},
+Node4ProcessorType := {params[NodeProcessorType4]},
+Node5ProcessorType := {params[NodeProcessorType5]},
+Node6ProcessorType := {params[NodeProcessorType6]},
+
+// The voltage scaling factors for each of the node
+// The result should be a Real valued number, do not write something like '2/3' !
+VSF1 := {params[VSF1]},
+VSF2 := {params[VSF2]},
+VSF3 := {params[VSF3]},
+VSF4 := {params[VSF4]},
+VSF5 := {params[VSF5]},
+VSF6 := {params[VSF6]},
+
+// The operating system scheduling policies. Must be either "PB" of "FCFS"
+OSPolicy1 := {params[OSPolicy1]},
+OSPolicy2 := {params[OSPolicy2]},
+OSPolicy3 := {params[OSPolicy3]},
+OSPolicy4 := {params[OSPolicy4]},
+OSPolicy5 := {params[OSPolicy5]},
+OSPolicy6 := {params[OSPolicy6]},
+
+// Do not change the following parameters
+NoC_BandwidthPerConnection := 10000000.0,
+NoC_ConnectionSetUpLatency := 0.00002,
+Node_InternalBandwidth := 200000000.0,
+Node_InternalConnectionSetUpLatency := 0.00001,
+PowerPerActiveConnection := 0.01,
+PowerPerStoredByte := 0.0000012,
+AccuracyCheckInterval := 0.03,
+MaxEventTimeToLog := 0.1
+)
+channels
