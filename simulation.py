@@ -24,11 +24,10 @@ def simulate_processor(model_parameters,mydir):
     output_directory_template = mydir
     model_path = os.getcwd()+"\\"+ mydir
     output_directory = os.path.abspath(output_directory_template)
-    if run_network_model.run_network_model(
+    return run_network_model.run_network_model(
          [model_path], # library paths
          open(model_path + "\\dse_template.poosl").read(), # system instance template
-         6,model_parameters, output_directory) == False:
-             raise Exception("Model did not terminate to completion, check the output of Rotalumis!")
+         6,model_parameters, output_directory)
 def is_number(s):
     try:
         float(s)
@@ -40,15 +39,19 @@ def perform_simulation(dna,i=0):
     task_map_names = ['MapTask1To','MapTask2To','MapTask3To',"MapTask4To","MapTask5To","MapTask6To","MapTask7To","	MapTask8To","MapTask9To","MapTask10To","MapTask11To"]
     proc_type_distribution = dna[0]
     node_pref = dna[1]
+    combi_task = dna[2]
     if isinstance(proc_type_distribution, str):
         proc_type_distribution = (int(proc_type_distribution[1]),int(proc_type_distribution[4]),int(proc_type_distribution[7]))
     node_processor_types = ['"MIPS"']*proc_type_distribution[0] + proc_type_distribution[1]*['"Adreno"'] + proc_type_distribution[2] * ['"ARMv8"']
-    vsfs = dna[2:8]
-    os_policies = dna[8:14]
+    vsfs = dna[3:9]
+    os_policies = dna[9:15]
+
 
     #print("Evolving Task Schedule " + str(datetime.datetime.now().minute))
-    taskmaps,combis = schedule_tasks(node_processor_types,vsfs,node_pref)
-    
+    ctc = (combi_task[0]-1,combi_task[1]-1)
+    taskmaps = schedule_tasks(node_processor_types,vsfs,node_pref,ctc)
+    for i in range(6-len(node_processor_types)):
+        node_processor_types.append('"MIPS"')    
     mydir = "poosl_model"+str(i)
     
     latency = 99999
@@ -56,22 +59,22 @@ def perform_simulation(dna,i=0):
     no_processors = 99999
     names = ["Latency","PowerConsumption","Number of Processors"] + ["Combined Tasks"] + task_map_names
     best_taskmap = taskmaps[0]
-    best_combi = combis[0]
     succes = 0
     for i_tm,taskmap in enumerate(taskmaps):
-        combi = combis[i_tm]
-        write_combi_model(combi[0]+1,combi[1]+1,mydir)
+        combi = combi_task
+        write_combi_model(combi[0],combi[1],mydir)
 
         chigh = 99
         if combi[0] != combi[1]:
             chigh = combi[1]
         model_params = create_model_params(taskmap,node_processor_types,vsfs,os_policies,chigh)
         #print("Simulating" + str(datetime.datetime.now().minute))
-        simulate_processor(model_params,mydir)
+        succeeeded = simulate_processor(model_params,mydir)
+
         f = open(mydir+"/Application.log", "r")
         output = f.read()
         words = output.split()
-        if not words[0] == "Failed":
+        if not words[0] == "Failed" and succeeeded:
             succes+=1
             new_latency = float(words[28])
             if new_latency < latency:
@@ -98,7 +101,7 @@ def perform_simulation(dna,i=0):
         if succes == 1:
             break
     values = [latency,power_consumption,no_processors]
-    values += [(best_combi[0]+1,best_combi[1]+1)]
+    values += [(combi_task[0],combi_task[1])]
     values.extend(best_taskmap)
     return names,values
    

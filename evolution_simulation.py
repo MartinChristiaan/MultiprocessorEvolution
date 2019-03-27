@@ -14,10 +14,10 @@ def quotate(mystr):
     return '"' + mystr + '"'
 columns = ["NodeProcessorTypeDistribution","No_Proc_Preffered","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 
-pop_size = 6
+pop_size = 70
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 3
+no_parallel_simulations = 6
 
 
 def get_all_distributions(max_size):
@@ -30,7 +30,7 @@ def get_all_distributions(max_size):
 
 
 Processor_type_distribution = get_all_distributions(6)
-Processor_type_distribution+=Processor_type_distribution[-18:] # Initial bias towards high performance processors
+#Processor_type_distribution+=Processor_type_distribution[-18:] # Initial bias towards high performance processors
 
 VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]

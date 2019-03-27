@@ -11,7 +11,7 @@ class ARMv8():
         cycles_per_task+= 2* [192450,272500,561600,970500,911500,950540,511540,660810,391580,306990,60300]
         cycles_per_task+= [192450,276390,477300,0,1125420,950540,692800,782590,442410,305310,60300]
 
-        k_f = 192450/(295*10**-9)/(2/3)
+        k_f = 980*10**6
         self.time_per_task = np.array(cycles_per_task)/(k_f * V)
 
 
@@ -20,7 +20,7 @@ class Adreno():
         cycles_per_task = [113060 ,165660 ,284000 ,0,685320 ,656110 ,398220 ,472050 ,274370 ,203750,39050]
         cycles_per_task += 2* [113060 ,160630 ,329560 ,593120 ,542880 ,553000 ,300600 ,450600 ,237750 ,209750 ,39050 ]
         cycles_per_task += [113060 ,165660 ,284000 ,0,685320 ,656110 ,398220 ,472050 ,274370 ,203750,39050]
-        k_f = 165660/(301*10**-9)
+        k_f = 550*10**6
         self.time_per_task = np.array(cycles_per_task)/(k_f * V)
         
 class MIPS():
@@ -29,9 +29,16 @@ class MIPS():
         cycles_per_task += 2* [98540  ,117900  ,267450  ,482050  ,434320  ,423400  ,236540  ,302370  ,195780  ,138320  ,28640]
         cycles_per_task += [98540  ,124380  ,217450  ,0,545310  ,456790  ,325670  ,369120  ,208450  ,136170 ,28640 ]
 
-        k_f = 208450/(349*10**-9)
+        k_f = 390 * 10 ** 6
         self.time_per_task = np.array(cycles_per_task)/(k_f * V)
-        
+
+arm = ARMv8(1)
+adreno = Adreno(1)
+mips = MIPS(1)
+
+t1 =arm.time_per_task.mean()
+t2 = adreno.time_per_task.mean()
+t3 = mips.time_per_task.mean()
 
 def combine_tasks(combi_task,time_per_task):
     low = combi_task[0]
@@ -61,9 +68,10 @@ def get_possible_task_combinations():
 
 
 
-def calculate_schedule_time(genes,nodes):
-    schedule = genes[:11]
-    combi_task = genes[11]
+
+
+def calculate_schedule_time(genes,nodes,combi_task):
+    schedule = genes
     node_occupation_t1 = np.zeros(6)
     min_times = [0] * 11 + [2000*10**-9]*11 + [4000*10**-9]*11 + [6000*10**-9]*11 
 
@@ -85,7 +93,6 @@ def calculate_schedule_time(genes,nodes):
 
 
     if not combi_task[0] == combi_task[1]:
-
         schedule = np.delete(schedule,combi_task[1])
         node_times += [combine_tasks(combi_task,time_per_task[:11])+combine_tasks(combi_task,time_per_task[11:22])+combine_tasks(combi_task,time_per_task[22:33])+combine_tasks(combi_task,time_per_task[33:44]) for time_per_task in node_times]
         tasks_dependencies = [[],[0], [0], [0],  [1],  [1],  [2], [2 , 3 ],[4,5,6],[6,7],[8,9]]
@@ -121,11 +128,11 @@ no_gen = 70
 mutation_chance = 0.15
 
 
-def schedule_tasks(nodes_cmd,voltages_cmd,nodepref):
+def schedule_tasks(nodes_cmd,voltages_cmd,nodepref,combi_task):
     nodes = []
 
-    possible_task_combinations = get_possible_task_combinations()
-    gene_pool = [list(range(6)) for _ in range(11)] + [possible_task_combinations]
+#    possible_task_combinations = get_possible_task_combinations()
+    gene_pool = [list(range(len(nodes_cmd))) for _ in range(11)]
     for i,node in enumerate(nodes_cmd):
         v = float(voltages_cmd[i])
         
@@ -137,15 +144,14 @@ def schedule_tasks(nodes_cmd,voltages_cmd,nodepref):
             nodes+= [MIPS(v)]
     # Load some node array
     schedule_cmds = []
-    combi_cmds = []
-
+   
     population,known_dna = create_initial_population(gene_pool,pop_size)
     #population = np.array(population)
     best_times = []
     avg_times = []
     for gen in range(no_gen):
         start = time.time()
-        durations = [calculate_schedule_time(genes,nodes) for genes in population]
+        durations = [calculate_schedule_time(genes,nodes,combi_task) for genes in population]
         
         for i,genes in enumerate(population):
             if len(set(genes)) == nodepref:
@@ -160,7 +166,7 @@ def schedule_tasks(nodes_cmd,voltages_cmd,nodepref):
         best_times += [min(durations)]
         avg_times +=[np.mean(durations)]
 
-    durations = [calculate_schedule_time(genes,nodes) for genes in population]
+    durations = [calculate_schedule_time(genes,nodes,combi_task) for genes in population]
     
     for i,genes in enumerate(population):
         if len(set(genes)) == nodepref+1:
@@ -170,9 +176,8 @@ def schedule_tasks(nodes_cmd,voltages_cmd,nodepref):
     population_sorted = population_sorted[:7]
     for genes in population_sorted:
         schedule_cmd = []
-        for node_asigened in genes[:-1]:
+        for node_asigened in genes:
             schedule_cmd += ['"Node' + str(node_asigened+1) + '"']
-        combi_cmds+= [genes[-1]]
         schedule_cmds += [(schedule_cmd)]
     # import matplotlib.pyplot as plt
     # import matplotlib
@@ -184,7 +189,7 @@ def schedule_tasks(nodes_cmd,voltages_cmd,nodepref):
     # plt.ylabel('Latency (ns)')
     # plt.tight_layout()
     # plt.show()
-    return schedule_cmds,combi_cmds
+    return schedule_cmds
 
 
 

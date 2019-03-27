@@ -1,4 +1,6 @@
 import os, sys, subprocess, time, select
+from threading import Timer
+
 try:
     from IPython.core.display import HTML, display # used to display the progress in the IPython notebook
     def stdout(msg):
@@ -44,17 +46,26 @@ def runrotalumis(model_file, output_directory, library_paths=[]):
             lib_includes += ["-I", l]
 
         os.chdir(output_directory) # make sure the outputs are going into this folder!                    
-        
+        0
         try:
+            
             p = subprocess.Popen([os.path.join(basedir, "rotalumis.exe"), '--poosl', inputmodel] + lib_includes, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            def stop_process():
+                try: 
+                    p.terminate()
+                except:
+                    pass
+            t = Timer(200,stop_process)
+            t.start()            
             while p.poll() is None:
-                stdout(p.stdout.read().decode('utf-8'))
-                stderr(p.stderr.read().decode('utf-8'))
+                #print(p.stdout.read().decode('utf-8'))
+                print(p.stderr.read().decode('utf-8'))
                 
                 time.sleep(0.1)
         finally:
             returncode = p.returncode
             p.terminate()
+           
                 
     finally:
         # always put the current working directory back!
