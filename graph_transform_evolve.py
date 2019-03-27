@@ -14,7 +14,7 @@ columns = ["NodeProcessorTypeDistribution","No_Proc_Preffered","Combi_Task","VSF
 pop_size = 70
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 4
+no_parallel_simulations = 6
 
 def get_possible_task_combinations():
     combi_tasks = []
@@ -30,9 +30,9 @@ def get_possible_task_combinations():
 
 
 df_pdr = pd.read_csv('ProcessorDistribution_ranked.csv')
-df_pdr = df_pdr[df_pdr['Pareto Rank'] < 3]
-
-Processor_type_distributions = df_pdr['Node Processor Type Distribution']
+df_pdr = df_pdr[df_pdr['pareto rank'] < 3]
+df = pd.DataFrame()
+Processor_type_distributions = df_pdr['NodeProcessorTypeDistribution']
 vsfs = [str(1.0)]*6
 combi_tasks = get_possible_task_combinations()
 

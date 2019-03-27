@@ -11,17 +11,17 @@ instances
 		// mapping of the tasks to processor nodes
 		// should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
 		
-		MapTask1To := "Node6", 
-		MapTask2To := "Node6", 
-		MapTask3To := "Node5", 
-		MapTask4To := "Node6", 
-		MapTask5To := "Node4", 
-		MapTask6To := "Node1", 
+		MapTask1To := "Node2", 
+		MapTask2To := "Node4", 
+		MapTask3To := "Node2", 
+		MapTask4To := "Node3", 
+		MapTask5To := "Node1", 
+		MapTask6To := "Node4", 
 		MapTask7To := "Node2", 
-		MapTask8To := "Node5", 
-		MapTask9To := "Node3", 
-		MapTask10To := "Node1", 
-		MapTask11To := "Node2", 
+		MapTask8To := "Node3", 
+		MapTask9To := "Node1", 
+		MapTask10To := "Node4", 
+		MapTask11To := "Node1", 
 
 		// priorities should be positive Integer numbers
 		PriorityTask1 := 1, 
@@ -47,10 +47,10 @@ instances
 		// You are allowed to change these parameters
 		
 		// Processor types, select one of "ARMv8", "Adreno" or "MIPS"
-		Node1ProcessorType := "MIPS", 
-		Node2ProcessorType := "MIPS", 
-		Node3ProcessorType := "MIPS", 
-		Node4ProcessorType := "MIPS",
+		Node1ProcessorType := "Adreno", 
+		Node2ProcessorType := "Adreno", 
+		Node3ProcessorType := "ARMv8", 
+		Node4ProcessorType := "ARMv8",
 		Node5ProcessorType := "MIPS",
 		Node6ProcessorType := "MIPS",
 
