@@ -117,11 +117,8 @@ def perform_simulation_finetune(dna,i=0):
     platform_id = dna[0]
     platform = source_df.iloc[platform_id]
     proc_type_distribution = platform['NodeProcessorTypeDistribution']
-    print(proc_type_distribution)
     node_pref = platform['Number of Processors']
-    print(node_pref)
     combi_task = platform['Combined Tasks']
-    print(combi_task)
     if isinstance(proc_type_distribution, str):
         proc_type_distribution = (int(proc_type_distribution[1]),int(proc_type_distribution[4]),int(proc_type_distribution[7]))
     node_processor_types = ['"MIPS"']*proc_type_distribution[0] + proc_type_distribution[1]*['"Adreno"'] + proc_type_distribution[2] * ['"ARMv8"']

@@ -14,10 +14,10 @@ def quotate(mystr):
     return '"' + mystr + '"'
 columns = ["Config","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPolicy2","OSPolicy3","OSPolicy4","OSPolicy5","OSPolicy6"]
 
-pop_size = 3
+pop_size = 80
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 1
+no_parallel_simulations = 6
 
 
 def get_all_distributions(max_size):

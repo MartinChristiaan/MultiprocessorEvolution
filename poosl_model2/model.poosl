@@ -1,0 +1,84 @@
+importlib "dse/application/application.poosl"
+importlib "dse/platform/platform.poosl"
+
+/* System Specification */
+
+system
+instances
+Application: Application(
+// You are allowed to change these parameters
+
+// mapping of the tasks to processor nodes
+// should be Strings, "Node1", "Node2", "Node3", "Node4", "Node5" or "Node4"
+
+MapTask1To := "Node5",
+MapTask2To := "Node2",
+MapTask34To := "Node5",
+MapTask5To := "Node3",
+MapTask6To := "Node6",
+MapTask7To := "Node2",
+MapTask8To := "Node5",
+MapTask9To := "Node4",
+MapTask10To := "Node1",
+MapTask11To := "Node3",
+
+// priorities should be positive Integer numbers
+PriorityTask1 := 1,
+PriorityTask2 := 2,
+PriorityTask34 := 3,
+PriorityTask5 := 5,
+PriorityTask6 := 6,
+PriorityTask7 := 7,
+PriorityTask8 := 8,
+PriorityTask9 := 9,
+PriorityTask10 := 10,
+PriorityTask11 := 11,
+
+// Do not change the following parameters!
+AccuracyCheckInterval := 0.03,
+ThroughputConstraint := 500.0,
+LatencyBound := 0.020,
+GlobalTimeOut := 50.0
+)
+
+MPSoC: Platform(
+// You are allowed to change these parameters
+
+// Processor types, select one of "ARMv8", "Adreno" or "MIPS"
+Node1ProcessorType := "MIPS",
+Node2ProcessorType := "MIPS",
+Node3ProcessorType := "MIPS",
+Node4ProcessorType := "Adreno",
+Node5ProcessorType := "Adreno",
+Node6ProcessorType := "Adreno",
+
+// The voltage scaling factors for each of the node
+// The result should be a Real valued number, do not write something like '2/3' !
+VSF1 := 1.0,
+VSF2 := 1.0,
+VSF3 := 1.0,
+VSF4 := 1.0,
+VSF5 := 1.0,
+VSF6 := 1.0,
+
+// The operating system scheduling policies. Must be either "PB" of "FCFS"
+OSPolicy1 := "FCFS",
+OSPolicy2 := "PB",
+OSPolicy3 := "PB",
+OSPolicy4 := "FCFS",
+OSPolicy5 := "FCFS",
+OSPolicy6 := "PB",
+
+// Do not change the following parameters
+NoC_BandwidthPerConnection := 10000000.0,
+NoC_ConnectionSetUpLatency := 0.00002,
+Node_InternalBandwidth := 200000000.0,
+Node_InternalConnectionSetUpLatency := 0.00001,
+PowerPerActiveConnection := 0.01,
+PowerPerStoredByte := 0.0000012,
+AccuracyCheckInterval := 0.03,
+MaxEventTimeToLog := 0.1
+)
+channels
+{ Application.Buffers, MPSoC.CommunicationResources }
+{ Application.Tasks, MPSoC.ComputationResources }
