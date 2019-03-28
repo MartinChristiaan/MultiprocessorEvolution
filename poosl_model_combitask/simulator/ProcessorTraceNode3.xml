@@ -1,303 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
-<trace type='processor' name='Adreno (FCFS)'>
-  <start task='Task34' iteration='0' time='0.000742431634653061'>
-  </start>  <contextswitch task='Task34' time='0.000749704361925789'>
-  </contextswitch>  <stop task='Task34' time='0.00206778436192579'>
-  </stop>  <start task='Task8' iteration='0' time='0.00208826436192579'>
-  </start>  <contextswitch task='Task8' time='0.00209553708919852'>
-  </contextswitch>  <stop task='Task8' time='0.00291480981647124'>
-  </stop>  <start task='Task34' iteration='1' time='0.00291480981647124'>
-  </start>  <contextswitch task='Task34' time='0.00292208254374397'>
-  </contextswitch>  <stop task='Task34' time='0.00424016254374397'>
-  </stop>  <start task='Task8' iteration='1' time='0.00426064254374397'>
-  </start>  <contextswitch task='Task8' time='0.0042679152710167'>
-  </contextswitch>  <stop task='Task8' time='0.00508718799828943'>
-  </stop>  <start task='Task34' iteration='2' time='0.00508718799828943'>
-  </start>  <contextswitch task='Task34' time='0.00509446072556215'>
-  </contextswitch>  <stop task='Task34' time='0.00641254072556215'>
-  </stop>  <start task='Task8' iteration='2' time='0.00643302072556215'>
-  </start>  <contextswitch task='Task8' time='0.00644029345283488'>
-  </contextswitch>  <stop task='Task8' time='0.00725956618010761'>
-  </stop>  <start task='Task34' iteration='3' time='0.00725956618010761'>
-  </start>  <contextswitch task='Task34' time='0.00726683890738033'>
-  </contextswitch>  <stop task='Task34' time='0.00858491890738033'>
-  </stop>  <start task='Task8' iteration='3' time='0.00860539890738033'>
-  </start>  <contextswitch task='Task8' time='0.00861267163465306'>
-  </contextswitch>  <stop task='Task8' time='0.00943194436192579'>
-  </stop>  <start task='Task34' iteration='4' time='0.00943194436192579'>
-  </start>  <contextswitch task='Task34' time='0.00943921708919852'>
-  </contextswitch>  <stop task='Task34' time='0.00995558072556215'>
-  </stop>  <start task='Task8' iteration='4' time='0.00996070072556215'>
-  </start>  <contextswitch task='Task8' time='0.00996797345283488'>
-  </contextswitch>  <stop task='Task8' time='0.0108262461801076'>
-  </stop>  <start task='Task34' iteration='5' time='0.0109283911708312'>
-  </start>  <contextswitch task='Task34' time='0.0109356638981039'>
-  </contextswitch>  <stop task='Task34' time='0.0114520275344675'>
-  </stop>  <start task='Task8' iteration='5' time='0.0114571475344675'>
-  </start>  <contextswitch task='Task8' time='0.0114644202617403'>
-  </contextswitch>  <stop task='Task8' time='0.012322692989013'>
-  </stop>  <start task='Task34' iteration='6' time='0.0130755118572876'>
-  </start>  <contextswitch task='Task34' time='0.0130827845845603'>
-  </contextswitch>  <stop task='Task34' time='0.0135991482209239'>
-  </stop>  <start task='Task8' iteration='6' time='0.0136042682209239'>
-  </start>  <contextswitch task='Task8' time='0.0136115409481967'>
-  </contextswitch>  <stop task='Task8' time='0.0144698136754694'>
-  </stop>  <start task='Task34' iteration='7' time='0.0152459587960631'>
-  </start>  <contextswitch task='Task34' time='0.0152532315233358'>
-  </contextswitch>  <stop task='Task34' time='0.0165713115233358'>
-  </stop>  <start task='Task8' iteration='7' time='0.0165917915233358'>
-  </start>  <contextswitch task='Task8' time='0.0165990642506085'>
-  </contextswitch>  <stop task='Task8' time='0.0174183369778813'>
-  </stop>  <start task='Task34' iteration='8' time='0.0174183369778813'>
-  </start>  <contextswitch task='Task34' time='0.017425609705154'>
-  </contextswitch>  <stop task='Task34' time='0.0179419733415176'>
-  </stop>  <start task='Task8' iteration='8' time='0.0179470933415176'>
-  </start>  <contextswitch task='Task8' time='0.0179543660687904'>
-  </contextswitch>  <stop task='Task8' time='0.0188126387960631'>
-  </stop>  <start task='Task34' iteration='9' time='0.0189147837867866'>
-  </start>  <contextswitch task='Task34' time='0.0189220565140594'>
-  </contextswitch>  <stop task='Task34' time='0.019438420150423'>
-  </stop>  <start task='Task8' iteration='9' time='0.019443540150423'>
-  </start>  <contextswitch task='Task8' time='0.0194508128776957'>
-  </contextswitch>  <stop task='Task8' time='0.0203090856049685'>
-  </stop>  <start task='Task34' iteration='10' time='0.0212667044732431'>
-  </start>  <contextswitch task='Task34' time='0.0212739772005158'>
-  </contextswitch>  <stop task='Task34' time='0.0225920572005158'>
-  </stop>  <start task='Task8' iteration='10' time='0.0226125372005158'>
-  </start>  <contextswitch task='Task8' time='0.0226198099277885'>
-  </contextswitch>  <stop task='Task8' time='0.0234390826550612'>
-  </stop>  <start task='Task34' iteration='11' time='0.0234390826550612'>
-  </start>  <contextswitch task='Task34' time='0.023446355382334'>
-  </contextswitch>  <stop task='Task34' time='0.0239627190186976'>
-  </stop>  <start task='Task8' iteration='11' time='0.0239678390186976'>
-  </start>  <contextswitch task='Task8' time='0.0239751117459703'>
-  </contextswitch>  <stop task='Task8' time='0.0248333844732431'>
-  </stop>  <start task='Task34' iteration='12' time='0.0251403294639666'>
-  </start>  <contextswitch task='Task34' time='0.0251476021912393'>
-  </contextswitch>  <stop task='Task34' time='0.0264656821912393'>
-  </stop>  <start task='Task8' iteration='12' time='0.0264861621912393'>
-  </start>  <contextswitch task='Task8' time='0.0264934349185121'>
-  </contextswitch>  <stop task='Task8' time='0.0273127076457848'>
-  </stop>  <start task='Task34' iteration='13' time='0.0273127076457848'>
-  </start>  <contextswitch task='Task34' time='0.0273199803730575'>
-  </contextswitch>  <stop task='Task34' time='0.0286380603730575'>
-  </stop>  <start task='Task8' iteration='13' time='0.0286585403730575'>
-  </start>  <contextswitch task='Task8' time='0.0286658131003302'>
-  </contextswitch>  <stop task='Task8' time='0.029485085827603'>
-  </stop>  <start task='Task34' iteration='14' time='0.029485085827603'>
-  </start>  <contextswitch task='Task34' time='0.0294923585548757'>
-  </contextswitch>  <stop task='Task34' time='0.0308104385548757'>
-  </stop>  <start task='Task8' iteration='14' time='0.0308309185548757'>
-  </start>  <contextswitch task='Task8' time='0.0308381912821484'>
-  </contextswitch>  <stop task='Task8' time='0.0316574640094212'>
-  </stop>  <start task='Task34' iteration='15' time='0.0316574640094212'>
-  </start>  <contextswitch task='Task34' time='0.0316647367366939'>
-  </contextswitch>  <stop task='Task34' time='0.0321811003730575'>
-  </stop>  <start task='Task8' iteration='15' time='0.0321862203730575'>
-  </start>  <contextswitch task='Task8' time='0.0321934931003302'>
-  </contextswitch>  <stop task='Task8' time='0.033051765827603'>
-  </stop>  <start task='Task34' iteration='16' time='0.0331539108183265'>
-  </start>  <contextswitch task='Task34' time='0.0331611835455993'>
-  </contextswitch>  <stop task='Task34' time='0.0336775471819629'>
-  </stop>  <start task='Task8' iteration='16' time='0.0336826671819629'>
-  </start>  <contextswitch task='Task8' time='0.0336899399092356'>
-  </contextswitch>  <stop task='Task8' time='0.0345482126365083'>
-  </stop>  <start task='Task34' iteration='17' time='0.0353942645660074'>
-  </start>  <contextswitch task='Task34' time='0.0354015372932801'>
-  </contextswitch>  <stop task='Task34' time='0.0367196172932801'>
-  </stop>  <start task='Task8' iteration='17' time='0.0367400972932801'>
-  </start>  <contextswitch task='Task8' time='0.0367473700205529'>
-  </contextswitch>  <stop task='Task8' time='0.0375666427478256'>
-  </stop>  <start task='Task34' iteration='18' time='0.0375666427478256'>
-  </start>  <contextswitch task='Task34' time='0.0375739154750983'>
-  </contextswitch>  <stop task='Task34' time='0.0380902791114619'>
-  </stop>  <start task='Task8' iteration='18' time='0.0380953991114619'>
-  </start>  <contextswitch task='Task8' time='0.0381026718387347'>
-  </contextswitch>  <stop task='Task8' time='0.0389609445660074'>
-  </stop>  <start task='Task34' iteration='19' time='0.0389609445660074'>
-  </start>  <contextswitch task='Task34' time='0.0389682172932801'>
-  </contextswitch>  <stop task='Task34' time='0.0394845809296438'>
-  </stop>  <start task='Task8' iteration='19' time='0.0394897009296438'>
-  </start>  <contextswitch task='Task8' time='0.0394969736569165'>
-  </contextswitch>  <stop task='Task8' time='0.0403552463841892'>
-  </stop>  <start task='Task34' iteration='20' time='0.0410986433044118'>
-  </start>  <contextswitch task='Task34' time='0.0411059160316846'>
-  </contextswitch>  <stop task='Task34' time='0.0416222796680482'>
-  </stop>  <start task='Task8' iteration='20' time='0.0416273996680482'>
-  </start>  <contextswitch task='Task8' time='0.0416346723953209'>
-  </contextswitch>  <stop task='Task8' time='0.0424929451225937'>
-  </stop>  <start task='Task34' iteration='21' time='0.0429631629704601'>
-  </start>  <contextswitch task='Task34' time='0.0429704356977328'>
-  </contextswitch>  <stop task='Task34' time='0.0442885156977328'>
-  </stop>  <start task='Task8' iteration='21' time='0.0443089956977328'>
-  </start>  <contextswitch task='Task8' time='0.0443162684250055'>
-  </contextswitch>  <stop task='Task8' time='0.0451355411522783'>
-  </stop>  <start task='Task34' iteration='22' time='0.0451355411522783'>
-  </start>  <contextswitch task='Task34' time='0.045142813879551'>
-  </contextswitch>  <stop task='Task34' time='0.046460893879551'>
-  </stop>  <start task='Task8' iteration='22' time='0.046481373879551'>
-  </start>  <contextswitch task='Task8' time='0.0464886466068237'>
-  </contextswitch>  <stop task='Task8' time='0.0473079193340964'>
-  </stop>  <start task='Task34' iteration='23' time='0.0473079193340964'>
-  </start>  <contextswitch task='Task34' time='0.0473151920613692'>
-  </contextswitch>  <stop task='Task34' time='0.0478315556977328'>
-  </stop>  <start task='Task8' iteration='23' time='0.0478366756977328'>
-  </start>  <contextswitch task='Task8' time='0.0478439484250055'>
-  </contextswitch>  <stop task='Task8' time='0.0487022211522782'>
-  </stop>  <start task='Task34' iteration='24' time='0.0492839329519072'>
-  </start>  <contextswitch task='Task34' time='0.0492912056791799'>
-  </contextswitch>  <stop task='Task34' time='0.0506092856791799'>
-  </stop>  <start task='Task8' iteration='24' time='0.0506297656791799'>
-  </start>  <contextswitch task='Task8' time='0.0506370384064527'>
-  </contextswitch>  <stop task='Task8' time='0.0514563111337254'>
-  </stop>  <start task='Task34' iteration='25' time='0.0514563111337254'>
-  </start>  <contextswitch task='Task34' time='0.0514635838609981'>
-  </contextswitch>  <stop task='Task34' time='0.0527816638609981'>
-  </stop>  <start task='Task8' iteration='25' time='0.0528021438609981'>
-  </start>  <contextswitch task='Task8' time='0.0528094165882708'>
-  </contextswitch>  <stop task='Task8' time='0.0536286893155436'>
-  </stop>  <start task='Task34' iteration='26' time='0.0536286893155436'>
-  </start>  <contextswitch task='Task34' time='0.0536359620428163'>
-  </contextswitch>  <stop task='Task34' time='0.0549540420428163'>
-  </stop>  <start task='Task8' iteration='26' time='0.0549745220428163'>
-  </start>  <contextswitch task='Task8' time='0.054981794770089'>
-  </contextswitch>  <stop task='Task8' time='0.0558010674973617'>
-  </stop>  <start task='Task34' iteration='27' time='0.0558010674973617'>
-  </start>  <contextswitch task='Task34' time='0.0558083402246344'>
-  </contextswitch>  <stop task='Task34' time='0.0563247038609981'>
-  </stop>  <start task='Task8' iteration='27' time='0.0563298238609981'>
-  </start>  <contextswitch task='Task8' time='0.0563370965882708'>
-  </contextswitch>  <stop task='Task8' time='0.0571953693155435'>
-  </stop>  <start task='Task34' iteration='28' time='0.0571953693155435'>
-  </start>  <contextswitch task='Task34' time='0.0572026420428163'>
-  </contextswitch>  <stop task='Task34' time='0.0577190056791799'>
-  </stop>  <start task='Task8' iteration='28' time='0.0577241256791799'>
-  </start>  <contextswitch task='Task8' time='0.0577313984064526'>
-  </contextswitch>  <stop task='Task8' time='0.0585896711337253'>
-  </stop>  <start task='Task34' iteration='29' time='0.0585896711337253'>
-  </start>  <contextswitch task='Task34' time='0.0585969438609981'>
-  </contextswitch>  <stop task='Task34' time='0.0591133074973617'>
-  </stop>  <start task='Task8' iteration='29' time='0.0591184274973617'>
-  </start>  <contextswitch task='Task8' time='0.0591257002246344'>
-  </contextswitch>  <stop task='Task8' time='0.0599839729519071'>
-  </stop>  <start task='Task34' iteration='30' time='0.0611975877199962'>
-  </start>  <contextswitch task='Task34' time='0.0612048604472689'>
-  </contextswitch>  <stop task='Task34' time='0.0625229404472689'>
-  </stop>  <start task='Task8' iteration='30' time='0.0625434204472689'>
-  </start>  <contextswitch task='Task8' time='0.0625506931745417'>
-  </contextswitch>  <stop task='Task8' time='0.0633699659018144'>
-  </stop>  <start task='Task34' iteration='31' time='0.0633699659018144'>
-  </start>  <contextswitch task='Task34' time='0.0633772386290871'>
-  </contextswitch>  <stop task='Task34' time='0.0646953186290871'>
-  </stop>  <start task='Task8' iteration='31' time='0.0647157986290871'>
-  </start>  <contextswitch task='Task8' time='0.0647230713563599'>
-  </contextswitch>  <stop task='Task8' time='0.0655423440836326'>
-  </stop>  <start task='Task34' iteration='32' time='0.0655423440836326'>
-  </start>  <contextswitch task='Task34' time='0.0655496168109053'>
-  </contextswitch>  <stop task='Task34' time='0.0668676968109053'>
-  </stop>  <start task='Task8' iteration='32' time='0.0668881768109053'>
-  </start>  <contextswitch task='Task8' time='0.0668954495381781'>
-  </contextswitch>  <stop task='Task8' time='0.0677147222654508'>
-  </stop>  <start task='Task34' iteration='33' time='0.0677147222654508'>
-  </start>  <contextswitch task='Task34' time='0.0677219949927235'>
-  </contextswitch>  <stop task='Task34' time='0.0690400749927235'>
-  </stop>  <start task='Task8' iteration='33' time='0.0690605549927235'>
-  </start>  <contextswitch task='Task8' time='0.0690678277199962'>
-  </contextswitch>  <stop task='Task8' time='0.069887100447269'>
-  </stop>  <start task='Task34' iteration='34' time='0.069887100447269'>
-  </start>  <contextswitch task='Task34' time='0.0698943731745417'>
-  </contextswitch>  <stop task='Task34' time='0.0712124531745417'>
-  </stop>  <start task='Task8' iteration='34' time='0.0712329331745417'>
-  </start>  <contextswitch task='Task8' time='0.0712402059018144'>
-  </contextswitch>  <stop task='Task8' time='0.0720594786290872'>
-  </stop>  <start task='Task34' iteration='35' time='0.0720594786290872'>
-  </start>  <contextswitch task='Task34' time='0.0720667513563599'>
-  </contextswitch>  <stop task='Task34' time='0.0725831149927235'>
-  </stop>  <start task='Task8' iteration='35' time='0.0725882349927235'>
-  </start>  <contextswitch task='Task8' time='0.0725955077199962'>
-  </contextswitch>  <stop task='Task8' time='0.073453780447269'>
-  </stop>  <start task='Task34' iteration='36' time='0.073453780447269'>
-  </start>  <contextswitch task='Task34' time='0.0734610531745417'>
-  </contextswitch>  <stop task='Task34' time='0.0739774168109053'>
-  </stop>  <start task='Task8' iteration='36' time='0.0739825368109053'>
-  </start>  <contextswitch task='Task8' time='0.0739898095381781'>
-  </contextswitch>  <stop task='Task8' time='0.0748480822654508'>
-  </stop>  <start task='Task34' iteration='37' time='0.0748480822654508'>
-  </start>  <contextswitch task='Task34' time='0.0748553549927235'>
-  </contextswitch>  <stop task='Task34' time='0.0761734349927235'>
-  </stop>  <start task='Task8' iteration='37' time='0.0761939149927235'>
-  </start>  <contextswitch task='Task8' time='0.0762011877199962'>
-  </contextswitch>  <stop task='Task8' time='0.077020460447269'>
-  </stop>  <start task='Task34' iteration='38' time='0.0772001776437848'>
-  </start>  <contextswitch task='Task34' time='0.0772074503710576'>
-  </contextswitch>  <stop task='Task34' time='0.0777238140074212'>
-  </stop>  <start task='Task8' iteration='38' time='0.0777289340074212'>
-  </start>  <contextswitch task='Task8' time='0.0777362067346939'>
-  </contextswitch>  <stop task='Task8' time='0.0785944794619666'>
-  </stop>  <start task='Task34' iteration='39' time='0.0785944794619666'>
-  </start>  <contextswitch task='Task34' time='0.0786017521892394'>
-  </contextswitch>  <stop task='Task34' time='0.079118115825603'>
-  </stop>  <start task='Task8' iteration='39' time='0.079123235825603'>
-  </start>  <contextswitch task='Task8' time='0.0791305085528757'>
-  </contextswitch>  <stop task='Task8' time='0.0799887812801485'>
-  </stop>  <start task='Task34' iteration='40' time='0.0809321524118739'>
-  </start>  <contextswitch task='Task34' time='0.0809394251391466'>
-  </contextswitch>  <stop task='Task34' time='0.0814557887755102'>
-  </stop>  <start task='Task8' iteration='40' time='0.0814609087755102'>
-  </start>  <contextswitch task='Task8' time='0.081468181502783'>
-  </contextswitch>  <stop task='Task8' time='0.0823264542300557'>
-  </stop>  <start task='Task34' iteration='41' time='0.0828977993506494'>
-  </start>  <contextswitch task='Task34' time='0.0829050720779221'>
-  </contextswitch>  <stop task='Task34' time='0.0834214357142857'>
-  </stop>  <start task='Task8' iteration='41' time='0.0834265557142857'>
-  </start>  <contextswitch task='Task8' time='0.0834338284415585'>
-  </contextswitch>  <stop task='Task8' time='0.0842921011688312'>
-  </stop>  <start task='Task34' iteration='42' time='0.0850682462894249'>
-  </start>  <contextswitch task='Task34' time='0.0850755190166976'>
-  </contextswitch>  <stop task='Task34' time='0.0863935990166976'>
-  </stop>  <start task='Task8' iteration='42' time='0.0864140790166976'>
-  </start>  <contextswitch task='Task8' time='0.0864213517439703'>
-  </contextswitch>  <stop task='Task8' time='0.0872406244712431'>
-  </stop>  <start task='Task34' iteration='43' time='0.0872406244712431'>
-  </start>  <contextswitch task='Task34' time='0.0872478971985158'>
-  </contextswitch>  <stop task='Task34' time='0.0885659771985158'>
-  </stop>  <start task='Task8' iteration='43' time='0.0885864571985158'>
-  </start>  <contextswitch task='Task8' time='0.0885937299257885'>
-  </contextswitch>  <stop task='Task8' time='0.0894130026530612'>
-  </stop>  <start task='Task34' iteration='44' time='0.0894130026530612'>
-  </start>  <contextswitch task='Task34' time='0.089420275380334'>
-  </contextswitch>  <stop task='Task34' time='0.0899366390166976'>
-  </stop>  <start task='Task8' iteration='44' time='0.0899417590166976'>
-  </start>  <contextswitch task='Task8' time='0.0899490317439703'>
-  </contextswitch>  <stop task='Task8' time='0.0908073044712431'>
-  </stop>  <start task='Task34' iteration='45' time='0.0908073044712431'>
-  </start>  <contextswitch task='Task34' time='0.0908145771985158'>
-  </contextswitch>  <stop task='Task34' time='0.0913309408348794'>
-  </stop>  <start task='Task8' iteration='45' time='0.0913360608348794'>
-  </start>  <contextswitch task='Task8' time='0.0913433335621522'>
-  </contextswitch>  <stop task='Task8' time='0.0922016062894249'>
-  </stop>  <start task='Task34' iteration='46' time='0.0929450032096475'>
-  </start>  <contextswitch task='Task34' time='0.0929522759369203'>
-  </contextswitch>  <stop task='Task34' time='0.0934686395732839'>
-  </stop>  <start task='Task8' iteration='46' time='0.0934737595732839'>
-  </start>  <contextswitch task='Task8' time='0.0934810323005566'>
-  </contextswitch>  <stop task='Task8' time='0.0943393050278293'>
-  </stop>  <start task='Task34' iteration='47' time='0.0946047228756958'>
-  </start>  <contextswitch task='Task34' time='0.0946119956029685'>
-  </contextswitch>  <stop task='Task34' time='0.0951283592393321'>
-  </stop>  <start task='Task8' iteration='47' time='0.0951334792393321'>
-  </start>  <contextswitch task='Task8' time='0.0951407519666049'>
-  </contextswitch>  <stop task='Task8' time='0.0959990246938776'>
-  </stop>  <start task='Task34' iteration='48' time='0.0966769779777366'>
-  </start>  <contextswitch task='Task34' time='0.0966842507050093'>
-  </contextswitch>  <stop task='Task34' time='0.0972006143413729'>
-  </stop>  <start task='Task8' iteration='48' time='0.0972057343413729'>
-  </start>  <contextswitch task='Task8' time='0.0972130070686457'>
-  </contextswitch>  <stop task='Task8' time='0.0980712797959184'>
-  </stop>  <start task='Task34' iteration='49' time='0.0986426249165121'>
-  </start>  <contextswitch task='Task34' time='0.0986498976437848'>
-  </contextswitch>  <stop task='Task34' time='0.0991662612801485'>
-  </stop>  <start task='Task8' iteration='49' time='0.0991713812801484'>
-  </start>  <contextswitch task='Task8' time='0.0991786540074212'>
-  </contextswitch>  <stop task='Task8' time='0.100036926734694'>
-  </stop></trace>
