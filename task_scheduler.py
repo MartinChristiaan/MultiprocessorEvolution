@@ -183,19 +183,21 @@ def schedule_tasks(nodes_cmd,voltages_cmd,nodepref,combi_task):
     # import matplotlib
     # matplotlib.style.use('ggplot')
     # plt.figure()
-    # plt.plot(range(no_gen),np.array(best_times)*10**6)
+    # plt.plot(range(no_gen),np.array(best_times)*10**3)
     # plt.grid(1)
     # plt.xlabel('Generation (-)')
-    # plt.ylabel('Latency (ns)')
+    # plt.ylabel('Latency (ms)')
     # plt.tight_layout()
     # plt.show()
-    return schedule_cmds
+    # return schedule_cmds
 
 
 
 
 nodes_cmd = ['"ARMv8"','"Adreno"','"Adreno"','"MIPS"','"ARMv8"','"MIPS"']
 voltages_cmd = [str(2/3),str(1.0),str(1.0),str(1.0),str(2/3),str(1.0)]
+schedule_tasks(nodes_cmd,voltages_cmd,6,(1,1))
+
 
 
 #start = time.time()

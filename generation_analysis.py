@@ -25,6 +25,9 @@ def insert_source_config(generation_df):
 
 def add_paretorank_and_save(generation_df,gen):
     generation_df = generation_df[generation_df['Latency']<9000]
+    generation_df = generation_df[generation_df['Number of Processors']<9000]
+    generation_df = generation_df[generation_df['Number of Processors']>3]
+    
     generation_df = generation_df[generation_df['PowerConsumption']>0.01]
     
     latency = list(generation_df['Latency'])
@@ -51,7 +54,7 @@ def add_paretorank_and_save(generation_df,gen):
         narm = int(proc_dist[7])
         # Which nodes are actually used?
         schedule = list(set(list(row[4:15])))
-        vsfs = (list(row[18:24]))
+        vsfs = (list(row[16:22]))
         no_full_voltage = 0
         proc_used = []
         for task in schedule:
@@ -59,8 +62,7 @@ def add_paretorank_and_save(generation_df,gen):
 
         for v,vs in enumerate(vsfs):
             if v in proc_used:
-                if vs == 1.0:
-                    no_full_voltage+=1
+                no_full_voltage+=float(vs)
         
         # for p,proc in enumerate(processors):
         #     if p in proc_used:
@@ -93,4 +95,4 @@ def add_paretorank_and_save(generation_df,gen):
 #result = insert_source_config(pd.read_csv("generations/generation21.csv"))
 #add_paretorank_and_save(result,"generations/evolution_result.csv")
 #dd_paretorank_and_save(pd.read_csv('generations/ComboNodesAndProcTypes.csv'),0)
-add_paretorank_and_save(pd.read_csv('generations/Evolution_vs_Source.csv'),'generations/Evolution_vs_source_reranked.csv')
+#add_paretorank_and_save(pd.read_csv('generations/Evolution_vs_Source.csv'),'generations/Evolution_vs_source_reranked.csv')

@@ -17,7 +17,7 @@ columns = ["Config","VSF1","VSF2","VSF3","VSF4","VSF5","VSF6","OSPolicy1","OSPol
 pop_size = 80
 parents_per_child=2
 mutation_chance = 0.15
-no_parallel_simulations = 6
+no_parallel_simulations = 2
 
 
 def get_all_distributions(max_size):
@@ -30,7 +30,6 @@ def get_all_distributions(max_size):
 
 
 Processor_type_distribution = get_all_distributions(6)
-#Processor_type_distribution+=Processor_type_distribution[-18:] # Initial bias towards high performance processors
 
 VSFs =  [str(1.0)] * 5+[str(2.0/3.0)]*2+[str(1.0/2.0)] + [str(1.0/4)]
 OSPolicys = [quotate(s) for s in ["FCFS","PB"]]
